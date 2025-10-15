@@ -195,10 +195,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   attackRange: 1.5
   damage: 1
+  knockbackForce: 20
+  attackFill: {fileID: 0}
+  maxAttackPoints: 5
+  attackWidthMax: 320.5
+  attackWidthMin: 2
+  attackHeight: 25.131
+  attackCooldown: 0.2
+  rechargeDelay: 1
   spriteRenderer: {fileID: 6825739958086226076}
   animator: {fileID: 8008515309219522585}
   playerHealth: {fileID: 2751419950265301857}
-  knockbackForce: 20
 --- !u!114 &2751419950265301857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,10 +218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00b290b06798084aa5d55cfa674fe1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 15
+  maxHealth: 10
   isAlive: 1
-  healthbarUI: {fileID: 0}
-  hpPrefab: {fileID: 3143636286435551257, guid: 03bc31e817616fd47b386180a609f17f, type: 3}
+  healthFill: {fileID: 0}
+  healthText: {fileID: 0}
+  widthMax: 320.5
+  widthMin: 2
+  height: 25.131
   animator: {fileID: 8008515309219522585}
   spriteRenderer: {fileID: 6825739958086226076}
   damageFlash: {fileID: 0}

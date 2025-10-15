@@ -3449,6 +3449,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+--- !u!114 &881760071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2445951426590749973, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+  m_PrefabInstance: {fileID: 8925487063468929724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1047061641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5727,11 +5738,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!224 &1465643531 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1840238594726878598, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+--- !u!114 &1550012159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2501685183947834549, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
   m_PrefabInstance: {fileID: 8925487063468929724}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1577669718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6172,13 +6189,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2751419950265301857, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
+      propertyPath: healthFill
+      value: 
+      objectReference: {fileID: 1550012159}
+    - target: {fileID: 2751419950265301857, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
       propertyPath: damageFlash
       value: 
       objectReference: {fileID: 221933100}
-    - target: {fileID: 2751419950265301857, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
-      propertyPath: healthbarUI
+    - target: {fileID: 3002851196333297468, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
+      propertyPath: attackFill
       value: 
-      objectReference: {fileID: 1465643531}
+      objectReference: {fileID: 881760071}
+    - target: {fileID: 3002851196333297468, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
+      propertyPath: rechargeDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002851196333297468, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
+      propertyPath: maxAttackPoints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3025216282703815651, guid: 6a83f7d348c3d1443bf9e6b8a9dea5f3, type: 3}
       propertyPath: m_Name
       value: PlayerDefault
@@ -6397,25 +6426,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1353002629}
-    - target: {fileID: 2839581644339135392, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
-      propertyPath: m_AnchorMax.y
+    - target: {fileID: 1654366739395233856, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+      propertyPath: m_Pivot.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2839581644339135392, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2839581644339135392, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+    - target: {fileID: 1654366739395233856, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 110.499664
       objectReference: {fileID: 0}
-    - target: {fileID: 2839581644339135392, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+    - target: {fileID: 1654366739395233856, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 3609697654748734728, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866985747919485047, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866985747919485047, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110.44998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866985747919485047, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 5558018045911018556, guid: 9e9817b449878cb4e8bc92955c543861, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
