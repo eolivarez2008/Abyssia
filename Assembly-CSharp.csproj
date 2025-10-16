@@ -49,65 +49,65 @@
     <Analyzer Include="C:\Users\ddfpt\Downloads\Abyssia-main\Abyssia-main\Library\PackageCache\com.unity.dt.app-ui@7b87c8225c06\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Scripts\CustomTypeRuleTile.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\BasicCameraFollow.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\ToggleHeightLevel.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI.cs" />
-    <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\GameEnd.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\MouseClickBomb.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\HideTilemapColliderOnPlay.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\Brick.cs" />
-    <Compile Include="Assets\Scripts\DontDestroyCanvas.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\IsometricCharacterRenderer.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Destructible.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Explosion.cs" />
-    <Compile Include="Assets\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\Ball.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Rule Override Tile\ExampleSiblingRuleTile.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\PaletteSwap\Scripts\TilePaletteSwap.cs" />
-    <Compile Include="Assets\Scripts\LoadLevel.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Scripts\ExampleCustomRuleTile.cs" />
-    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\CustomAxisSortCamera.cs" />
-    <Compile Include="Assets\Scripts\FadeManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\DamageFlash.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\IsometricPlayerMovementController.cs" />
-    <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\BackButton.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\Ball.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Rule Override Tile\ExampleSiblingRuleTile.cs" />
+    <Compile Include="Assets\_Project\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Scripts\CustomTypeRuleTile.cs" />
+    <Compile Include="Assets\_Project\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\_Project\Scripts\BackButton.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\ToggleHeightLevel.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Scripts\ExampleCustomRuleTile.cs" />
+    <Compile Include="Assets\_Project\Scripts\DamageFlash.cs" />
+    <Compile Include="Assets\_Project\Scripts\DontDestroyCanvas.cs" />
+    <Compile Include="Assets\_Project\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\_Project\Scripts\LoadLevel.cs" />
+    <Compile Include="Assets\_Project\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\PaletteSwap\Scripts\TilePaletteSwap.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\BasicCameraFollow.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\Brick.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\HideTilemapColliderOnPlay.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\IsometricCharacterRenderer.cs" />
+    <Compile Include="Assets\_Project\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\_Project\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\_Project\Scripts\PlayerSpawn.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Explosion.cs" />
+    <Compile Include="Assets\_Project\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\CustomAxisSortCamera.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Brick\Scripts\GameEnd.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\IsometricZAsY\Scripts\IsometricPlayerMovementController.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\MouseClickBomb.cs" />
+    <Compile Include="Assets\_Project\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\_Project\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Destructible.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Normal Mapping\Material\Shader\NormalMappedTile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Tileshet\crawl-tiles Oct-5-2010\dc-mon\animals\animals.txt" />
-    <None Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Rule Override Tile\Sprites\Kenney.nl.txt" />
-    <None Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Sprites\Kenney.nl.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Normal Mapping\Material\Shader\NormalMappedTile.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\_Project\Sprite\Tileshet\crawl-tiles Oct-5-2010\dc-mon\animals\animals.txt" />
+    <None Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Rule Override Tile\Sprites\Kenney.nl.txt" />
+    <None Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Rule Tiles\Custom Rule Tile\Sprites\Kenney.nl.txt" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\_External\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\_External\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -627,7 +627,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>Assets\_External\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

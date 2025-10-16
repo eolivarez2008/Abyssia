@@ -49,8 +49,8 @@
     <Analyzer Include="C:\Users\ddfpt\Downloads\Abyssia-main\Abyssia-main\Library\PackageCache\com.unity.dt.app-ui@7b87c8225c06\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Editor\DestructibleEditor.cs" />
-    <Compile Include="Assets\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Editor\PreviewUtil.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Editor\PreviewUtil.cs" />
+    <Compile Include="Assets\_Project\Sprite\Tileshet\2d-techdemos-master\2d-techdemos-master\Assets Github\Tilemap\Destructible\Scripts\Editor\DestructibleEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -622,7 +622,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>Assets\_External\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
