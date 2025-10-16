@@ -1305,12 +1305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d1f0aa5962a3c43b933ba0ac47510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPrincipal
-  sceneJouer:
-    sceneAsset: {fileID: 102900000, guid: 2ca55115bb40e2c4fa797fac871fac88, type: 3}
-    sceneName: Level01
-  sceneSettings:
-    sceneAsset: {fileID: 102900000, guid: 08a8f76f5fd075d44b1bb8bc8a3f083d, type: 3}
-    sceneName: Settings
+  sceneJouer: Level01
 --- !u!4 &1676597257
 Transform:
   m_ObjectHideFlags: 0
