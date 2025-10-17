@@ -4,44 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoBehaviour
 {
-    public static FadeManager Instance;
+    [Header("Canvas et fade")]
     public CanvasGroup fadeCanvasGroup;
     public float fadeDuration = 0.5f;
 
-    // 🔊 Ajout audio
+    [Header("Audio optionnel")]
     public AudioSource audioSource;
     public AudioClip fadeOutSound;
     public AudioClip fadeInSound;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
-        fadeCanvasGroup.alpha = 1f;
-        StartCoroutine(FadeIn());
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        fadeCanvasGroup.alpha = 1f;
-        StartCoroutine(FadeIn());
+        if (fadeCanvasGroup != null)
+        {
+            fadeCanvasGroup.alpha = 1f;        // commence à noir
+            StartCoroutine(FadeIn());          // fade-in au démarrage
+        }
     }
 
     public IEnumerator FadeIn()
     {
-        // 🔊 Joue le son de fade-in
         if (audioSource != null && fadeInSound != null)
             audioSource.PlayOneShot(fadeInSound);
 
@@ -57,7 +39,6 @@ public class FadeManager : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
-        // 🔊 Joue le son de fade-out
         if (audioSource != null && fadeOutSound != null)
             audioSource.PlayOneShot(fadeOutSound);
 
@@ -69,5 +50,18 @@ public class FadeManager : MonoBehaviour
             yield return null;
         }
         fadeCanvasGroup.alpha = 1f;
+    }
+
+    // Méthode pratique pour changer de scène avec fade
+    public void LoadSceneWithFade(string sceneName)
+    {
+        StartCoroutine(FadeAndLoad(sceneName));
+    }
+
+    private IEnumerator FadeAndLoad(string sceneName)
+    {
+        yield return FadeOut();               // fade-out avant le changement
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        // fade-in sera déclenché automatiquement par Start() dans la nouvelle scène
     }
 }
