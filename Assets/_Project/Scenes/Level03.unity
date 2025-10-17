@@ -3274,14 +3274,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2032253748511030739, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4152677838616863825, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: fadeManager
       value: 
       objectReference: {fileID: 157798342}
     - target: {fileID: 5917616847337280400, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_Name
-      value: CanvasPanelPause
+      value: CanvasPanels
       objectReference: {fileID: 0}
+    - target: {fileID: 7991582650524444674, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: fadeManager
+      value: 
+      objectReference: {fileID: 157798342}
     - target: {fileID: 8289641361770176662, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
