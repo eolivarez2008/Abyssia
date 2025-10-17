@@ -8,25 +8,17 @@ public class FadeManager : MonoBehaviour
     public CanvasGroup fadeCanvasGroup;
     public float fadeDuration = 0.5f;
 
-    [Header("Audio optionnel")]
-    public AudioSource audioSource;
-    public AudioClip fadeOutSound;
-    public AudioClip fadeInSound;
-
     private void Start()
     {
         if (fadeCanvasGroup != null)
         {
-            fadeCanvasGroup.alpha = 1f;        // commence à noir
-            StartCoroutine(FadeIn());          // fade-in au démarrage
+            fadeCanvasGroup.alpha = 1f;
+            StartCoroutine(FadeIn());
         }
     }
 
     public IEnumerator FadeIn()
     {
-        if (audioSource != null && fadeInSound != null)
-            audioSource.PlayOneShot(fadeInSound);
-
         float t = 0f;
         while (t < fadeDuration)
         {
@@ -39,9 +31,6 @@ public class FadeManager : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
-        if (audioSource != null && fadeOutSound != null)
-            audioSource.PlayOneShot(fadeOutSound);
-
         float t = 0f;
         while (t < fadeDuration)
         {
@@ -52,7 +41,6 @@ public class FadeManager : MonoBehaviour
         fadeCanvasGroup.alpha = 1f;
     }
 
-    // Méthode pratique pour changer de scène avec fade
     public void LoadSceneWithFade(string sceneName)
     {
         StartCoroutine(FadeAndLoad(sceneName));
@@ -60,8 +48,8 @@ public class FadeManager : MonoBehaviour
 
     private IEnumerator FadeAndLoad(string sceneName)
     {
-        yield return FadeOut();               // fade-out avant le changement
+        yield return FadeOut();
         yield return SceneManager.LoadSceneAsync(sceneName);
-        // fade-in sera déclenché automatiquement par Start() dans la nouvelle scène
+        // Le Start() de la nouvelle scène lancera automatiquement FadeIn()
     }
 }
