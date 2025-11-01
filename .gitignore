@@ -1,31 +1,62 @@
-# Unity generated files
-[Ll]ibrary
-[Tt]emp
-[Oo]bj
-[Bb]uild
-[Bb]uilds
-[Ll]ogs
-[Mm]emoryCaptures
-UserSettings
-Packagescom.unity.collab-proxy
+# ========== UNITY ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+sysinfo.txt
 
-# Autres caches Unity
-[Aa]sset[Ss]tore
-sysinfo
+# Cache des packages / Asset Store
+[Aa]sset[Ss]tore/
+Packages/com.unity.collab-proxy/
 
-# Ignore IDE files
-.csproj
-.unityproj
-.sln
-.suo
-.tmp
-.user
-.userprefs
-.pidb
-.booproj
-.svd
+# Ignore les fichiers de builds
+*.apk
+*.aab
+*.unitypackage
+*.exe
+*.app
+*.xcodeproj
+*.xcworkspace
 
-# Ignore build outputs
-.apk
-.aab
-.unitypackage
+# Ignore les métadonnées locales
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.tmp
+*.booproj
+*.svd
+*.pidb.meta
+*.pdb
+
+# Ignore fichiers IDE
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+
+# Ignore les fichiers générés par Unity Collaborate
+.collabignore
+
+# Ignore les fichiers système
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore les fichiers du profiler / captures mémoire
+*.profiler
+*.memgraph
+*.memsnap
+
+# Ignore JetBrains Rider caches
+.idea/
+*.iml
+
+# Optionnel : ignore builds WebGL
+[Ww]eb[Gg][Ll]/
