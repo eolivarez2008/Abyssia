@@ -1,19 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 3;
+    [Header("Stats")]
+    public int maxHealth = 15; // modifiable dans l'Inspector
     private int currentHealth;
 
     public bool isAlive = true;
 
-    public Transform healthbarUI; // UI pour afficher la santé du joueur
-    public GameObject hpPrefab;
+    [Header("UI Santé")]
+    public Image healthFill; // Image rouge de la jauge
+    public Text healthText;  // optionnel : afficher "15 / 15"
+
+    [Header("Jauge")]
+    public float widthMax = 450f;
+    public float widthMin = 5f;
+    public float height = 30f;
 
     public Animator animator;
-
     public SpriteRenderer spriteRenderer;
-
     public static PlayerHealth instance;
 
     public DamageFlashDynamic damageFlash;
@@ -22,32 +28,33 @@ public class PlayerHealth : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        if (instance == null) 
+        if (instance == null)
         {
             instance = this;
         }
-        else 
+        else
         {
             Destroy(gameObject);
             return;
         }
 
         currentHealth = maxHealth;
-        UpdateHealthbarUI();
+        UpdateHealthUI();
     }
 
     public void TakeDamage(int damage)
     {
-        if(isAlive)
+        if (isAlive)
         {
             currentHealth -= damage;
-            UpdateHealthbarUI();
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-            // Flash dynamique selon les dégâts
-            if(damageFlash != null)
+            UpdateHealthUI();
+
+            if (damageFlash != null)
                 damageFlash.Flash(damage, maxHealth);
 
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 isAlive = false;
                 animator.SetTrigger("Die");
@@ -55,31 +62,28 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void UpdateHealthbarUI()
+    public void Heal(int amount)
     {
-        if (healthbarUI == null)
-        {
-            // Rechercher automatiquement le HealthBar de la scène
-            GameObject ui = GameObject.Find("HealthBar"); // ou "HealthBarParent" selon ton nom
-            if (ui != null)
-            {
-                healthbarUI = ui.transform;
-            }
-            else
-            {
-                return; // pas d'UI, on ne fait rien
-            }
-        }
-
-        // Supprimer les anciens coeurs
-        foreach (Transform child in healthbarUI)
-            Destroy(child.gameObject);
-
-        // Ajouter les coeurs selon la vie
-        for (int i = 0; i < currentHealth; i++)
-            Instantiate(hpPrefab, healthbarUI);
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthUI();
     }
 
+    private void UpdateHealthUI()
+    {
+        if (healthFill != null)
+        {
+            float t = currentHealth / (float)maxHealth; // proportion de vie restante
+            float newWidth = Mathf.Lerp(widthMin, widthMax, t);
+
+            healthFill.rectTransform.sizeDelta = new Vector2(newWidth, height);
+        }
+
+        if (healthText != null)
+        {
+            healthText.text = currentHealth + " / " + maxHealth;
+        }
+    }
 
     public void DisablePlayerVisual()
     {
