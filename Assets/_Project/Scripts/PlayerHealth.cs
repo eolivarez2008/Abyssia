@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement; // nécessaire pour les callbacks de scène
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Stats")]
-    public int maxHealth = 15; // modifiable dans l'Inspector
+    public int maxHealth = 15;
     private int currentHealth;
 
     public bool isAlive = true;
 
     [Header("UI Santé")]
-    public Image healthFill; // Image rouge de la jauge
-    public Text healthText;  // optionnel : afficher "15 / 15"
+    public Image healthFill;
+    public Text healthText;
 
     [Header("Jauge")]
     public float widthMax = 450f;
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth instance;
 
     public DamageFlashDynamic damageFlash;
+    public MortMenu mortMenu;
 
     void Awake()
     {
@@ -42,6 +45,22 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneLoaded;
+    }
+
+    private void SceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Cherche le MortMenu dans la nouvelle scène
+        mortMenu = FindFirstObjectByType<MortMenu>();
+    }
+
     public void TakeDamage(int damage)
     {
         if (isAlive)
@@ -58,8 +77,21 @@ public class PlayerHealth : MonoBehaviour
             {
                 isAlive = false;
                 animator.SetTrigger("Die");
+                StartCoroutine(AttendreFinAnimationDie());
             }
         }
+    }
+
+    private IEnumerator AttendreFinAnimationDie()
+    {
+        AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(state.length);
+
+        if (mortMenu != null)
+            mortMenu.ActiverPanelMort();
+
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = false;
     }
 
     public void Heal(int amount)
@@ -73,16 +105,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthFill != null)
         {
-            float t = currentHealth / (float)maxHealth; // proportion de vie restante
+            float t = currentHealth / (float)maxHealth;
             float newWidth = Mathf.Lerp(widthMin, widthMax, t);
-
             healthFill.rectTransform.sizeDelta = new Vector2(newWidth, height);
         }
 
         if (healthText != null)
-        {
             healthText.text = currentHealth + " / " + maxHealth;
-        }
     }
 
     public void DisablePlayerVisual()
