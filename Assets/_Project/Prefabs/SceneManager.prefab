@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2772336126324958749}
   - component: {fileID: 4874371196413216500}
-  - component: {fileID: 327155405958369353}
+  - component: {fileID: 4968731422315583178}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPointName: SpawnPoint
---- !u!114 &327155405958369353
+--- !u!114 &4968731422315583178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,10 +55,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1467068620571706395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d36b31a98f73142b47c302440c7d39, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bfd703e69761cf4188904a367532b8c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  maxVie: 100
-  currentVie: 0
-  maxAttaque: 100
-  currentAttaque: 0
+  m_EditorClassIdentifier: Assembly-CSharp::SceneInitializer

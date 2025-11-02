@@ -1,65 +1,56 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
-using UnityEditor; // Seulement dans l’éditeur
+using UnityEditor;
 #endif
 
 public class MenuPrincipal : MonoBehaviour
 {
-    [Header("Scènes")]
-    [SerializeField] private SceneReference sceneJouer;
-    [SerializeField] private SceneReference sceneSettings;
+    [Header("Nom des scènes")]
+    [SerializeField] private string sceneJouer = "Jeu";
+    [SerializeField] private string sceneSettings = "Settings";
 
-    // -------------------
-    // Bouton Jouer
+    [Header("Référence FadeManager")]
+    public FadeManager fadeManager; // Drag & drop du FadeManager de la scène
+
+    // --- Bouton Jouer ---
     public void Jouer()
     {
-        if (!string.IsNullOrEmpty(sceneJouer.SceneName))
-            SceneManager.LoadScene(sceneJouer.SceneName);
-        else
-            Debug.LogWarning("MenuPrincipal: La scène Jouer n'est pas définie !");
+        ChargerScene(sceneJouer);
     }
 
-    // Bouton Settings
+    // --- Bouton Paramètres ---
     public void Settings()
     {
-        if (!string.IsNullOrEmpty(sceneSettings.SceneName))
-            SceneManager.LoadScene(sceneSettings.SceneName);
-        else
-            Debug.LogWarning("MenuPrincipal: La scène Settings n'est pas définie !");
+        ChargerScene(sceneSettings);
     }
 
-    // Bouton Quitter
+    // --- Bouton Quitter ---
     public void Quitter()
     {
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
-    }
-}
-
-[System.Serializable]
-public class SceneReference
-{
 #if UNITY_EDITOR
-    [Header("Choisir une scène")]
-    [SerializeField] private SceneAsset sceneAsset; 
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
 #endif
+    }
 
-    [SerializeField, HideInInspector] private string sceneName;
-
-    public string SceneName => sceneName;
-
-#if UNITY_EDITOR
-    // Met à jour automatiquement le nom quand on choisit la scène dans l’inspector
-    void OnValidate()
+    // --- Méthode utilitaire ---
+    private void ChargerScene(string nomScene)
     {
-        if (sceneAsset != null)
+        if (string.IsNullOrEmpty(nomScene))
         {
-            sceneName = sceneAsset.name;
+            Debug.LogWarning("MenuPrincipal: le nom de la scène est vide !");
+            return;
+        }
+
+        if (fadeManager != null)
+        {
+            fadeManager.LoadSceneWithFade(nomScene);
+        }
+        else
+        {
+            Debug.LogWarning("MenuPrincipal: FadeManager non assigné, chargement direct !");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nomScene);
         }
     }
-#endif
 }
