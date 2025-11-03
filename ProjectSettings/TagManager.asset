@@ -7,11 +7,12 @@ TagManager:
   - Enemy
   - SpawnPoint
   - Persistent
+  - DDOL-Player
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DDOL_Player
   - Water
   - UI
   - IgnorePathfinding
