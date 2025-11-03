@@ -9,13 +9,12 @@ public class MenuPrincipal : MonoBehaviour
     [SerializeField] private string sceneJouer = "Jeu";
 
     [Header("Référence FadeManager")]
-    public FadeManager fadeManager; // Drag & drop du FadeManager de la scène
+    public FadeManager fadeManager; 
 
     [Header("Canvas Paramètres")]
-    [SerializeField] private Canvas settingsCanvas; // Drag & drop du canvas à rendre visible
+    [SerializeField] private Canvas settingsCanvas;
 
     [Header("DDOL à supprimer au démarrage")]
-    [Tooltip("Nom exact des objets DontDestroyOnLoad à supprimer dès le démarrage")]
     public string[] ddolNamesToDestroy;
 
     private void Awake()
@@ -27,7 +26,6 @@ public class MenuPrincipal : MonoBehaviour
             if (obj != null)
             {
                 Destroy(obj);
-                Debug.Log("Destroyed DDOL: " + name);
             }
         }
     }
@@ -43,8 +41,6 @@ public class MenuPrincipal : MonoBehaviour
     {
         if (settingsCanvas != null)
             settingsCanvas.gameObject.SetActive(true);
-        else
-            Debug.LogWarning("MenuPrincipal: settingsCanvas non assigné !");
     }
 
     // --- Bouton Quitter ---
