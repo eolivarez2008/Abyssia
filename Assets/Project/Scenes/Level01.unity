@@ -6256,7 +6256,6 @@ GameObject:
   - component: {fileID: 7578185503429298926}
   - component: {fileID: 7808538699057821007}
   - component: {fileID: 8771348982799892374}
-  - component: {fileID: 8339813920802536509}
   m_Layer: 5
   m_Name: CanvasPlayer
   m_TagString: Untagged
@@ -6776,18 +6775,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8339813920802536509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5315808685089560500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e9a762beb97cd3439227700b6dc1380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!222 &8430192787513388391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6833,6 +6820,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1119974637453953717}
   damageFlash: {fileID: 3471917781698298230}
   mortMenu: {fileID: 1666460977}
+  persistentCanvas: {fileID: 7578185503429298926}
   maxHealth: 10
   isAlive: 1
   healthFill: {fileID: 6443092347713058313}
