@@ -192,7 +192,7 @@ void UpdatePath()
 
         if (Vector2.Distance(transform.position, target.position) <= attackRange)
         {
-            target.GetComponent<PlayerHealth>().TakeDamage(damage);
+            target.GetComponent<ConfigPlayer>().TakeDamage(damage);
         }
     }
 
