@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public FadeManager fadeManager;            // Référence au FadeManager de la scène
     public string menuSceneName = "Menu";      // Nom exact de la scène MenuPrincipal
 
+    [SerializeField] private Canvas settingsCanvas;
+
     private CanvasGroup pauseCanvasGroup;
 
     void Awake()
@@ -62,6 +64,15 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
+    public void Settings()
+    {
+        if (settingsCanvas != null)
+        {
+            settingsCanvas.gameObject.SetActive(true);
+            settingsCanvas.sortingOrder = 100; // Plus grand = devant les autres Canvas
+        }
+    }
+
     // --- Bouton quitter vers le menu avec fade ---
     public void LoadMenu()
     {
@@ -72,5 +83,12 @@ public class PauseMenu : MonoBehaviour
             fadeManager.LoadSceneWithFade(menuSceneName);
         else
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
+    }
+
+    // Désactive le canvas des paramètres
+    public void CloseSettings()
+    {
+        if (settingsCanvas != null)
+            settingsCanvas.gameObject.SetActive(false);
     }
 }

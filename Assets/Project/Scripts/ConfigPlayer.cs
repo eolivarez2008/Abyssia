@@ -85,56 +85,55 @@ public class ConfigPlayer : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
     }
 
-Vector2 movementApplied; // valeur réelle appliquée après collision
+    Vector2 movementApplied; // valeur réelle appliquée après collision
 
-void Update()
-{
-    if (!isAlive) return;
-
-    // --- Input brut ---
-    movement.x = Input.GetAxisRaw("Horizontal");
-    movement.y = Input.GetAxisRaw("Vertical");
-
-    // --- Attaque ---
-    if (Input.GetKeyDown(KeyCode.Space) && canAttack && currentAttackPoints > 0)
+    void Update()
     {
-        PerformAttack();
-        currentAttackPoints--;
-        UpdateAttackUI();
-        canAttack = false;
-        StartCoroutine(AttackCooldownCoroutine());
+        if (!isAlive) return;
 
-        if (currentAttackPoints < maxAttackPoints && rechargeRoutine == null)
-            rechargeRoutine = StartCoroutine(RechargeCoroutine());
+        // --- Input brut ---
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        // --- Attaque ---
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack && currentAttackPoints > 0)
+        {
+            PerformAttack();
+            currentAttackPoints--;
+            UpdateAttackUI();
+            canAttack = false;
+            StartCoroutine(AttackCooldownCoroutine());
+
+            if (currentAttackPoints < maxAttackPoints && rechargeRoutine == null)
+                rechargeRoutine = StartCoroutine(RechargeCoroutine());
+        }
     }
-}
 
-void FixedUpdate()
-{
-    Vector2 newPos = rb.position;
-    float radius = rb.GetComponent<CircleCollider2D>().radius;
-    int wallLayer = LayerMask.GetMask("IgnorePathfinding");
+    void FixedUpdate()
+    {
+        Vector2 newPos = rb.position;
+        float radius = rb.GetComponent<CircleCollider2D>().radius;
+        int wallLayer = LayerMask.GetMask("IgnorePathfinding");
 
-    // Collision sur X
-    Vector2 moveX = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, 0);
-    bool blockedX = Physics2D.CircleCast(rb.position, radius, moveX.normalized, moveX.magnitude, wallLayer);
-    if (!blockedX) newPos.x += moveX.x;
+        // Collision sur X
+        Vector2 moveX = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, 0);
+        bool blockedX = Physics2D.CircleCast(rb.position, radius, moveX.normalized, moveX.magnitude, wallLayer);
+        if (!blockedX) newPos.x += moveX.x;
 
-    // Collision sur Y
-    Vector2 moveY = new Vector2(0, movement.y * moveSpeed * Time.fixedDeltaTime);
-    bool blockedY = Physics2D.CircleCast(rb.position, radius, moveY.normalized, moveY.magnitude, wallLayer);
-    if (!blockedY) newPos.y += moveY.y;
+        // Collision sur Y
+        Vector2 moveY = new Vector2(0, movement.y * moveSpeed * Time.fixedDeltaTime);
+        bool blockedY = Physics2D.CircleCast(rb.position, radius, moveY.normalized, moveY.magnitude, wallLayer);
+        if (!blockedY) newPos.y += moveY.y;
 
-    rb.MovePosition(newPos);
+        rb.MovePosition(newPos);
 
-    // --- Appliquer mouvement réel pour l’animation ---
-    movementApplied = new Vector2(blockedX ? 0 : movement.x, blockedY ? 0 : movement.y);
-    animator.SetFloat("Speed", movementApplied.sqrMagnitude);
+        // --- Appliquer mouvement réel pour l’animation ---
+        movementApplied = new Vector2(blockedX ? 0 : movement.x, blockedY ? 0 : movement.y);
+        animator.SetFloat("Speed", movementApplied.sqrMagnitude);
 
-    if (movementApplied.x != 0)
-        spriteRenderer.flipX = movementApplied.x < 0;
-}
-
+        if (movementApplied.x != 0)
+            spriteRenderer.flipX = movementApplied.x < 0;
+    }
 
     // === SANTÉ ===
     public void TakeDamage(int damage)
