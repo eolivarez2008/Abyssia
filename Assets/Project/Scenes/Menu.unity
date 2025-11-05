@@ -2088,6 +2088,7 @@ MonoBehaviour:
   - PlayerDefault
   - CanvasPlayer
   - AudioManager
+  - Inventory
 --- !u!1001 &481495055083712338
 PrefabInstance:
   m_ObjectHideFlags: 0
