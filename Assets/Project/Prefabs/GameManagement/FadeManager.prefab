@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FadeManager
   fadeCanvasGroup: {fileID: 1043213899980753079}
   fadeDuration: 0.5
+  soundTransition: {fileID: 0}
 --- !u!1 &2271385913542765771
 GameObject:
   m_ObjectHideFlags: 0

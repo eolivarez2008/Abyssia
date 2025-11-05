@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 1
   nameItem: Potion de soin
   description: La potion redonne de la vie
-  price: 0
-  image: {fileID: -4961440795162352132, guid: b3eb306ad722d0448889176c72d39f04, type: 3}
+  price: 3
+  image: {fileID: 7219181263730686832, guid: b3eb306ad722d0448889176c72d39f04, type: 3}
   hpGiven: 2
   speedGiven: 0
   speedDuration: 0

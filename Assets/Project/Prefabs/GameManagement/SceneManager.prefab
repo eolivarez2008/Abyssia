@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2772336126324958749}
   - component: {fileID: 4874371196413216500}
+  - component: {fileID: 4855308012372540322}
+  - component: {fileID: 6314769432882801728}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -45,3 +47,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPointName: SpawnPoint
+--- !u!114 &4855308012372540322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cf77741ffe5224082af431bd45cddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!114 &6314769432882801728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7a35779b8209d49b688f9b6375b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  pnjNameText: {fileID: 0}
+  animator: {fileID: 0}
+  sellButtonPrefab: {fileID: 0}
+  sellButtonsParent: {fileID: 0}
