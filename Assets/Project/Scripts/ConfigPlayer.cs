@@ -10,6 +10,7 @@ public class ConfigPlayer : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public DamageFlashDynamic damageFlash;
     public MortMenu mortMenu;
+    public Canvas persistentCanvas;
 
     [Header("=== SANTÉ ===")]
     public int maxHealth = 15;
@@ -55,6 +56,11 @@ public class ConfigPlayer : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+        if (persistentCanvas != null)
+        {
+            DontDestroyOnLoad(persistentCanvas.gameObject);
         }
 
         currentHealth = maxHealth;
