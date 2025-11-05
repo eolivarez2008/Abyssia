@@ -18,4 +18,8 @@ public class Item : ScriptableObject
     // Boost de dégâts
     public int damageGiven;
     public float damageDuration;
+
+    // Invincibilité
+    public bool givesInvincibility;
+    public float invincibilityDuration;
 }

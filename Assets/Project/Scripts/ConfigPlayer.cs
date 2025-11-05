@@ -20,6 +20,17 @@ public class ConfigPlayer : MonoBehaviour
     public float widthMax = 450f;
     public float widthMin = 5f;
     public float height = 30f;
+    public bool isInvincible = false;
+    private Color originalColor;
+    
+    // Couleurs des effets
+    public Color speedColor = new Color(0.5f, 0f, 1f, 0.8f);      // Violet
+    public Color damageColor = new Color(0f, 1f, 0f, 0.8f);       // Vert
+    public Color invincibilityColor = new Color(0f, 0.5f, 1f, 0.8f); // Bleu
+    
+    // Effets actifs
+    private System.Collections.Generic.List<string> activeEffects = new System.Collections.Generic.List<string>();
+
 
     [Header("=== ATTAQUE ===")]
     public float attackRange = 1.5f;
@@ -89,6 +100,9 @@ public class ConfigPlayer : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+        
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
     }
 
     Vector2 movementApplied; // valeur réelle appliquée après collision
@@ -144,7 +158,7 @@ public class ConfigPlayer : MonoBehaviour
     // === SANTÉ ===
     public void TakeDamage(int damage)
     {
-        if (isAlive)
+        if (isAlive && !isInvincible)
         {
             currentHealth -= damage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -160,6 +174,56 @@ public class ConfigPlayer : MonoBehaviour
                 animator.SetTrigger("Die");
                 StartCoroutine(AttendreFinAnimationDie());
             }
+        }
+    }
+
+public void SetInvincible(bool invincible)
+    {
+        isInvincible = invincible;
+    }
+
+    public void AddVisualEffect(string effectType)
+    {
+        if (!activeEffects.Contains(effectType))
+        {
+            activeEffects.Add(effectType);
+            UpdateVisualEffects();
+        }
+    }
+
+    public void RemoveVisualEffect(string effectType)
+    {
+        if (activeEffects.Contains(effectType))
+        {
+            activeEffects.Remove(effectType);
+            UpdateVisualEffects();
+        }
+    }
+
+    private void UpdateVisualEffects()
+    {
+        if (spriteRenderer == null)
+            return;
+
+        // Si aucun effet actif, retour à la couleur normale
+        if (activeEffects.Count == 0)
+        {
+            spriteRenderer.color = originalColor;
+            return;
+        }
+
+        // Priorité des effets (du plus important au moins important)
+        if (activeEffects.Contains("invincibility"))
+        {
+            spriteRenderer.color = invincibilityColor; // Bleu
+        }
+        else if (activeEffects.Contains("damage"))
+        {
+            spriteRenderer.color = damageColor; // Vert
+        }
+        else if (activeEffects.Contains("speed"))
+        {
+            spriteRenderer.color = speedColor; // Violet
         }
     }
 
