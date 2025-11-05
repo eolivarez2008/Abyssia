@@ -165,4 +165,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItem
   isCoin: 1
   item: {fileID: 0}
-  coinValue: 1
+  coinValue: 3

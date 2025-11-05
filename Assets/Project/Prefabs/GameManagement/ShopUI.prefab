@@ -443,14 +443,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellButton
       objectReference: {fileID: 0}
-    - target: {fileID: 163581278516004258, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2749207334314341155, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -465,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_AnchorMin.x
@@ -473,15 +465,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -513,11 +505,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 520.4515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85.14046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3078166296926819751, guid: 833e96c2a4d76ad45a0d7970e703a8c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

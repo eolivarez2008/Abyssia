@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
 
     public static ShopManager instance;
 
+    private bool buttonsGenerated = false; // empêche de les régénérer
     private System.Action onShopClosedCallback;
 
     private void Awake()
@@ -26,33 +27,42 @@ public class ShopManager : MonoBehaviour
         instance = this;
     }
 
-    // Ajout d'un callback facultatif
     public void OpenShop(Item[] items, string pnjName, System.Action onClose = null)
     {
         onShopClosedCallback = onClose;
-
         pnjNameText.text = pnjName;
-        UpdateItemsToSell(items);
+
+        // Génère les boutons une seule fois
+        if (!buttonsGenerated)
+        {
+            GenerateButtons(items);
+            buttonsGenerated = true;
+        }
+
         animator.SetBool("isOpen", true);
     }
 
-    void UpdateItemsToSell(Item[] items)
+    private void GenerateButtons(Item[] items)
     {
-        // Supprime les boutons existants
-        for (int i = 0; i < sellButtonsParent.childCount; i++)
-        {
-            Destroy(sellButtonsParent.GetChild(i).gameObject);
-        }
-
-        // Instancie un bouton pour chaque item
+        // Crée un bouton pour chaque item
         for (int i = 0; i < items.Length; i++)
         {
             GameObject button = Instantiate(sellButtonPrefab, sellButtonsParent);
+            button.SetActive(true);
+
+            if (sellButtonPrefab.activeSelf)
+                sellButtonPrefab.SetActive(false);
+
+            foreach (var text in button.GetComponentsInChildren<Text>(true))
+                text.enabled = true;
+
+            foreach (var image in button.GetComponentsInChildren<Image>(true))
+                image.enabled = true;
+
             SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
             buttonScript.itemName.text = items[i].nameItem;
             buttonScript.itemImage.sprite = items[i].image;
             buttonScript.itemPrice.text = items[i].price.ToString();
-
             buttonScript.item = items[i];
 
             button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });
@@ -63,7 +73,6 @@ public class ShopManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
 
-        // Appelle le callback si défini
         if (onShopClosedCallback != null)
         {
             onShopClosedCallback.Invoke();
@@ -71,7 +80,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Méthode pratique pour savoir si le shop est ouvert
     public bool IsShopOpen()
     {
         return animator.GetBool("isOpen");

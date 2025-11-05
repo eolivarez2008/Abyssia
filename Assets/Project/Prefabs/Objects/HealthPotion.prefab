@@ -130,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.875}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.625, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2df039d0f577c45999b774a0137dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItem
-  isCoin: 0
-  item: {fileID: 11400000, guid: 277db713312e6144fbea6fba2672eb16, type: 2}
-  coinValue: 1
+  itemType: 1
+  item: {fileID: 11400000, guid: 9005ed43ce9313b42a002961ea090593, type: 2}
+  value: 1
