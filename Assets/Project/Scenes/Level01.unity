@@ -3799,7 +3799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837508914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7176,6 +7176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
+--- !u!1 &2026331990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
+  m_PrefabInstance: {fileID: 166192154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2039447854
 GameObject:
   m_ObjectHideFlags: 0
@@ -7592,17 +7597,57 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: dropForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 2026331990}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 5169701177163433904}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[0].maxAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[0].minAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[1].maxAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[1].minAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[0].dropChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
+      propertyPath: possibleDrops.Array.data[1].dropChance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
     - target: {fileID: 8695352854507625359, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.18
+      value: -1.38
       objectReference: {fileID: 0}
     - target: {fileID: 8695352854507625359, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.06
+      value: 6.36
       objectReference: {fileID: 0}
     - target: {fileID: 8695352854507625359, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8466,6 +8511,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &5169701177163433904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1345104945056373078, guid: 4efda9b47f392874b8d02036f23f215d, type: 3}
+  m_PrefabInstance: {fileID: 2202278463487070230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5212770353917244831
 PrefabInstance:
   m_ObjectHideFlags: 0
