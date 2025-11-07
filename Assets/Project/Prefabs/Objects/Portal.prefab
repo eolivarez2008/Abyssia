@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3676477152807109748}
   - component: {fileID: 8475768962366950107}
   m_Layer: 0
-  m_Name: LoadLevel
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
