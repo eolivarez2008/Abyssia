@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: a78e2de193f20cb4d8c7c4c852966196
+guid: 756dbb4a0705e964e840a793c48e1414
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2046531244934282274
-    second: tile_16x_0
+      213: -4898025049631497640
+    second: flag-red-white_0
   - first:
-      213: 214771375493922966
-    second: tile_16x_1
+      213: -8366081675033472310
+    second: flag-red-white_1
   - first:
-      213: -2921214201380918255
-    second: tile_16x_2
+      213: -6915065167593397871
+    second: flag-red-white_2
   - first:
-      213: 2340026700041446425
-    second: tile_16x_3
+      213: -4668178384910492131
+    second: flag-red-white_3
   - first:
-      213: -5763800975392938420
-    second: tile_16x_4
+      213: -5304356110543361040
+    second: flag-red-white_4
   - first:
-      213: 4009991102999516329
-    second: tile_16x_5
+      213: 4881652305320024480
+    second: flag-red-white_5
   - first:
-      213: -6642475140955990879
-    second: tile_16x_6
+      213: 3509732150696034603
+    second: flag-red-white_6
   - first:
-      213: -168287875898816908
-    second: tile_16x_7
-  - first:
-      213: 7168808287677392349
-    second: tile_16x_8
-  - first:
-      213: -7210082959956996097
-    second: tile_16x_9
+      213: 1774527331241244564
+    second: flag-red-white_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,221 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_16x_0
+      name: flag-red-white_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 104
-        width: 12
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed344fbfca24993e0800000000000000
-      internalID: -2046531244934282274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tile_16x_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 135
-        width: 98
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 690cc389d650bf200800000000000000
-      internalID: 214771375493922966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tile_16x_2
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 72
-        width: 98
+        x: 0
+        y: 0
+        width: 31
         height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11c2ddd3923c577d0800000000000000
-      internalID: -2921214201380918255
+      spriteID: 852efbf0b28b60cb0800000000000000
+      internalID: -4898025049631497640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_3
+      name: flag-red-white_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 58
-        width: 14
-        height: 14
+        x: 31
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91466ecb2e1797020800000000000000
-      internalID: 2340026700041446425
+      spriteID: ac299bdba05b5eb80800000000000000
+      internalID: -8366081675033472310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_4
+      name: flag-red-white_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 58
-        width: 14
-        height: 12
+        x: 62
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4667a10d8dd200b0800000000000000
-      internalID: -5763800975392938420
+      spriteID: 1912bee1ed0c800a0800000000000000
+      internalID: -6915065167593397871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_5
+      name: flag-red-white_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 58
-        width: 14
-        height: 14
+        x: 93
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a453ce89a956a730800000000000000
-      internalID: 4009991102999516329
+      spriteID: d1ed043fd7c473fb0800000000000000
+      internalID: -4668178384910492131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_6
+      name: flag-red-white_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 58
-        width: 14
-        height: 12
+        x: 124
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a494f97d0031d3a0800000000000000
-      internalID: -6642475140955990879
+      spriteID: 0fbe3ec98342366b0800000000000000
+      internalID: -5304356110543361040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_7
+      name: flag-red-white_5
       rect:
         serializedVersion: 2
-        x: 79
-        y: 57
-        width: 16
-        height: 15
+        x: 155
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 476cb09811f1aadf0800000000000000
-      internalID: -168287875898816908
+      spriteID: 0a9119758ec1fb340800000000000000
+      internalID: 4881652305320024480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_8
+      name: flag-red-white_6
       rect:
         serializedVersion: 2
-        x: 97
-        y: 57
-        width: 16
-        height: 15
+        x: 186
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd523e9d729bc7360800000000000000
-      internalID: 7168808287677392349
+      spriteID: b214103bbc215b030800000000000000
+      internalID: 3509732150696034603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_16x_9
+      name: flag-red-white_7
       rect:
         serializedVersion: 2
-        x: 15
-        y: 8
-        width: 98
-        height: 37
+        x: 217
+        y: 0
+        width: 31
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fff8aa2afb3a0fb90800000000000000
-      internalID: -7210082959956996097
+      spriteID: 4fa52b4ac8964604693722006ec2dda8
+      internalID: 1774527331241244564
       vertices: []
       indices: 
       edges: []
@@ -350,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c5a9d26764365434dbff1adf8076029b
     internalID: 0
     vertices: []
     indices: 
@@ -358,18 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":31.0,"y":70.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tile_16x_0: -2046531244934282274
-      tile_16x_1: 214771375493922966
-      tile_16x_2: -2921214201380918255
-      tile_16x_3: 2340026700041446425
-      tile_16x_4: -5763800975392938420
-      tile_16x_5: 4009991102999516329
-      tile_16x_6: -6642475140955990879
-      tile_16x_7: -168287875898816908
-      tile_16x_8: 7168808287677392349
-      tile_16x_9: -7210082959956996097
+      flag-red-white_0: -4898025049631497640
+      flag-red-white_1: -8366081675033472310
+      flag-red-white_2: -6915065167593397871
+      flag-red-white_3: -4668178384910492131
+      flag-red-white_4: -5304356110543361040
+      flag-red-white_5: 4881652305320024480
+      flag-red-white_6: 3509732150696034603
+      flag-red-white_7: 1774527331241244564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
