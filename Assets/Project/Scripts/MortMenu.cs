@@ -54,7 +54,6 @@ public class MortMenu : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("LoadingManager introuvable, chargement direct !");
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         }
     }

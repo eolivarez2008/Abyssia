@@ -34,7 +34,6 @@ public class ActiveEffectsUI : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Désactive tous les canvas au départ
         if (speedCanvas != null)
             speedCanvas.SetActive(false);
         if (damageCanvas != null)
@@ -45,7 +44,6 @@ public class ActiveEffectsUI : MonoBehaviour
 
     private void Update()
     {
-        // Met à jour Speed
         if (speedActive)
         {
             speedRemainingTime -= Time.deltaTime;
@@ -57,7 +55,6 @@ public class ActiveEffectsUI : MonoBehaviour
             }
         }
 
-        // Met à jour Damage
         if (damageActive)
         {
             damageRemainingTime -= Time.deltaTime;
@@ -69,7 +66,6 @@ public class ActiveEffectsUI : MonoBehaviour
             }
         }
 
-        // Met à jour Invincibility
         if (invincibilityActive)
         {
             invincibilityRemainingTime -= Time.deltaTime;
@@ -82,9 +78,6 @@ public class ActiveEffectsUI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Active l'effet de vitesse
-    /// </summary>
     public void AddSpeedEffect(float duration)
     {
         speedRemainingTime = duration;
@@ -93,9 +86,6 @@ public class ActiveEffectsUI : MonoBehaviour
             speedCanvas.SetActive(true);
     }
 
-    /// <summary>
-    /// Désactive l'effet de vitesse
-    /// </summary>
     public void RemoveSpeedEffect()
     {
         speedActive = false;
@@ -103,9 +93,6 @@ public class ActiveEffectsUI : MonoBehaviour
             speedCanvas.SetActive(false);
     }
 
-    /// <summary>
-    /// Active l'effet de dégâts
-    /// </summary>
     public void AddDamageEffect(float duration)
     {
         damageRemainingTime = duration;
@@ -114,9 +101,6 @@ public class ActiveEffectsUI : MonoBehaviour
             damageCanvas.SetActive(true);
     }
 
-    /// <summary>
-    /// Désactive l'effet de dégâts
-    /// </summary>
     public void RemoveDamageEffect()
     {
         damageActive = false;
@@ -124,9 +108,6 @@ public class ActiveEffectsUI : MonoBehaviour
             damageCanvas.SetActive(false);
     }
 
-    /// <summary>
-    /// Active l'effet d'invincibilité
-    /// </summary>
     public void AddInvincibilityEffect(float duration)
     {
         invincibilityRemainingTime = duration;
@@ -135,9 +116,6 @@ public class ActiveEffectsUI : MonoBehaviour
             invincibilityCanvas.SetActive(true);
     }
 
-    /// <summary>
-    /// Désactive l'effet d'invincibilité
-    /// </summary>
     public void RemoveInvincibilityEffect()
     {
         invincibilityActive = false;
@@ -145,9 +123,6 @@ public class ActiveEffectsUI : MonoBehaviour
             invincibilityCanvas.SetActive(false);
     }
 
-    /// <summary>
-    /// Met à jour le texte du timer
-    /// </summary>
     private void UpdateTimerText(Text timerText, float remainingTime)
     {
         if (timerText == null) return;

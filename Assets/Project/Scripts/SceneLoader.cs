@@ -14,8 +14,6 @@ public class sceneLoader : MonoBehaviour
             }
             else
             {
-                // Fallback si LoadingManager n'existe pas
-                Debug.LogWarning("LoadingManager introuvable, chargement direct !");
                 UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
             }
         }

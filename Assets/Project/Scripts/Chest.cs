@@ -22,10 +22,8 @@ public class Chest : MonoBehaviour
         isOpened = true;
         animator.SetTrigger("OpenChest");
 
-        // Ajout des coins
         Inventory.instance.AddCoins(coinsToAdd);
 
-        // Ajout des items
         foreach (Item item in itemsToAdd)
         {
             if (item != null)
@@ -35,7 +33,6 @@ public class Chest : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         interactUI.enabled = false;
 
-        // Mise à jour de l'UI
         Inventory.instance.UpdateInventoryUI();
     }
 

@@ -42,7 +42,6 @@ public class ChallengeManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de ChallengeManager dans la scène");
             return;
         }
 
@@ -54,9 +53,6 @@ public class ChallengeManager : MonoBehaviour
             acceptButton.interactable = false;
     }
 
-    /// <summary>
-    /// Ouvre le menu de challenge - OFFRE (avant acceptation)
-    /// </summary>
     public void OpenChallengeOffer(Challenge challenge, System.Action onAccept, System.Action onEnd = null)
     {
         if (challengeMenuOpen) return;
@@ -66,10 +62,11 @@ public class ChallengeManager : MonoBehaviour
         onChallengeAccepted = onAccept;
         endCallback = onEnd;
 
-        challengeTitle.text = challenge.title;
-        challengeDescription.text = challenge.description;
+        if (challengeTitle != null)
+            challengeTitle.text = challenge.title;
+        if (challengeDescription != null)
+            challengeDescription.text = challenge.description;
 
-        // Active le bouton accepter, désactive réclamer
         if (acceptButton != null)
         {
             acceptButton.interactable = true;
@@ -80,12 +77,10 @@ public class ChallengeManager : MonoBehaviour
         if (claimButton != null)
             claimButton.interactable = false;
 
-        animator.SetBool("isOpen", true);
+        if (animator != null)
+            animator.SetBool("isOpen", true);
     }
 
-    /// <summary>
-    /// Ouvre le menu de challenge - RÉCOMPENSE (après victoire)
-    /// </summary>
     public void OpenChallengeReward(Challenge challenge, System.Action onClaim, System.Action onEnd = null)
     {
         if (challengeMenuOpen) return;
@@ -95,10 +90,11 @@ public class ChallengeManager : MonoBehaviour
         onRewardClaimed = onClaim;
         endCallback = onEnd;
 
-        challengeTitle.text = rewardTitle;
-        challengeDescription.text = rewardDescription;
+        if (challengeTitle != null)
+            challengeTitle.text = rewardTitle;
+        if (challengeDescription != null)
+            challengeDescription.text = rewardDescription;
 
-        // Active le bouton réclamer, désactive accepter
         if (claimButton != null)
         {
             claimButton.interactable = true;
@@ -109,16 +105,14 @@ public class ChallengeManager : MonoBehaviour
         if (acceptButton != null)
             acceptButton.interactable = false;
 
-        animator.SetBool("isOpen", true);
+        if (animator != null)
+            animator.SetBool("isOpen", true);
     }
 
-    /// <summary>
-    /// Accepte le challenge
-    /// </summary>
     private void AcceptChallenge()
     {
         isChallengeActive = true;
-        EndChallenge(); // Ferme le menu
+        EndChallenge();
 
         if (onChallengeAccepted != null)
         {
@@ -126,17 +120,14 @@ public class ChallengeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Réclame la récompense
-    /// </summary>
     private void ClaimReward()
     {
         if (currentChallenge != null)
         {
-            if (currentChallenge.rewardCoins > 0)
+            if (currentChallenge.rewardCoins > 0 && Inventory.instance != null)
                 Inventory.instance.AddCoins(currentChallenge.rewardCoins);
 
-            if (currentChallenge.rewardItems != null)
+            if (currentChallenge.rewardItems != null && Inventory.instance != null)
             {
                 foreach (Item item in currentChallenge.rewardItems)
                 {
@@ -145,7 +136,8 @@ public class ChallengeManager : MonoBehaviour
                 }
             }
 
-            Inventory.instance.UpdateInventoryUI();
+            if (Inventory.instance != null)
+                Inventory.instance.UpdateInventoryUI();
         }
 
         EndChallenge();
@@ -157,9 +149,6 @@ public class ChallengeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Ouvre le menu "Déjà terminé" (après récompense réclamée)
-    /// </summary>
     public void OpenChallengeCompleted(string title, string description, System.Action onEnd = null)
     {
         if (challengeMenuOpen) return;
@@ -167,24 +156,25 @@ public class ChallengeManager : MonoBehaviour
         challengeMenuOpen = true;
         endCallback = onEnd;
 
-        challengeTitle.text = title;
-        challengeDescription.text = description;
+        if (challengeTitle != null)
+            challengeTitle.text = title;
+        if (challengeDescription != null)
+            challengeDescription.text = description;
 
-        // Désactive les deux boutons
         if (acceptButton != null)
             acceptButton.interactable = false;
         if (claimButton != null)
             claimButton.interactable = false;
 
-        animator.SetBool("isOpen", true);
+        if (animator != null)
+            animator.SetBool("isOpen", true);
     }
 
-    /// <summary>
-    /// Ferme le menu de challenge
-    /// </summary>
     public void EndChallenge()
     {
-        animator.SetBool("isOpen", false);
+        if (animator != null)
+            animator.SetBool("isOpen", false);
+            
         challengeMenuOpen = false;
 
         if (acceptButton != null)
@@ -199,18 +189,12 @@ public class ChallengeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Démarre le comptage des ennemis
-    /// </summary>
     public void StartChallenge(int enemyCount)
     {
         isChallengeActive = true;
         enemiesRemaining = enemyCount;
     }
 
-    /// <summary>
-    /// Appelé quand un ennemi du challenge meurt
-    /// </summary>
     public void OnChallengeEnemyKilled()
     {
         if (!isChallengeActive) return;
@@ -223,13 +207,9 @@ public class ChallengeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Termine le challenge
-    /// </summary>
     private void CompleteChallenge()
     {
         isChallengeActive = false;
-        Debug.Log("Challenge terminé ! Retourne voir le NPC pour réclamer ta récompense.");
     }
 
     public bool IsChallengeActive()

@@ -24,16 +24,13 @@ public class ShopTrigger : MonoBehaviour
 
     private void OpenShop()
     {
-        // Cache le texte d'interaction
         interactUI.enabled = false;
 
-        // Ouvre le shop et fournit un callback à la fermeture
         ShopManager.instance.OpenShop(itemsToSell, pnjName, OnShopClosed);
     }
 
     private void OnShopClosed()
     {
-        // Si le joueur est toujours dans le trigger, réaffiche le texte
         if (isInRange)
             interactUI.enabled = true;
     }
@@ -44,7 +41,6 @@ public class ShopTrigger : MonoBehaviour
         {
             isInRange = true;
 
-            // N'affiche le texte que si le shop n'est pas ouvert
             if (!ShopManager.instance.IsShopOpen())
                 interactUI.enabled = true;
         }
@@ -57,7 +53,6 @@ public class ShopTrigger : MonoBehaviour
             isInRange = false;
             interactUI.enabled = false;
 
-            // Ferme le shop si le joueur sort du trigger
             if (ShopManager.instance.IsShopOpen())
                 ShopManager.instance.CloseShop();
         }

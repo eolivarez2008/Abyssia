@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseUI: {fileID: 0}
-  fadeManager: {fileID: 0}
   menuSceneName: Menu
   settingsCanvas: {fileID: 0}
 --- !u!114 &3271226640650505205
@@ -68,7 +67,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   mortUI: {fileID: 0}
   menuSceneName: Menu
-  fadeManager: {fileID: 0}
 --- !u!114 &4874371196413216500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +130,9 @@ MonoBehaviour:
   claimButton: {fileID: 0}
   animator: {fileID: 0}
   rewardTitle: "R\xE9compense !"
-  rewardDescription: "D\xE9fi termin\xE9 ! R\xE9cup\xE8re ta r\xE9compense."
+  rewardDescription: "Vous avez d\xE9ja fini ! Eh ben vous \xEAtes rapides, je suis
+    impressionn\xE9. Tenez, comme promis votre r\xE9compense pour ce d\xE9fi. Prenez-en
+    grand soin !"
 --- !u!114 &4649462747380324462
 MonoBehaviour:
   m_ObjectHideFlags: 0

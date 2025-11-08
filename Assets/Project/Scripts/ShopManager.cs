@@ -13,14 +13,13 @@ public class ShopManager : MonoBehaviour
 
     public static ShopManager instance;
 
-    private bool buttonsGenerated = false; // empêche de les régénérer
+    private bool buttonsGenerated = false;
     private System.Action onShopClosedCallback;
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de ShopManager dans la scène");
             return;
         }
 
@@ -32,7 +31,6 @@ public class ShopManager : MonoBehaviour
         onShopClosedCallback = onClose;
         pnjNameText.text = pnjName;
 
-        // Génère les boutons une seule fois
         if (!buttonsGenerated)
         {
             GenerateButtons(items);
@@ -44,7 +42,6 @@ public class ShopManager : MonoBehaviour
 
     private void GenerateButtons(Item[] items)
     {
-        // Crée un bouton pour chaque item
         for (int i = 0; i < items.Length; i++)
         {
             GameObject button = Instantiate(sellButtonPrefab, sellButtonsParent);

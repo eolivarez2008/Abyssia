@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     private bool isAlive = true;
 
     [Header("=== HEALTH BAR ===")]
-    public EnemyHealthBar healthBar; // Référence à la barre de vie
+    public EnemyHealthBar healthBar;
 
     public ChallengeTrigger challengeTrigger;
 
@@ -67,7 +67,6 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        // Met à jour la barre de vie au départ
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
@@ -80,7 +79,6 @@ public class EnemyAI : MonoBehaviour
 
         if (target == null)
         {
-            Debug.LogWarning("EnemyAI: No target assigned!");
             enabled = false;
             return;
         }
@@ -249,7 +247,6 @@ public class EnemyAI : MonoBehaviour
 
         currentHealth -= damage;
 
-        // Met à jour la barre de vie
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
@@ -280,7 +277,6 @@ public class EnemyAI : MonoBehaviour
             c.enabled = false;
         }
 
-        // Cache la barre de vie
         if (healthBar != null)
         {
             healthBar.Hide();

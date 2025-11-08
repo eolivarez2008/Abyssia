@@ -15,13 +15,11 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
         }
 
-        // Gestion de la touche Enter pour passer à la phrase suivante
         if (DialogueManager.instance.dialogueActive && Input.GetKeyDown(KeyCode.Return))
         {
             DialogueManager.instance.DisplayNextSentence();
         }
 
-        // Fermer le dialogue avec Tab
         if (DialogueManager.instance != null && DialogueManager.instance.dialogueActive && Input.GetKeyDown(KeyCode.Tab))
         {
             DialogueManager.instance.EndDialogue();
@@ -50,13 +48,12 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        interactUI.enabled = false; // cache le texte d'interaction
+        interactUI.enabled = false;
         DialogueManager.instance.StartDialogue(dialogue, OnDialogueEnd);
     }
 
     void OnDialogueEnd()
     {
-        // Si le joueur est toujours dans le trigger, réaffiche le texte d'interaction
         if (isInRange)
             interactUI.enabled = true;
     }

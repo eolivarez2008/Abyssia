@@ -6,24 +6,21 @@ public class DamageFlashDynamic : MonoBehaviour
 {
     public Image flashImage;
     public float flashDuration = 0.2f;
-    public float maxAlpha = 0.6f; // alpha max possible
+    public float maxAlpha = 0.6f;
 
     public void Flash(int damage, int maxHealth)
     {
         StopAllCoroutines();
 
-        // Calcule alpha proportionnel aux dégâts
         float intensity = Mathf.Clamp01((float)damage / maxHealth) * maxAlpha;
 
-        // Minimum d’intensité pour que le flash soit toujours visible
-        intensity = Mathf.Max(intensity, 0.3f); // par exemple 0.2f minimum
+        intensity = Mathf.Max(intensity, 0.3f);
 
         StartCoroutine(DoFlash(intensity));
     }
 
     IEnumerator DoFlash(float intensity)
     {
-        // Fade in
         float t = 0f;
         while (t < flashDuration)
         {
@@ -32,7 +29,6 @@ public class DamageFlashDynamic : MonoBehaviour
             yield return null;
         }
 
-        // Fade out
         t = 0f;
         while (t < flashDuration)
         {

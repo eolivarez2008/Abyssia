@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2140100479067532136}
   - component: {fileID: 8654138347214534693}
   - component: {fileID: 2111725563582329620}
-  - component: {fileID: 3676477152807109748}
   - component: {fileID: 8475768962366950107}
+  - component: {fileID: 3676477152807109748}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -115,20 +115,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3676477152807109748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640922898445969949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb80b080149f98459be131e032c8ad1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  levelToLoad: Level02
-  fadeManager: {fileID: 0}
 --- !u!61 &8475768962366950107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +161,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7870426, y: 2.0171776}
   m_EdgeRadius: 0
+--- !u!114 &3676477152807109748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640922898445969949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb80b080149f98459be131e032c8ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  levelToLoad: Level02

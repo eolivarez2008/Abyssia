@@ -23,12 +23,10 @@ public class ConfigPlayer : MonoBehaviour
     public bool isInvincible = false;
     private Color originalColor;
     
-    // Couleurs des effets
     public Color speedColor = new Color(0.5f, 0f, 1f, 0.8f);      // Violet
     public Color damageColor = new Color(0f, 1f, 0f, 0.8f);       // Vert
     public Color invincibilityColor = new Color(0f, 0.5f, 1f, 0.8f); // Bleu
     
-    // Effets actifs
     private System.Collections.Generic.List<string> activeEffects = new System.Collections.Generic.List<string>();
 
 
@@ -105,17 +103,15 @@ public class ConfigPlayer : MonoBehaviour
             originalColor = spriteRenderer.color;
     }
 
-    Vector2 movementApplied; // valeur réelle appliquée après collision
+    Vector2 movementApplied;
 
     void Update()
     {
         if (!isAlive) return;
 
-        // --- Input brut ---
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // --- Attaque ---
         if (Input.GetKeyDown(KeyCode.Space) && canAttack && currentAttackPoints > 0)
         {
             PerformAttack();
@@ -135,19 +131,16 @@ public class ConfigPlayer : MonoBehaviour
         float radius = rb.GetComponent<CircleCollider2D>().radius;
         int wallLayer = LayerMask.GetMask("IgnorePathfinding");
 
-        // Collision sur X
         Vector2 moveX = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, 0);
         bool blockedX = Physics2D.CircleCast(rb.position, radius, moveX.normalized, moveX.magnitude, wallLayer);
         if (!blockedX) newPos.x += moveX.x;
 
-        // Collision sur Y
         Vector2 moveY = new Vector2(0, movement.y * moveSpeed * Time.fixedDeltaTime);
         bool blockedY = Physics2D.CircleCast(rb.position, radius, moveY.normalized, moveY.magnitude, wallLayer);
         if (!blockedY) newPos.y += moveY.y;
 
         rb.MovePosition(newPos);
 
-        // --- Appliquer mouvement réel pour l’animation ---
         movementApplied = new Vector2(blockedX ? 0 : movement.x, blockedY ? 0 : movement.y);
         animator.SetFloat("Speed", movementApplied.sqrMagnitude);
 
@@ -155,7 +148,6 @@ public class ConfigPlayer : MonoBehaviour
             spriteRenderer.flipX = movementApplied.x < 0;
     }
 
-    // === SANTÉ ===
     public void TakeDamage(int damage)
     {
         if (isAlive && !isInvincible)
@@ -207,18 +199,15 @@ public class ConfigPlayer : MonoBehaviour
         if (spriteRenderer == null)
             return;
 
-        // Si aucun effet actif, retour à la couleur normale
         if (activeEffects.Count == 0)
         {
             spriteRenderer.color = originalColor;
             return;
         }
 
-        // NOUVELLE MÉTHODE: Mélange les couleurs des effets actifs
         Color blendedColor = originalColor;
         int effectCount = 0;
 
-        // Accumule toutes les couleurs des effets actifs
         if (activeEffects.Contains("speed"))
         {
             blendedColor += speedColor;
@@ -237,7 +226,6 @@ public class ConfigPlayer : MonoBehaviour
             effectCount++;
         }
 
-        // Moyenne des couleurs si plusieurs effets
         if (effectCount > 0)
         {
             blendedColor.r = blendedColor.r / (effectCount + 1);
@@ -283,7 +271,6 @@ public class ConfigPlayer : MonoBehaviour
         spriteRenderer.enabled = false;
     }
 
-    // === ATTAQUE ===
     void PerformAttack()
     {
         animator.SetTrigger("Attack");
