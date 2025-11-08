@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    public string spawnPointName; // 🔹 ce champ doit être public
+    public string spawnPointName;
+    public Vector3 offset; // Décalage ajustable depuis l’inspecteur
 
     void Start()
     {
@@ -12,7 +13,7 @@ public class PlayerSpawn : MonoBehaviour
         GameObject spawn = GameObject.Find(spawnPointName);
         if (spawn != null)
         {
-            player.transform.position = spawn.transform.position;
+            player.transform.position = spawn.transform.position + offset;
         }
     }
 }

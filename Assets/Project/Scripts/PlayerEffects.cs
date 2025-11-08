@@ -7,6 +7,13 @@ public class PlayerEffects : MonoBehaviour
     {
         ConfigPlayer.instance.moveSpeed += speedGiven;
         ConfigPlayer.instance.AddVisualEffect("speed");
+        
+        // Active le canvas de l'effet
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.AddSpeedEffect(speedDuration);
+        }
+        
         StartCoroutine(RemoveSpeed(speedGiven, speedDuration));
     }
 
@@ -15,12 +22,25 @@ public class PlayerEffects : MonoBehaviour
         yield return new WaitForSeconds(speedDuration);
         ConfigPlayer.instance.moveSpeed -= speedGiven;
         ConfigPlayer.instance.RemoveVisualEffect("speed");
+        
+        // Désactive le canvas (normalement déjà fait par le timer)
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.RemoveSpeedEffect();
+        }
     }
 
     public void AddDamage(int damageGiven, float damageDuration)
     {
         ConfigPlayer.instance.damage += damageGiven;
         ConfigPlayer.instance.AddVisualEffect("damage");
+        
+        // Active le canvas de l'effet
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.AddDamageEffect(damageDuration);
+        }
+        
         StartCoroutine(RemoveDamage(damageGiven, damageDuration));
     }
 
@@ -29,12 +49,25 @@ public class PlayerEffects : MonoBehaviour
         yield return new WaitForSeconds(damageDuration);
         ConfigPlayer.instance.damage -= damageGiven;
         ConfigPlayer.instance.RemoveVisualEffect("damage");
+        
+        // Désactive le canvas
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.RemoveDamageEffect();
+        }
     }
 
     public void AddInvincibility(float invincibilityDuration)
     {
         ConfigPlayer.instance.SetInvincible(true);
         ConfigPlayer.instance.AddVisualEffect("invincibility");
+        
+        // Active le canvas de l'effet
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.AddInvincibilityEffect(invincibilityDuration);
+        }
+        
         StartCoroutine(RemoveInvincibility(invincibilityDuration));
     }
 
@@ -43,5 +76,11 @@ public class PlayerEffects : MonoBehaviour
         yield return new WaitForSeconds(invincibilityDuration);
         ConfigPlayer.instance.SetInvincible(false);
         ConfigPlayer.instance.RemoveVisualEffect("invincibility");
+        
+        // Désactive le canvas
+        if (ActiveEffectsUI.instance != null)
+        {
+            ActiveEffectsUI.instance.RemoveInvincibilityEffect();
+        }
     }
 }

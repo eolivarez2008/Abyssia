@@ -214,19 +214,39 @@ public class ConfigPlayer : MonoBehaviour
             return;
         }
 
-        // Priorité des effets (du plus important au moins important)
+        // NOUVELLE MÉTHODE: Mélange les couleurs des effets actifs
+        Color blendedColor = originalColor;
+        int effectCount = 0;
+
+        // Accumule toutes les couleurs des effets actifs
+        if (activeEffects.Contains("speed"))
+        {
+            blendedColor += speedColor;
+            effectCount++;
+        }
+
+        if (activeEffects.Contains("damage"))
+        {
+            blendedColor += damageColor;
+            effectCount++;
+        }
+
         if (activeEffects.Contains("invincibility"))
         {
-            spriteRenderer.color = invincibilityColor; // Bleu
+            blendedColor += invincibilityColor;
+            effectCount++;
         }
-        else if (activeEffects.Contains("damage"))
+
+        // Moyenne des couleurs si plusieurs effets
+        if (effectCount > 0)
         {
-            spriteRenderer.color = damageColor; // Vert
+            blendedColor.r = blendedColor.r / (effectCount + 1);
+            blendedColor.g = blendedColor.g / (effectCount + 1);
+            blendedColor.b = blendedColor.b / (effectCount + 1);
+            blendedColor.a = Mathf.Max(speedColor.a, damageColor.a, invincibilityColor.a);
         }
-        else if (activeEffects.Contains("speed"))
-        {
-            spriteRenderer.color = speedColor; // Violet
-        }
+
+        spriteRenderer.color = blendedColor;
     }
 
     private IEnumerator AttendreFinAnimationDie()
