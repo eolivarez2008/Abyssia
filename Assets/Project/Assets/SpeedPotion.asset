@@ -16,7 +16,7 @@ MonoBehaviour:
   nameItem: Potion de vitesse
   description: "La potion donne de la vitesse suppl\xE9mentaire."
   price: 0
-  image: {fileID: -6924151491467835951, guid: b3eb306ad722d0448889176c72d39f04, type: 3}
+  image: {fileID: -4961440795162352132, guid: b3eb306ad722d0448889176c72d39f04, type: 3}
   hpGiven: 0
   speedGiven: 2
   speedDuration: 5

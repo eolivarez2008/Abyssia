@@ -8,7 +8,6 @@ TagManager:
   - SpawnPoint
   - Persistent
   - DDOL-Player
-  - InteractUI
   layers:
   - Default
   - TransparentFX
