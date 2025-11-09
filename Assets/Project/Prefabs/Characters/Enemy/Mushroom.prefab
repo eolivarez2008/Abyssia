@@ -152,10 +152,26 @@ MonoBehaviour:
   spriteRenderer: {fileID: 91067460852603217}
   attackCooldown: 2.5
   damage: 3
-  maxHealth: 5
+  maxHealth: 7
   healthBar: {fileID: 4781602861444370316}
   challengeTrigger: {fileID: 0}
-  possibleDrops: []
+  possibleDrops:
+  - prefab: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 3
+  - prefab: {fileID: 3228597016498271635, guid: cfd2b50abf935df41a0bba0415ae5c20, type: 3}
+    dropChance: 25
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 7342005399196144880, guid: 33614a29d4a12c2498d73784ce931f62, type: 3}
+    dropChance: 25
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 1345104945056373078, guid: 4efda9b47f392874b8d02036f23f215d, type: 3}
+    dropChance: 25
+    minAmount: 1
+    maxAmount: 1
   dropForce: 20
 --- !u!50 &5436398926437933185
 Rigidbody2D:

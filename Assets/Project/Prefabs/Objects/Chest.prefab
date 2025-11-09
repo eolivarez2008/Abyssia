@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactUI: {fileID: 2805838092929023587}
   animator: {fileID: 1277467890416942922}
-  coinsToAdd: 10
+  coinsToAdd: 15
   itemsToAdd:
   - {fileID: 11400000, guid: 277db713312e6144fbea6fba2672eb16, type: 2}
   - {fileID: 11400000, guid: 9005ed43ce9313b42a002961ea090593, type: 2}

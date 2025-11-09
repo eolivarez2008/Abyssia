@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7169809202111172176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957766393864876118}
+  - component: {fileID: 8816156647646514583}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957766393864876118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169809202111172176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.22239, y: 3.58767, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8816156647646514583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169809202111172176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b84614f16c90341b73bfec8889eca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  coinsCount: 0
+  coinsCountText: {fileID: 0}
+  content: []
+  itemSlots:
+  - itemType: {fileID: 11400000, guid: 277db713312e6144fbea6fba2672eb16, type: 2}
+    slotButton: {fileID: 0}
+    quantityText: {fileID: 0}
+    itemImage: {fileID: 0}
+  - itemType: {fileID: 11400000, guid: 9005ed43ce9313b42a002961ea090593, type: 2}
+    slotButton: {fileID: 0}
+    quantityText: {fileID: 0}
+    itemImage: {fileID: 0}
+  - itemType: {fileID: 11400000, guid: 6a6136770de6cf4439fd717a8ab3c784, type: 2}
+    slotButton: {fileID: 0}
+    quantityText: {fileID: 0}
+    itemImage: {fileID: 0}
+  - itemType: {fileID: 11400000, guid: a412b402259f8264caf92ff61a74f90a, type: 2}
+    slotButton: {fileID: 0}
+    quantityText: {fileID: 0}
+    itemImage: {fileID: 0}
+  playerEffects: {fileID: 0}
