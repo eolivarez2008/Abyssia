@@ -14,4 +14,16 @@ public class PlayerEffects : MonoBehaviour
         yield return new WaitForSeconds(speedDuration);
         ConfigPlayer.instance.moveSpeed -= speedGiven;
     }
+
+    public void AddDamage(int damageGiven, float damageDuration)
+    {
+        ConfigPlayer.instance.damage += damageGiven;
+        StartCoroutine(RemoveDamage(damageGiven, damageDuration));
+    }
+
+    private IEnumerator RemoveDamage(int damageGiven, float damageDuration)
+    {
+        yield return new WaitForSeconds(damageDuration);
+        ConfigPlayer.instance.damage -= damageGiven;
+    }
 }

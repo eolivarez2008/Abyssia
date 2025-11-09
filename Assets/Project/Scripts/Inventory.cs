@@ -38,13 +38,22 @@ public class Inventory : MonoBehaviour
     public void ConsumeItem()
     {
         if(content.Count == 0)
-        {
             return;
-        }
 
         Item currentItem = content[contentCurrentIndex];
-        ConfigPlayer.instance.Heal(currentItem.hpGiven);
-        playerEffects.AddSpeed(currentItem.speedGiven, currentItem.speedDuration);
+
+        // Soin
+        if (currentItem.hpGiven > 0)
+            ConfigPlayer.instance.Heal(currentItem.hpGiven);
+
+        // Boost de vitesse
+        if (currentItem.speedGiven != 0 && currentItem.speedDuration > 0f)
+            playerEffects.AddSpeed(currentItem.speedGiven, currentItem.speedDuration);
+
+        // Boost de dégâts
+        if (currentItem.damageGiven != 0 && currentItem.damageDuration > 0f)
+            playerEffects.AddDamage(currentItem.damageGiven, currentItem.damageDuration);
+
         content.Remove(currentItem);
         GetNextItem();
         UpdateInventoryUI();
