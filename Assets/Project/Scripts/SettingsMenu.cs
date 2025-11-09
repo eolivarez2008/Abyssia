@@ -15,6 +15,8 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider soundSlider;
 
+    public GameObject commandsImage;
+
     public void Start()
     {
         audioMixer.GetFloat("Music", out float musicValueForSlider);
@@ -66,5 +68,17 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void ShowCommands()
+    {
+        if (commandsImage != null)
+            commandsImage.SetActive(true);
+    }
+
+    public void HideCommands()
+    {
+        if (commandsImage != null)
+            commandsImage.SetActive(false);
     }
 }

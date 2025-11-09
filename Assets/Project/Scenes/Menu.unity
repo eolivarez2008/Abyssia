@@ -1974,8 +1974,9 @@ MonoBehaviour:
   ddolNamesToDestroy:
   - PlayerRogue
   - CanvasDDOL
-  - AudioManager
   - Inventory
+  customClickSound: {fileID: 0}
+  customHoverSound: {fileID: 0}
 --- !u!1001 &481495055083712338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1986,47 +1987,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1705850313471284062, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1705850313471284062, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1705850313471284062, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2010968672620730016, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2010968672620730016, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341207276798152705, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341207276798152705, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341207276798152705, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2094572403}
-    - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseSettings
-      objectReference: {fileID: 0}
-    - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuPrincipal, Assembly-CSharp
+    - target: {fileID: 5228598959288613460, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5681546180380818192, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_Pivot.x
@@ -2110,19 +2107,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6042173556541052873, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6042173556541052873, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7012426447032528269, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_Name
       value: CanvasSettings
-      objectReference: {fileID: 0}
-    - target: {fileID: 7012426447032528269, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2203,6 +2196,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: menuOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e6356e379d4a9d5468c0ab9dec8eeb8e, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: menuCloseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 43f4467f859643b4cb1a2a19f80b1e62, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: buttonClickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a17de06c1d3af04a80352eae46c4f00, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: buttonHoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
     - target: {fileID: 5139690411426450053, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
