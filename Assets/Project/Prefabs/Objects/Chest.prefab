@@ -417,3 +417,5 @@ MonoBehaviour:
   itemsToAdd:
   - {fileID: 11400000, guid: 277db713312e6144fbea6fba2672eb16, type: 2}
   - {fileID: 11400000, guid: 9005ed43ce9313b42a002961ea090593, type: 2}
+  - {fileID: 11400000, guid: a412b402259f8264caf92ff61a74f90a, type: 2}
+  - {fileID: 11400000, guid: 6a6136770de6cf4439fd717a8ab3c784, type: 2}
