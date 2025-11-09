@@ -1972,8 +1972,8 @@ MonoBehaviour:
   sceneJouer: Level01
   settingsCanvas: {fileID: 6809791631515558981}
   ddolNamesToDestroy:
-  - PlayerDefault
-  - CanvasPlayer
+  - PlayerRogue
+  - CanvasDDOL
   - AudioManager
   - Inventory
 --- !u!1001 &481495055083712338
