@@ -173,4 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb80b080149f98459be131e032c8ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  levelToLoad: Level02
+  levelToLoad: Menu

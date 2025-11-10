@@ -23,9 +23,9 @@ public class ConfigPlayer : MonoBehaviour
     public bool isInvincible = false;
     private Color originalColor;
     
-    public Color speedColor = new Color(0.5f, 0f, 1f, 0.8f);      // Violet
-    public Color damageColor = new Color(0f, 1f, 0f, 0.8f);       // Vert
-    public Color invincibilityColor = new Color(0f, 0.5f, 1f, 0.8f); // Bleu
+    public Color speedColor = new Color(0.5f, 0f, 1f, 0.8f);
+    public Color damageColor = new Color(0f, 1f, 0f, 0.8f);
+    public Color invincibilityColor = new Color(0f, 0.5f, 1f, 0.8f);
     
     private System.Collections.Generic.List<string> activeEffects = new System.Collections.Generic.List<string>();
 
@@ -33,7 +33,6 @@ public class ConfigPlayer : MonoBehaviour
     [Header("=== ATTAQUE ===")]
     public float attackRange = 1.5f;
     public int damage = 1;
-    public int knockbackForce = 20;
     public Image attackFill;
     public int maxAttackPoints = 5;
     private int currentAttackPoints;
@@ -290,8 +289,7 @@ public class ConfigPlayer : MonoBehaviour
                     if (enemyScript != null)
                     {
                         enemyScript.TakeDamage(damage);
-                        Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
-                        enemyScript.rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+                        enemyScript.InterruptAttack();
                     }
                 }
             }

@@ -13,10 +13,6 @@ public class EnemyAI : MonoBehaviour
     public float nextWpDistance = 1f;
     public float attackRange = 2f;
     public float detectionRange = 7f;
-    
-    private Vector3 startPosition;
-    public float returnRange = 10f;
-    private bool isReturningToStart = false;
 
     [Header("=== PATHFINDING ===")]
     public Path path;
@@ -39,11 +35,13 @@ public class EnemyAI : MonoBehaviour
     public int maxHealth = 2;
     private int currentHealth;
     private bool isAlive = true;
+    private bool isAttacking = false;
 
     [Header("=== HEALTH BAR ===")]
     public EnemyHealthBar healthBar;
 
-    public ChallengeTrigger challengeTrigger;
+    [HideInInspector]
+    public string challengeID = "";
 
     [System.Serializable]
     public class DropItem
@@ -62,7 +60,6 @@ public class EnemyAI : MonoBehaviour
     void Awake()
     {
         currentHealth = maxHealth;
-        startPosition = transform.position;
     }
 
     void Start()
@@ -104,27 +101,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         float distToPlayer = Vector2.Distance(transform.position, target.position);
-        float distToStart = Vector2.Distance(transform.position, startPosition);
-
-        if (distToStart > returnRange)
-        {
-            isReturningToStart = true;
-            seeker.StartPath(rb.position, startPosition, OnPathComplete);
-            return;
-        }
-
-        if (isReturningToStart && distToStart < 0.5f)
-        {
-            isReturningToStart = false;
-            path = null;
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
-
-        if (isReturningToStart)
-        {
-            return;
-        }
 
         if (distToPlayer <= detectionRange)
         {
@@ -141,11 +117,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            if (distToStart > 0.5f)
-            {
-                isReturningToStart = true;
-                seeker.StartPath(rb.position, startPosition, OnPathComplete);
-            }
+            path = null;
         }
     }
 
@@ -167,9 +139,13 @@ public class EnemyAI : MonoBehaviour
 
         animator.SetFloat("Speed", rb.linearVelocity.sqrMagnitude);
 
-        if (rb.linearVelocity.x != 0)
+        if (rb.linearVelocity.x > 0.1f)
         {
-            spriteRenderer.flipX = rb.linearVelocity.x < 0; 
+            spriteRenderer.flipX = false;
+        }
+        else if (rb.linearVelocity.x < -0.1f)
+        {
+            spriteRenderer.flipX = true;
         }
 
         currentCooldown -= Time.deltaTime;
@@ -184,12 +160,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isAlive || path == null || currWp >= path.vectorPath.Count)
         {
-            return;
-        }
-
-        if (isReturningToStart)
-        {
-            MoveAlongPath();
             return;
         }
 
@@ -226,6 +196,7 @@ public class EnemyAI : MonoBehaviour
 
     void Attack()
     {
+        isAttacking = true;
         animator.SetBool("isAttacking", true);
         currentCooldown = attackCooldown;
         animator.SetTrigger("Attack");
@@ -233,11 +204,23 @@ public class EnemyAI : MonoBehaviour
 
     void EndOfAttack()
     {
+        isAttacking = false;
         animator.SetBool("isAttacking", false);
 
         if (target != null && Vector2.Distance(transform.position, target.position) <= attackRange)
         {
             target.GetComponent<ConfigPlayer>().TakeDamage(damage);
+        }
+    }
+
+    public void InterruptAttack()
+    {
+        if (isAttacking)
+        {
+            isAttacking = false;
+            animator.SetBool("isAttacking", false);
+            animator.ResetTrigger("Attack");
+            currentCooldown = attackCooldown;
         }
     }
 
@@ -282,9 +265,9 @@ public class EnemyAI : MonoBehaviour
             healthBar.Hide();
         }
 
-        if (challengeTrigger != null)
+        if (!string.IsNullOrEmpty(challengeID) && ChallengeManager.instance != null)
         {
-            challengeTrigger.OnEnemyKilled(gameObject);
+            ChallengeManager.instance.OnChallengeEnemyKilled(challengeID);
         }
 
         DropLoot();
@@ -334,15 +317,5 @@ public class EnemyAI : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
-
-        Gizmos.color = Color.blue;
-        Vector3 spawnPos = Application.isPlaying ? startPosition : transform.position;
-        Gizmos.DrawWireSphere(spawnPos, returnRange);
-        
-        if (Application.isPlaying)
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position, startPosition);
-        }
     }
 }

@@ -29,12 +29,14 @@ public class ChallengeManager : MonoBehaviour
 
     public static ChallengeManager instance;
 
-    private bool isChallengeActive = false;
-    private int enemiesRemaining = 0;
-    private Challenge currentChallenge;
-    private System.Action onChallengeAccepted;
-    private System.Action onRewardClaimed;
-    private System.Action endCallback;
+    private Dictionary<string, ChallengeData> activeChallenges = new Dictionary<string, ChallengeData>();
+    
+    private class ChallengeData
+    {
+        public int enemiesRemaining;
+        public Challenge challenge;
+        public System.Action onComplete;
+    }
 
     public bool challengeMenuOpen { get; private set; }
 
@@ -58,9 +60,6 @@ public class ChallengeManager : MonoBehaviour
         if (challengeMenuOpen) return;
 
         challengeMenuOpen = true;
-        currentChallenge = challenge;
-        onChallengeAccepted = onAccept;
-        endCallback = onEnd;
 
         if (challengeTitle != null)
             challengeTitle.text = challenge.title;
@@ -71,7 +70,11 @@ public class ChallengeManager : MonoBehaviour
         {
             acceptButton.interactable = true;
             acceptButton.onClick.RemoveAllListeners();
-            acceptButton.onClick.AddListener(AcceptChallenge);
+            acceptButton.onClick.AddListener(() => {
+                if (onAccept != null) onAccept.Invoke();
+                EndChallenge();
+                if (onEnd != null) onEnd.Invoke();
+            });
         }
 
         if (claimButton != null)
@@ -86,9 +89,6 @@ public class ChallengeManager : MonoBehaviour
         if (challengeMenuOpen) return;
 
         challengeMenuOpen = true;
-        currentChallenge = challenge;
-        onRewardClaimed = onClaim;
-        endCallback = onEnd;
 
         if (challengeTitle != null)
             challengeTitle.text = rewardTitle;
@@ -99,7 +99,12 @@ public class ChallengeManager : MonoBehaviour
         {
             claimButton.interactable = true;
             claimButton.onClick.RemoveAllListeners();
-            claimButton.onClick.AddListener(ClaimReward);
+            claimButton.onClick.AddListener(() => {
+                ClaimReward(challenge);
+                if (onClaim != null) onClaim.Invoke();
+                EndChallenge();
+                if (onEnd != null) onEnd.Invoke();
+            });
         }
 
         if (acceptButton != null)
@@ -109,27 +114,16 @@ public class ChallengeManager : MonoBehaviour
             animator.SetBool("isOpen", true);
     }
 
-    private void AcceptChallenge()
+    private void ClaimReward(Challenge challenge)
     {
-        isChallengeActive = true;
-        EndChallenge();
-
-        if (onChallengeAccepted != null)
+        if (challenge != null)
         {
-            onChallengeAccepted.Invoke();
-        }
-    }
+            if (challenge.rewardCoins > 0 && Inventory.instance != null)
+                Inventory.instance.AddCoins(challenge.rewardCoins);
 
-    private void ClaimReward()
-    {
-        if (currentChallenge != null)
-        {
-            if (currentChallenge.rewardCoins > 0 && Inventory.instance != null)
-                Inventory.instance.AddCoins(currentChallenge.rewardCoins);
-
-            if (currentChallenge.rewardItems != null && Inventory.instance != null)
+            if (challenge.rewardItems != null && Inventory.instance != null)
             {
-                foreach (Item item in currentChallenge.rewardItems)
+                foreach (Item item in challenge.rewardItems)
                 {
                     if (item != null)
                         Inventory.instance.content.Add(item);
@@ -139,14 +133,6 @@ public class ChallengeManager : MonoBehaviour
             if (Inventory.instance != null)
                 Inventory.instance.UpdateInventoryUI();
         }
-
-        EndChallenge();
-
-        if (onRewardClaimed != null)
-        {
-            onRewardClaimed.Invoke();
-            onRewardClaimed = null;
-        }
     }
 
     public void OpenChallengeCompleted(string title, string description, System.Action onEnd = null)
@@ -154,7 +140,6 @@ public class ChallengeManager : MonoBehaviour
         if (challengeMenuOpen) return;
 
         challengeMenuOpen = true;
-        endCallback = onEnd;
 
         if (challengeTitle != null)
             challengeTitle.text = title;
@@ -181,39 +166,54 @@ public class ChallengeManager : MonoBehaviour
             acceptButton.interactable = false;
         if (claimButton != null)
             claimButton.interactable = false;
+    }
 
-        if (endCallback != null)
+    public void RegisterChallenge(string challengeID, int enemyCount, Challenge challenge, System.Action onComplete)
+    {
+        if (activeChallenges.ContainsKey(challengeID))
         {
-            endCallback.Invoke();
-            endCallback = null;
+            Debug.LogWarning($"Challenge {challengeID} déjà enregistré!");
+            return;
+        }
+
+        activeChallenges[challengeID] = new ChallengeData
+        {
+            enemiesRemaining = enemyCount,
+            challenge = challenge,
+            onComplete = onComplete
+        };
+
+        Debug.Log($"Challenge {challengeID} enregistré avec {enemyCount} ennemis");
+    }
+
+    public void OnChallengeEnemyKilled(string challengeID)
+    {
+        if (string.IsNullOrEmpty(challengeID)) return;
+
+        if (!activeChallenges.ContainsKey(challengeID))
+        {
+            Debug.LogWarning($"Challenge {challengeID} non trouvé!");
+            return;
+        }
+
+        ChallengeData data = activeChallenges[challengeID];
+        data.enemiesRemaining--;
+
+        Debug.Log($"Challenge {challengeID}: {data.enemiesRemaining} ennemis restants");
+
+        if (data.enemiesRemaining <= 0)
+        {
+            Debug.Log($"Challenge {challengeID} terminé!");
+            
+            if (data.onComplete != null)
+                data.onComplete.Invoke();
+
+            activeChallenges.Remove(challengeID);
         }
     }
 
-    public void StartChallenge(int enemyCount)
+    public bool IsChallengeActive(string challengeID)
     {
-        isChallengeActive = true;
-        enemiesRemaining = enemyCount;
-    }
-
-    public void OnChallengeEnemyKilled()
-    {
-        if (!isChallengeActive) return;
-
-        enemiesRemaining--;
-
-        if (enemiesRemaining <= 0)
-        {
-            CompleteChallenge();
-        }
-    }
-
-    private void CompleteChallenge()
-    {
-        isChallengeActive = false;
-    }
-
-    public bool IsChallengeActive()
-    {
-        return isChallengeActive;
+        return activeChallenges.ContainsKey(challengeID);
     }
 }
