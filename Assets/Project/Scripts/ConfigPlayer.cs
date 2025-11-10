@@ -165,6 +165,8 @@ public class ConfigPlayer : MonoBehaviour
 
             UpdateHealthUI();
 
+            animator.SetTrigger("Hit");
+
             if (damageFlash != null)
                 damageFlash.Flash(damage, maxHealth);
 
@@ -177,7 +179,7 @@ public class ConfigPlayer : MonoBehaviour
         }
     }
 
-public void SetInvincible(bool invincible)
+    public void SetInvincible(bool invincible)
     {
         isInvincible = invincible;
     }
