@@ -141,7 +141,6 @@ MonoBehaviour:
   nextWpDistance: 1
   attackRange: 2
   detectionRange: 6
-  returnRange: 10
   seeker: {fileID: 4385269339600049029}
   rb: {fileID: 5523250371482271001}
   obstacleMask:
@@ -154,7 +153,7 @@ MonoBehaviour:
   damage: 2
   maxHealth: 5
   healthBar: {fileID: 1979077743054378849}
-  challengeTrigger: {fileID: 0}
+  challengeID: 
   possibleDrops:
   - prefab: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
     dropChance: 100
@@ -173,6 +172,7 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 1
   dropForce: 20
+  pathUpdateInterval: 0.5
 --- !u!50 &5523250371482271001
 Rigidbody2D:
   serializedVersion: 5

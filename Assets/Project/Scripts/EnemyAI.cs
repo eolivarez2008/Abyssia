@@ -3,59 +3,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// Intelligence artificielle d'un ennemi avec pathfinding, combat et système de drop
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
     [Header("=== CIBLE ===")]
+    [Tooltip("Transform du joueur à cibler")]
     public Transform target;
 
     [Header("=== MOUVEMENT ===")]
+    [Tooltip("Vitesse de déplacement")]
     public float speed = 120f;
+    
+    [Tooltip("Distance minimale au prochain waypoint")]
     public float nextWpDistance = 1f;
+    
+    [Tooltip("Portée d'attaque")]
     public float attackRange = 2f;
+    
+    [Tooltip("Portée de détection du joueur")]
     public float detectionRange = 7f;
 
     [Header("=== PATHFINDING ===")]
     public Path path;
     int currWp = 0;
+    
+    [Tooltip("Composant Seeker pour le pathfinding")]
     public Seeker seeker;
+    
+    [Tooltip("Rigidbody2D de l'ennemi")]
     public Rigidbody2D rb;
+    
+    [Tooltip("Layer des obstacles (murs)")]
     public LayerMask obstacleMask;
     
     [Header("=== PHYSIQUE ===")]
+    [Tooltip("Résistance au push (non utilisé actuellement)")]
     public float pushResistance = 100f;
 
     [Header("=== ANIMATION ===")]
+    [Tooltip("Animator de l'ennemi")]
     public Animator animator;
+    
+    [Tooltip("SpriteRenderer de l'ennemi")]
     public SpriteRenderer spriteRenderer;
 
     [Header("=== COMBAT ===")]
+    [Tooltip("Temps entre deux attaques")]
     public float attackCooldown = 2f;
-    private float currentCooldown = 0f;
+    
+    [Tooltip("Dégâts infligés par attaque")]
     public int damage = 1;
+    
+    [Tooltip("Points de vie maximum")]
     public int maxHealth = 2;
+
+    private float currentCooldown = 0f;
     private int currentHealth;
     private bool isAlive = true;
-    private bool isAttacking = false;
 
     [Header("=== HEALTH BAR ===")]
+    [Tooltip("Barre de vie de l'ennemi")]
     public EnemyHealthBar healthBar;
 
+    [Header("=== CHALLENGE SYSTEM ===")]
+    [Tooltip("ID du challenge auquel appartient cet ennemi (laisser vide si pas dans un challenge)")]
     [HideInInspector]
     public string challengeID = "";
 
     [System.Serializable]
     public class DropItem
     {
+        [Tooltip("Prefab de l'objet à faire tomber")]
         public GameObject prefab;
+        
         [Range(0f, 100f)]
+        [Tooltip("Chance de drop (0-100%)")]
         public float dropChance = 50f;
+        
+        [Tooltip("Quantité minimale")]
         public int minAmount = 1;
+        
+        [Tooltip("Quantité maximale")]
         public int maxAmount = 1;
     }
     
     [Header("=== DROPS ===")]
+    [Tooltip("Liste des objets pouvant être droppés")]
     public List<DropItem> possibleDrops = new List<DropItem>();
+    
+    [Tooltip("Force d'éjection des objets droppés")]
     public float dropForce = 5f;
+
+    [Header("=== PATHFINDING UPDATE ===")]
+    [Tooltip("Intervalle de mise à jour du pathfinding en secondes")]
+    public float pathUpdateInterval = 0.5f;
 
     void Awake()
     {
@@ -64,29 +107,40 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        // Met à jour la barre de vie
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
 
+        // Trouve le joueur
         if (target == null)
         {
-            target = GameObject.FindGameObjectWithTag("Player")?.transform;
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                target = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogWarning($"EnemyAI: Aucun joueur trouvé pour {gameObject.name}");
+                enabled = false;
+                return;
+            }
         }
 
-        if (target == null)
-        {
-            enabled = false;
-            return;
-        }
-
-        InvokeRepeating("UpdatePath", 0, 0.5f);
+        // Lance la mise à jour du pathfinding
+        InvokeRepeating("UpdatePath", 0, pathUpdateInterval);
     }
 
+    /// <summary>
+    /// Met à jour le chemin vers le joueur si dans la portée de détection
+    /// </summary>
     void UpdatePath()
     {
-        if (!isAlive || !seeker.IsDone()) return;
+        if (!isAlive || seeker == null || !seeker.IsDone()) return;
 
+        // Vérifie si le joueur existe toujours
         if (target == null) 
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -102,25 +156,33 @@ public class EnemyAI : MonoBehaviour
 
         float distToPlayer = Vector2.Distance(transform.position, target.position);
 
+        // Si le joueur est dans la portée de détection
         if (distToPlayer <= detectionRange)
         {
+            // Vérifie s'il y a un mur entre l'ennemi et le joueur
             RaycastHit2D hit = Physics2D.Linecast(transform.position, target.position, obstacleMask);
 
             if (hit.collider == null)
             {
+                // Pas de mur, calcule le chemin
                 seeker.StartPath(rb.position, target.position, OnPathComplete);
             }
             else
             {
+                // Mur détecté, arrête le mouvement
                 path = null;
             }
         }
         else
         {
+            // Joueur hors de portée, arrête le mouvement
             path = null;
         }
     }
 
+    /// <summary>
+    /// Callback appelé quand le pathfinding a calculé un chemin
+    /// </summary>
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -132,43 +194,60 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (!isAlive)
+        if (!isAlive) return;
+
+        // Met à jour l'animation
+        if (animator != null && rb != null)
         {
-            return;
+            // Compatible Unity 6+ (linearVelocity) et Unity 2020+ (velocity)
+            #if UNITY_6000_0_OR_NEWER
+                animator.SetFloat("Speed", rb.linearVelocity.sqrMagnitude);
+            #else
+                animator.SetFloat("Speed", rb.velocity.sqrMagnitude);
+            #endif
         }
 
-        animator.SetFloat("Speed", rb.linearVelocity.sqrMagnitude);
-
-        if (rb.linearVelocity.x > 0.1f)
+        // Flip du sprite selon la direction
+        if (spriteRenderer != null && rb != null)
         {
-            spriteRenderer.flipX = false;
+            #if UNITY_6000_0_OR_NEWER
+                float velocityX = rb.linearVelocity.x;
+            #else
+                float velocityX = rb.velocity.x;
+            #endif
+
+            if (velocityX > 0.1f)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else if (velocityX < -0.1f)
+            {
+                spriteRenderer.flipX = true;
+            }
         }
-        else if (rb.linearVelocity.x < -0.1f)
-        {
-            spriteRenderer.flipX = true;
-        }
 
-        currentCooldown -= Time.deltaTime;
-
-        if (currentCooldown < 0)
+        // Réduit le cooldown
+        if (currentCooldown > 0)
         {
-            currentCooldown = 0;
+            currentCooldown -= Time.deltaTime;
         }
     }
 
     void FixedUpdate()
     {
-        if (!isAlive || path == null || currWp >= path.vectorPath.Count)
+        if (!isAlive || path == null || currWp >= path.vectorPath.Count || target == null)
         {
             return;
         }
 
         float playerDistance = Vector2.Distance(target.position, transform.position);
 
+        // Si le joueur est hors de portée d'attaque, se déplacer
         if (playerDistance > attackRange)
         {
             MoveAlongPath();
         }
+        // Sinon, attaquer si le cooldown est terminé
         else
         {
             if (currentCooldown <= 0)
@@ -178,122 +257,181 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Déplace l'ennemi le long du chemin calculé
+    /// </summary>
     void MoveAlongPath()
     {
+        if (rb == null || path == null) return;
+
         Vector2 direction = ((Vector2)path.vectorPath[currWp] - rb.position).normalized;
-        Vector2 smoothDirection = Vector2.Lerp(rb.linearVelocity.normalized, direction, 0.1f);
+        
+        // Compatible Unity 6+ et Unity 2020+
+        #if UNITY_6000_0_OR_NEWER
+            Vector2 smoothDirection = Vector2.Lerp(rb.linearVelocity.normalized, direction, 0.1f);
+        #else
+            Vector2 smoothDirection = Vector2.Lerp(rb.velocity.normalized, direction, 0.1f);
+        #endif
+        
         Vector2 velocity = smoothDirection * speed * Time.fixedDeltaTime;
 
-        rb.linearVelocity = velocity;
+        #if UNITY_6000_0_OR_NEWER
+            rb.linearVelocity = velocity;
+        #else
+            rb.velocity = velocity;
+        #endif
 
+        // Passe au waypoint suivant si assez proche
         float distance = Vector2.Distance(rb.position, path.vectorPath[currWp]);
-
         if (distance < nextWpDistance)
         {
             currWp++;
         }
     }
 
+    /// <summary>
+    /// Lance une attaque
+    /// </summary>
     void Attack()
-    {
-        isAttacking = true;
-        animator.SetBool("isAttacking", true);
+    {        
+        if (animator != null)
+        {
+            animator.SetBool("isAttacking", true);
+            animator.SetTrigger("Attack");
+        }
+        
         currentCooldown = attackCooldown;
-        animator.SetTrigger("Attack");
     }
 
+    /// <summary>
+    /// Appelé par un Animation Event à la fin de l'animation d'attaque
+    /// </summary>
     void EndOfAttack()
-    {
-        isAttacking = false;
-        animator.SetBool("isAttacking", false);
-        AudioManager.instance.PlayEnemyAttack();
+    {        
+        if (animator != null)
+            animator.SetBool("isAttacking", false);
 
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayEnemyAttack();
+
+        // Inflige des dégâts au joueur s'il est toujours à portée
         if (target != null && Vector2.Distance(transform.position, target.position) <= attackRange)
         {
-            target.GetComponent<ConfigPlayer>().TakeDamage(damage);
+            ConfigPlayer player = target.GetComponent<ConfigPlayer>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
         }
     }
 
-    public void InterruptAttack()
-    {
-        if (isAttacking)
-        {
-            isAttacking = false;
-            animator.SetBool("isAttacking", false);
-            animator.ResetTrigger("Attack");
-            currentCooldown = attackCooldown;
-        }
-    }
-
+    /// <summary>
+    /// Inflige des dégâts à l'ennemi
+    /// </summary>
     public void TakeDamage(int damage)
     {
         if (!isAlive) return;
 
         currentHealth -= damage;
 
-        AudioManager.instance.PlayEnemyHit();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayEnemyHit();
 
+        // Met à jour la barre de vie
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
 
+        // Mort
         if (currentHealth <= 0)
         {
             Die();
         }
         else
         {
-            animator.SetTrigger("Hit");
+            // Animation de hit
+            if (animator != null)
+                animator.SetTrigger("Hit");
+            
+            // Réinitialise le cooldown d'attaque
             currentCooldown = attackCooldown;
         }
     }
 
+    /// <summary>
+    /// Tue l'ennemi
+    /// </summary>
     void Die()
     {
         isAlive = false;
         
-        AudioManager.instance.PlayEnemyDeath();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayEnemyDeath();
 
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        // Arrête le mouvement
+        if (rb != null)
+        {
+            #if UNITY_6000_0_OR_NEWER
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            #else
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            #endif
+            rb.bodyType = RigidbodyType2D.Kinematic;
+        }
 
+        // Désactive les colliders
         Collider2D[] cols = GetComponents<Collider2D>();
         foreach (var c in cols)
         {
-            c.enabled = false;
+            if (c != null)
+                c.enabled = false;
         }
 
+        // Cache la barre de vie
         if (healthBar != null)
         {
             healthBar.Hide();
         }
 
+        // Notifie le ChallengeManager si c'est un ennemi de challenge
         if (!string.IsNullOrEmpty(challengeID) && ChallengeManager.instance != null)
         {
             ChallengeManager.instance.OnChallengeEnemyKilled(challengeID);
         }
 
+        // Drop le loot
         DropLoot();
 
-        animator.SetTrigger("Die");
+        // Animation de mort
+        if (animator != null)
+            animator.SetTrigger("Die");
 
+        // Détruit l'objet après 3 secondes
         Destroy(gameObject, 3f);
     }
 
+    /// <summary>
+    /// Fait tomber les objets aléatoirement selon les chances configurées
+    /// </summary>
     void DropLoot()
     {
+        if (possibleDrops == null || possibleDrops.Count == 0) return;
+
         foreach (DropItem drop in possibleDrops)
         {
             if (drop.prefab == null) continue;
 
             float randomChance = Random.Range(0f, 100f);
             
+            // Vérifie si l'objet doit être droppé
             if (randomChance <= drop.dropChance)
             {
                 int amount = Random.Range(drop.minAmount, drop.maxAmount + 1);
 
+                // Fait apparaître plusieurs exemplaires si nécessaire
                 for (int i = 0; i < amount; i++)
                 {
                     Vector3 dropPosition = transform.position + new Vector3(
@@ -304,6 +442,7 @@ public class EnemyAI : MonoBehaviour
 
                     GameObject droppedItem = Instantiate(drop.prefab, dropPosition, Quaternion.identity);
 
+                    // Applique une force pour éjecter l'objet
                     Rigidbody2D dropRb = droppedItem.GetComponent<Rigidbody2D>();
                     if (dropRb != null)
                     {
@@ -315,11 +454,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Affiche les portées dans l'éditeur
+    /// </summary>
     void OnDrawGizmosSelected()
     {
+        // Portée d'attaque en rouge
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
+        // Portée de détection en jaune
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
