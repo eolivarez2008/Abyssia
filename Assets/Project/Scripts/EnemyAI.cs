@@ -206,6 +206,7 @@ public class EnemyAI : MonoBehaviour
     {
         isAttacking = false;
         animator.SetBool("isAttacking", false);
+        AudioManager.instance.PlayEnemyAttack();
 
         if (target != null && Vector2.Distance(transform.position, target.position) <= attackRange)
         {
@@ -230,6 +231,8 @@ public class EnemyAI : MonoBehaviour
 
         currentHealth -= damage;
 
+        AudioManager.instance.PlayEnemyHit();
+
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
@@ -249,6 +252,8 @@ public class EnemyAI : MonoBehaviour
     void Die()
     {
         isAlive = false;
+        
+        AudioManager.instance.PlayEnemyDeath();
 
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;

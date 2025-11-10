@@ -21,6 +21,7 @@ public class Chest : MonoBehaviour
     {
         isOpened = true;
         animator.SetTrigger("OpenChest");
+        AudioManager.instance.PlayChestOpen();
 
         Inventory.instance.AddCoins(coinsToAdd);
 

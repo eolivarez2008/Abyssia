@@ -12,13 +12,18 @@ public class SellButtonItem : MonoBehaviour
     public void BuyItem()
     {
         Inventory inventory = Inventory.instance;
-
+        
         if(inventory.coinsCount >= item.price)
         {
+            AudioManager.instance.PlayValidate();
             inventory.content.Add(item);
             inventory.UpdateInventoryUI();
             inventory.coinsCount -= item.price;
             inventory.UpdateTextUI();
+        }
+        else
+        {
+            AudioManager.instance.PlayError();
         }
     }
 }

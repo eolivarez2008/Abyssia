@@ -84,7 +84,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -580548703
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4723107735738678597, guid: d41576387a072924484cc2fc31105b4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -141,7 +141,6 @@ MonoBehaviour:
   nextWpDistance: 1
   attackRange: 1.6
   detectionRange: 6
-  returnRange: 10
   seeker: {fileID: 3637492414480884318}
   rb: {fileID: 1109019563651111306}
   obstacleMask:
@@ -154,7 +153,7 @@ MonoBehaviour:
   damage: 5
   maxHealth: 10
   healthBar: {fileID: 1426746859535962534}
-  challengeTrigger: {fileID: 0}
+  challengeID: 
   possibleDrops:
   - prefab: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
     dropChance: 100

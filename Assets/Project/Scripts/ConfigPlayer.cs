@@ -111,16 +111,23 @@ public class ConfigPlayer : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && canAttack && currentAttackPoints > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
-            PerformAttack();
-            currentAttackPoints--;
-            UpdateAttackUI();
-            canAttack = false;
-            StartCoroutine(AttackCooldownCoroutine());
+            if (currentAttackPoints > 0)
+            {
+                PerformAttack();
+                currentAttackPoints--;
+                UpdateAttackUI();
+                canAttack = false;
+                StartCoroutine(AttackCooldownCoroutine());
 
-            if (currentAttackPoints < maxAttackPoints && rechargeRoutine == null)
-                rechargeRoutine = StartCoroutine(RechargeCoroutine());
+                if (currentAttackPoints < maxAttackPoints && rechargeRoutine == null)
+                    rechargeRoutine = StartCoroutine(RechargeCoroutine());
+            }
+            else
+            {
+                AudioManager.instance.PlayPlayerNotAttack();
+            }
         }
     }
 
@@ -157,6 +164,7 @@ public class ConfigPlayer : MonoBehaviour
             UpdateHealthUI();
 
             animator.SetTrigger("Hit");
+            AudioManager.instance.PlayPlayerHit();
 
             if (damageFlash != null)
                 damageFlash.Flash(damage, maxHealth);
@@ -164,6 +172,7 @@ public class ConfigPlayer : MonoBehaviour
             if (currentHealth <= 0)
             {
                 isAlive = false;
+                AudioManager.instance.PlayPlayerDeath();
                 animator.SetTrigger("Die");
                 StartCoroutine(AttendreFinAnimationDie());
             }
@@ -273,6 +282,7 @@ public class ConfigPlayer : MonoBehaviour
     void PerformAttack()
     {
         animator.SetTrigger("Attack");
+        AudioManager.instance.PlayPlayerAttack();
 
         Vector2 attackDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);

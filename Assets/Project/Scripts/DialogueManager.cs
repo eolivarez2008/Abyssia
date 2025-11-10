@@ -43,6 +43,8 @@ public class DialogueManager : MonoBehaviour
         dialogueActive = true;
         animator.SetBool("isOpen", true);
 
+        AudioManager.instance.PlayOpenDialogue();
+
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string s in dialogue.sentences)
@@ -63,6 +65,8 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+
+        AudioManager.instance.PlayNextDialogue();
     }
 
     private IEnumerator TypeSentence(string sentence)
@@ -79,6 +83,8 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         dialogueActive = false;
+
+        AudioManager.instance.PlayCloseDialogue();
 
         if (endCallback != null)
         {

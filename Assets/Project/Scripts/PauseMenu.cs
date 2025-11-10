@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         isPaused = false;
+        AudioManager.instance.PlayButtonClick();
     }
 
     void Pause()
@@ -65,6 +66,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
+        AudioManager.instance.PlayButtonClick();
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -77,6 +79,8 @@ public class PauseMenu : MonoBehaviour
             settingsCanvas.overrideSorting = true;
             settingsCanvas.sortingOrder = 1000;
         }
+        
+        AudioManager.instance.PlayButtonClick();
     }
 
     public void LoadMenu()
@@ -92,11 +96,15 @@ public class PauseMenu : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         }
+
+        AudioManager.instance.PlayButtonClick();
     }
 
     public void CloseSettings()
     {
         if (settingsCanvas != null)
             settingsCanvas.gameObject.SetActive(false);
+
+        AudioManager.instance.PlayButtonClick();
     }
 }

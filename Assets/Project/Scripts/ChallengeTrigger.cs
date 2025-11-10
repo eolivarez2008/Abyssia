@@ -36,6 +36,7 @@ public class ChallengeTrigger : MonoBehaviour
         if (ChallengeManager.instance != null && ChallengeManager.instance.challengeMenuOpen && Input.GetKeyDown(KeyCode.Tab))
         {
             ChallengeManager.instance.EndChallenge();
+            OnChallengeEnd();
         }
     }
 
@@ -65,6 +66,8 @@ public class ChallengeTrigger : MonoBehaviour
     void TriggerChallenge()
     {
         interactUI.enabled = false;
+
+        AudioManager.instance.PlayOpenDialogue();
 
         if (rewardClaimed)
         {
@@ -127,7 +130,6 @@ public class ChallengeTrigger : MonoBehaviour
     void OnChallengeComplete()
     {
         challengeCompleted = true;
-        Debug.Log($"Challenge {challengeID} complété!");
     }
 
     void OnChallengeEnd()

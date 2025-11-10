@@ -32,13 +32,9 @@ public class MenuPrincipal : MonoBehaviour
 
     public void Jouer()
     {
-        // Jouer le son de clic
         if (AudioManager.instance != null)
         {
-            if (customClickSound != null)
-                AudioManager.instance.PlaySound(customClickSound);
-            else
-                AudioManager.instance.PlayButtonClick();
+            AudioManager.instance.PlayButtonClick();
         }
 
         if (LoadingManager.instance != null)
@@ -53,13 +49,9 @@ public class MenuPrincipal : MonoBehaviour
 
     public void Settings()
     {
-        // Son d'ouverture de menu
         if (AudioManager.instance != null)
         {
-            if (customClickSound != null)
-                AudioManager.instance.PlaySound(customClickSound);
-            else
-                AudioManager.instance.PlayMenuOpen();
+            AudioManager.instance.PlayButtonClick();
         }
 
         if (settingsCanvas != null)
@@ -68,13 +60,9 @@ public class MenuPrincipal : MonoBehaviour
 
     public void Quitter()
     {
-        // Son de clic
         if (AudioManager.instance != null)
         {
-            if (customClickSound != null)
-                AudioManager.instance.PlaySound(customClickSound);
-            else
-                AudioManager.instance.PlayButtonClick();
+            AudioManager.instance.PlayButtonClick();
         }
 
 #if UNITY_EDITOR
@@ -86,20 +74,18 @@ public class MenuPrincipal : MonoBehaviour
 
     public void CloseSettings()
     {
-        // Son de fermeture
         if (AudioManager.instance != null)
         {
             if (customClickSound != null)
                 AudioManager.instance.PlaySound(customClickSound);
             else
-                AudioManager.instance.PlayMenuClose();
+                AudioManager.instance.PlayButtonClick();
         }
 
         if (settingsCanvas != null)
             settingsCanvas.gameObject.SetActive(false);
     }
 
-    // Méthode pour le hover (à appeler depuis les EventTriggers Unity)
     public void OnButtonHover()
     {
         if (AudioManager.instance != null)
@@ -107,7 +93,7 @@ public class MenuPrincipal : MonoBehaviour
             if (customHoverSound != null)
                 AudioManager.instance.PlaySound(customHoverSound, 0.5f);
             else
-                AudioManager.instance.PlayButtonHover();
+                AudioManager.instance.PlayButtonClick();
         }
     }
 }

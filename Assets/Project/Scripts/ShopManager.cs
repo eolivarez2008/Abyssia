@@ -38,6 +38,8 @@ public class ShopManager : MonoBehaviour
         }
 
         animator.SetBool("isOpen", true);
+
+        AudioManager.instance.PlayOpenDialogue();
     }
 
     private void GenerateButtons(Item[] items)
@@ -69,6 +71,8 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         animator.SetBool("isOpen", false);
+
+        AudioManager.instance.PlayCloseDialogue();
 
         if (onShopClosedCallback != null)
         {

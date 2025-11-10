@@ -1985,6 +1985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1639694171289384038, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
+      propertyPath: m_MinValue
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2130,6 +2134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4509779295689781196, guid: 9140a136db1279d4698135e26fa48019, type: 3}
+      propertyPath: transitionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d6dab192626eb5c4a8c5161ff755d778, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2153,21 +2161,105 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: rewardSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: enemyHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 48a1f26ce542af8418919078c2239f19, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: menuOpenSound
       value: 
-      objectReference: {fileID: 8300000, guid: e6356e379d4a9d5468c0ab9dec8eeb8e, type: 3}
+      objectReference: {fileID: 8300000, guid: 1da8da44f88ef1242a8d2fecaf8318cb, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: validateSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: chestOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c2c465b7b4421a4abba3f6e3f9391d3, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: menuCloseSound
       value: 
-      objectReference: {fileID: 8300000, guid: 43f4467f859643b4cb1a2a19f80b1e62, type: 3}
+      objectReference: {fileID: 8300000, guid: 1da8da44f88ef1242a8d2fecaf8318cb, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: playerHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b85eedfae68b02d4eb646ebe4b290a88, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: enemyDeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: pickupCoinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 044a266ee943856418ed90b0db01467e, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: pickupItemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 95f9e0e378748f440b81e944e06ebd14, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: buttonClickSound
       value: 
-      objectReference: {fileID: 8300000, guid: 3a17de06c1d3af04a80352eae46c4f00, type: 3}
+      objectReference: {fileID: 8300000, guid: 1da8da44f88ef1242a8d2fecaf8318cb, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: buttonHoverSound
       value: 
-      objectReference: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+      objectReference: {fileID: 8300000, guid: 1da8da44f88ef1242a8d2fecaf8318cb, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: enemyAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: enterportalSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: playerDeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 093ab100850ca6344b52067e66622817, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: nextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: df06190f02581004abea7794f3c8f3de, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: openDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 93fd296715c2f3c4181decb96d5602b9, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: playerAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e933d8356b55bb469e244b05ec57c5a, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: useHealthPopSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b6805333eac73e74fbafa40f24317348, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: closeDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ce5b74e9cfc7c0d4bb53a4164744df8e, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: useForcePotionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: df06190f02581004abea7794f3c8f3de, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: useSpeedPotionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a3b9f94aa2a73d479fe72986320703a, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: playerNotAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 36c4736bf0d2e034dbd0c7d97a00534f, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: useHealthPotionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 93fd296715c2f3c4181decb96d5602b9, type: 3}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: useShieldPotionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ce5b74e9cfc7c0d4bb53a4164744df8e, type: 3}
     - target: {fileID: 5139690411426450053, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
