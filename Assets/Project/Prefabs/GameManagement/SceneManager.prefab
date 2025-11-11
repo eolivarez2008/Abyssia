@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772336126324958749}
+  - component: {fileID: 1300297572183775845}
+  - component: {fileID: 3271226640650505205}
   - component: {fileID: 4874371196413216500}
   - component: {fileID: 4855308012372540322}
   - component: {fileID: 6314769432882801728}
+  - component: {fileID: 3739344137956519469}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -34,6 +37,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300297572183775845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b669761d44c8b42becfcf500db5b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  pauseUI: {fileID: 0}
+  fadeManager: {fileID: 0}
+  menuSceneName: Menu
+  settingsCanvas: {fileID: 0}
+--- !u!114 &3271226640650505205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3b0fd9f8eae74898a34d753d7cd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  mortUI: {fileID: 0}
+  menuSceneName: Menu
+  fadeManager: {fileID: 0}
 --- !u!114 &4874371196413216500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +112,27 @@ MonoBehaviour:
   animator: {fileID: 0}
   sellButtonPrefab: {fileID: 0}
   sellButtonsParent: {fileID: 0}
+--- !u!114 &3739344137956519469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5756f395f1cf2343a87564d44837b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  challengeTitle: {fileID: 0}
+  challengeDescription: {fileID: 0}
+  acceptButton: {fileID: 0}
+  claimButton: {fileID: 0}
+  closeButton: {fileID: 0}
+  challengeUIPanel: {fileID: 0}
+  animator: {fileID: 0}
+  alreadyDoneTitle: "D\xE9fi d\xE9j\xE0 compl\xE9t\xE9"
+  alreadyDoneDescription: "Vous avez d\xE9j\xE0 relev\xE9 ce d\xE9fi. Vous ne pouvez
+    plus le faire avec ce NPC."
+  rewardTitle: "R\xE9compense !"
+  rewardDescription: "D\xE9fi termin\xE9 ! R\xE9cup\xE8re ta r\xE9compense."

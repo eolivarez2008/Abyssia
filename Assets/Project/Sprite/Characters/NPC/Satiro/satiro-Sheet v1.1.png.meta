@@ -271,12 +271,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 228
-        width: 20
-        height: 21
+        x: 0
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 228
-        width: 20
-        height: 22
+        x: 32
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 228
-        width: 20
-        height: 22
+        x: 64
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 228
-        width: 20
-        height: 24
+        x: 96
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -359,12 +359,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_4
       rect:
         serializedVersion: 2
-        x: 132
-        y: 228
-        width: 20
-        height: 23
+        x: 128
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -381,12 +381,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_5
       rect:
         serializedVersion: 2
-        x: 164
-        y: 228
-        width: 20
-        height: 22
+        x: 160
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -403,12 +403,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_6
       rect:
         serializedVersion: 2
-        x: 4
-        y: 196
-        width: 20
-        height: 21
+        x: 0
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -425,12 +425,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_7
       rect:
         serializedVersion: 2
-        x: 36
-        y: 196
-        width: 20
-        height: 23
+        x: 32
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -447,12 +447,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_8
       rect:
         serializedVersion: 2
-        x: 68
-        y: 197
-        width: 20
-        height: 22
+        x: 64
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -469,12 +469,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_9
       rect:
         serializedVersion: 2
-        x: 100
-        y: 196
-        width: 20
-        height: 22
+        x: 96
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -491,12 +491,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_10
       rect:
         serializedVersion: 2
-        x: 133
-        y: 196
-        width: 19
-        height: 20
+        x: 128
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -513,12 +513,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_11
       rect:
         serializedVersion: 2
-        x: 165
-        y: 196
-        width: 19
-        height: 22
+        x: 160
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -535,12 +535,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_12
       rect:
         serializedVersion: 2
-        x: 197
-        y: 197
-        width: 19
-        height: 21
+        x: 192
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -557,12 +557,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_13
       rect:
         serializedVersion: 2
-        x: 229
-        y: 196
-        width: 19
-        height: 22
+        x: 224
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -579,12 +579,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_14
       rect:
         serializedVersion: 2
-        x: 6
-        y: 164
-        width: 18
-        height: 20
+        x: 0
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -601,12 +601,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_15
       rect:
         serializedVersion: 2
-        x: 39
-        y: 164
-        width: 21
-        height: 20
+        x: 32
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -623,12 +623,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_16
       rect:
         serializedVersion: 2
-        x: 73
-        y: 164
-        width: 21
-        height: 20
+        x: 64
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_17
       rect:
         serializedVersion: 2
-        x: 102
-        y: 164
-        width: 23
-        height: 20
+        x: 96
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -667,12 +667,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_18
       rect:
         serializedVersion: 2
-        x: 5
-        y: 134
-        width: 19
-        height: 20
+        x: 0
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -689,12 +689,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_19
       rect:
         serializedVersion: 2
-        x: 37
-        y: 134
-        width: 19
-        height: 20
+        x: 32
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,12 +711,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_20
       rect:
         serializedVersion: 2
-        x: 69
-        y: 134
-        width: 19
-        height: 20
+        x: 64
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -733,12 +733,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_21
       rect:
         serializedVersion: 2
-        x: 101
-        y: 134
-        width: 19
-        height: 20
+        x: 96
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -755,12 +755,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_22
       rect:
         serializedVersion: 2
-        x: 133
-        y: 134
-        width: 19
-        height: 20
+        x: 128
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -777,12 +777,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_23
       rect:
         serializedVersion: 2
-        x: 165
-        y: 134
-        width: 19
-        height: 20
+        x: 160
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -799,12 +799,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_24
       rect:
         serializedVersion: 2
-        x: 4
-        y: 103
-        width: 20
-        height: 23
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -821,12 +821,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_25
       rect:
         serializedVersion: 2
-        x: 36
-        y: 103
-        width: 21
-        height: 23
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -843,12 +843,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_26
       rect:
         serializedVersion: 2
-        x: 68
-        y: 103
-        width: 21
-        height: 23
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -865,12 +865,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_27
       rect:
         serializedVersion: 2
-        x: 100
-        y: 103
-        width: 20
-        height: 23
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -887,12 +887,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_28
       rect:
         serializedVersion: 2
-        x: 132
-        y: 103
-        width: 21
-        height: 23
+        x: 128
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -909,12 +909,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_29
       rect:
         serializedVersion: 2
-        x: 164
-        y: 103
-        width: 21
-        height: 23
+        x: 160
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -931,12 +931,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_30
       rect:
         serializedVersion: 2
-        x: 4
-        y: 68
-        width: 20
-        height: 21
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -953,12 +953,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_31
       rect:
         serializedVersion: 2
-        x: 35
-        y: 68
-        width: 23
-        height: 17
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -975,12 +975,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_32
       rect:
         serializedVersion: 2
-        x: 66
-        y: 74
-        width: 13
-        height: 10
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -997,12 +997,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_33
       rect:
         serializedVersion: 2
-        x: 76
-        y: 68
-        width: 14
-        height: 19
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1019,12 +1019,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_34
       rect:
         serializedVersion: 2
-        x: 98
-        y: 73
-        width: 13
-        height: 10
+        x: 128
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1041,12 +1041,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_35
       rect:
         serializedVersion: 2
-        x: 108
-        y: 68
-        width: 14
-        height: 13
+        x: 160
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1063,12 +1063,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_36
       rect:
         serializedVersion: 2
-        x: 110
-        y: 75
-        width: 9
-        height: 16
+        x: 192
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1085,12 +1085,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_37
       rect:
         serializedVersion: 2
-        x: 131
-        y: 69
-        width: 9
-        height: 12
+        x: 224
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1107,12 +1107,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_38
       rect:
         serializedVersion: 2
-        x: 139
-        y: 79
-        width: 15
-        height: 12
+        x: 256
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1129,12 +1129,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_39
       rect:
         serializedVersion: 2
-        x: 139
-        y: 68
-        width: 15
-        height: 12
+        x: 288
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1151,12 +1151,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_40
       rect:
         serializedVersion: 2
-        x: 162
-        y: 68
-        width: 10
-        height: 10
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1173,12 +1173,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_41
       rect:
         serializedVersion: 2
-        x: 171
-        y: 77
-        width: 15
-        height: 13
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1195,12 +1195,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_42
       rect:
         serializedVersion: 2
-        x: 194
-        y: 68
-        width: 24
-        height: 21
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1217,12 +1217,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_43
       rect:
         serializedVersion: 2
-        x: 235
-        y: 68
-        width: 83
-        height: 21
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1239,12 +1239,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_44
       rect:
         serializedVersion: 2
-        x: 171
-        y: 68
-        width: 16
-        height: 8
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1261,12 +1261,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_45
       rect:
         serializedVersion: 2
-        x: 203
-        y: 68
-        width: 16
-        height: 8
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1283,12 +1283,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_46
       rect:
         serializedVersion: 2
-        x: 226
-        y: 68
-        width: 10
-        height: 6
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1305,12 +1305,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_47
       rect:
         serializedVersion: 2
-        x: 4
-        y: 36
-        width: 20
-        height: 24
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1327,12 +1327,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_48
       rect:
         serializedVersion: 2
-        x: 35
-        y: 36
-        width: 21
-        height: 22
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1349,12 +1349,12 @@ TextureImporter:
       name: satiro-Sheet v1.1_49
       rect:
         serializedVersion: 2
-        x: 66
-        y: 36
-        width: 21
-        height: 22
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1367,165 +1367,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_50
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 36
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbf5386bdc44523e0800000000000000
-      internalID: -2079180002640568385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_51
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 4
-        width: 23
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9fcaee2f5040f4850800000000000000
-      internalID: 6363309222094875897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_52
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 4
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb48e2772617104d0800000000000000
-      internalID: -3170127994971847490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_53
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 4
-        width: 19
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e9eac4ce937cf5620800000000000000
-      internalID: 2765147747820285598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_54
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 4
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5f2c0277483d8ca0800000000000000
-      internalID: -6013088047962509475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_55
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 4
-        width: 20
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6a109b9d31f40e5a0800000000000000
-      internalID: -6494103715992501850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: satiro-Sheet v1.1_56
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 4
-        width: 27
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 091b6668dffcf1a60800000000000000
-      internalID: 7647059380086944144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 40ad04f212b15f5458b926a105c7fb0c
     internalID: 0
     vertices: []
     indices: 
@@ -1533,7 +1379,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       satiro-Sheet v1.1_0: -7751219071525288297
       satiro-Sheet v1.1_1: -2809228643774045280
@@ -1581,13 +1429,6 @@ TextureImporter:
       satiro-Sheet v1.1_48: 8300765068421179809
       satiro-Sheet v1.1_49: 4164816203915251958
       satiro-Sheet v1.1_5: -1092727325466002275
-      satiro-Sheet v1.1_50: -2079180002640568385
-      satiro-Sheet v1.1_51: 6363309222094875897
-      satiro-Sheet v1.1_52: -3170127994971847490
-      satiro-Sheet v1.1_53: 2765147747820285598
-      satiro-Sheet v1.1_54: -6013088047962509475
-      satiro-Sheet v1.1_55: -6494103715992501850
-      satiro-Sheet v1.1_56: 7647059380086944144
       satiro-Sheet v1.1_6: 2827251138833111162
       satiro-Sheet v1.1_7: -4244630165220924610
       satiro-Sheet v1.1_8: 7692902487014450953

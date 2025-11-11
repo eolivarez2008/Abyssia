@@ -41,6 +41,8 @@ public class EnemyAI : MonoBehaviour
     private int currentHealth;
     private bool isAlive = true;
 
+    public ChallengeTrigger challengeTrigger;
+
     [System.Serializable]
     public class DropItem
     {
@@ -271,6 +273,11 @@ public class EnemyAI : MonoBehaviour
         foreach (var c in cols)
         {
             c.enabled = false;
+        }
+
+        if (challengeTrigger != null)
+        {
+            challengeTrigger.OnEnemyKilled(gameObject);
         }
 
         // Drop des objets
