@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5649603140010211176}
   - component: {fileID: 6052728457116706302}
   - component: {fileID: 9053474950051256724}
+  - component: {fileID: 7716799828937077432}
   m_Layer: 0
   m_Name: Le Casse-Cou
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4723107735738678597, guid: ee9244ad33076f84e9a81dc7a02968ab, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 66eac929a6bc9704fb01af2c90b1ad06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.25}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1.25, y: 1.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -174,17 +175,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.071584225, y: -0.12319243}
+  m_Offset: {x: -0.016822815, y: -0.15524992}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.25}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1.25, y: 1.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9359808, y: 1.0989192}
+  m_Size: {x: 0.826458, y: 1.3233278}
   m_EdgeRadius: 0
 --- !u!95 &9053474950051256724
 Animator:
@@ -196,7 +197,7 @@ Animator:
   m_GameObject: {fileID: 675379511790687302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 265249cbf8ee1b34a8aea34a50c8f1a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 319d5114a50b3164b944672329100776, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -208,6 +209,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7716799828937077432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675379511790687302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489df50121aa25b4c91bc8a8e24af3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  challenge:
+    title: "D\xE9fi de combat"
+    description: "Oh Oh mais qui voil\xE0 ! Je te propose un march\xE9, si tu \xE9limines
+      tous les ennemis que je vais faire spawn tu recevras une r\xE9compense. Ca
+      t'int\xE9resses ?"
+    enemyPrefabs:
+    - {fileID: 0}
+    - {fileID: 0}
+    rewardCoins: 100
+    rewardItems:
+    - {fileID: 11400000, guid: 277db713312e6144fbea6fba2672eb16, type: 2}
+  interactUI: {fileID: 2745328357567232917}
+  spawnDelay: 0.5
+  delayBeforeSpawn: 1
+  completedTitle: "D\xE9fi termin\xE9"
+  completedDescription: "Vous avez d\xE9j\xE0 compl\xE9t\xE9 ce d\xE9fi et r\xE9clam\xE9
+    votre r\xE9compense."
 --- !u!1 &4828127461420470483
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,4 +427,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Presser E pour la d\xE9fier !"
+  m_Text: Presser E pour interagir !
