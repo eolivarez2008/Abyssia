@@ -14,9 +14,8 @@ public class EnemyAI : MonoBehaviour
     public float attackRange = 2f;
     public float detectionRange = 7f;
     
-    // Position de départ pour le retour
     private Vector3 startPosition;
-    public float returnRange = 10f; // Distance max avant de retourner au spawn
+    public float returnRange = 10f;
     private bool isReturningToStart = false;
 
     [Header("=== PATHFINDING ===")]
@@ -27,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask obstacleMask;
     
     [Header("=== PHYSIQUE ===")]
-    public float pushResistance = 100f; // Résistance au push du joueur
+    public float pushResistance = 100f;
 
     [Header("=== ANIMATION ===")]
     public Animator animator;
@@ -41,31 +40,39 @@ public class EnemyAI : MonoBehaviour
     private int currentHealth;
     private bool isAlive = true;
 
+    [Header("=== HEALTH BAR ===")]
+    public EnemyHealthBar healthBar; // Référence à la barre de vie
+
     public ChallengeTrigger challengeTrigger;
 
     [System.Serializable]
     public class DropItem
     {
-        public GameObject prefab;       // Le prefab à drop (coin, coeur, etc.)
+        public GameObject prefab;
         [Range(0f, 100f)]
-        public float dropChance = 50f;  // Chance de drop en %
-        public int minAmount = 1;       // Quantité minimum
-        public int maxAmount = 1;       // Quantité maximum
+        public float dropChance = 50f;
+        public int minAmount = 1;
+        public int maxAmount = 1;
     }
     
     [Header("=== DROPS ===")]
     public List<DropItem> possibleDrops = new List<DropItem>();
-    public float dropForce = 5f; // Force d'éjection des drops
+    public float dropForce = 5f;
 
     void Awake()
     {
         currentHealth = maxHealth;
-        // Sauvegarde la position de départ
         startPosition = transform.position;
     }
 
     void Start()
     {
+        // Met à jour la barre de vie au départ
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -101,7 +108,6 @@ public class EnemyAI : MonoBehaviour
         float distToPlayer = Vector2.Distance(transform.position, target.position);
         float distToStart = Vector2.Distance(transform.position, startPosition);
 
-        // Si trop loin du spawn, retourne à la position de départ
         if (distToStart > returnRange)
         {
             isReturningToStart = true;
@@ -109,7 +115,6 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // Si proche du spawn et en mode retour, arrête le retour
         if (isReturningToStart && distToStart < 0.5f)
         {
             isReturningToStart = false;
@@ -118,13 +123,11 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // Si en mode retour, continue de retourner
         if (isReturningToStart)
         {
             return;
         }
 
-        // Comportement normal : poursuite du joueur
         if (distToPlayer <= detectionRange)
         {
             RaycastHit2D hit = Physics2D.Linecast(transform.position, target.position, obstacleMask);
@@ -140,7 +143,6 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            // Joueur hors de portée, commence à retourner
             if (distToStart > 0.5f)
             {
                 isReturningToStart = true;
@@ -187,7 +189,6 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // Si en mode retour, ne pas attaquer
         if (isReturningToStart)
         {
             MoveAlongPath();
@@ -248,6 +249,12 @@ public class EnemyAI : MonoBehaviour
 
         currentHealth -= damage;
 
+        // Met à jour la barre de vie
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -263,16 +270,20 @@ public class EnemyAI : MonoBehaviour
     {
         isAlive = false;
 
-        // Stop le mouvement
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
-        // Désactive tous les colliders
         Collider2D[] cols = GetComponents<Collider2D>();
         foreach (var c in cols)
         {
             c.enabled = false;
+        }
+
+        // Cache la barre de vie
+        if (healthBar != null)
+        {
+            healthBar.Hide();
         }
 
         if (challengeTrigger != null)
@@ -280,13 +291,10 @@ public class EnemyAI : MonoBehaviour
             challengeTrigger.OnEnemyKilled(gameObject);
         }
 
-        // Drop des objets
         DropLoot();
 
-        // Animation de mort
         animator.SetTrigger("Die");
 
-        // Supprime l'objet après 3 secondes
         Destroy(gameObject, 3f);
     }
 
@@ -296,18 +304,14 @@ public class EnemyAI : MonoBehaviour
         {
             if (drop.prefab == null) continue;
 
-            // Vérifie la chance de drop
             float randomChance = Random.Range(0f, 100f);
             
             if (randomChance <= drop.dropChance)
             {
-                // Détermine la quantité à drop
                 int amount = Random.Range(drop.minAmount, drop.maxAmount + 1);
 
-                // Spawn les objets
                 for (int i = 0; i < amount; i++)
                 {
-                    // Position légèrement aléatoire autour de l'ennemi
                     Vector3 dropPosition = transform.position + new Vector3(
                         Random.Range(-0.5f, 0.5f),
                         Random.Range(-0.5f, 0.5f),
@@ -316,7 +320,6 @@ public class EnemyAI : MonoBehaviour
 
                     GameObject droppedItem = Instantiate(drop.prefab, dropPosition, Quaternion.identity);
 
-                    // Applique une force d'éjection si l'objet a un Rigidbody2D
                     Rigidbody2D dropRb = droppedItem.GetComponent<Rigidbody2D>();
                     if (dropRb != null)
                     {
@@ -330,20 +333,16 @@ public class EnemyAI : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Zone d'attaque
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // Zone de détection
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
-        // Zone de retour
         Gizmos.color = Color.blue;
         Vector3 spawnPos = Application.isPlaying ? startPosition : transform.position;
         Gizmos.DrawWireSphere(spawnPos, returnRange);
         
-        // Ligne vers spawn
         if (Application.isPlaying)
         {
             Gizmos.color = Color.cyan;

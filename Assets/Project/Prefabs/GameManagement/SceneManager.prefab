@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPointName: SpawnPoint
+  offset: {x: -1, y: 0, z: 0}
 --- !u!114 &4855308012372540322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,11 +129,6 @@ MonoBehaviour:
   challengeDescription: {fileID: 0}
   acceptButton: {fileID: 0}
   claimButton: {fileID: 0}
-  closeButton: {fileID: 0}
-  challengeUIPanel: {fileID: 0}
   animator: {fileID: 0}
-  alreadyDoneTitle: "D\xE9fi d\xE9j\xE0 compl\xE9t\xE9"
-  alreadyDoneDescription: "Vous avez d\xE9j\xE0 relev\xE9 ce d\xE9fi. Vous ne pouvez
-    plus le faire avec ce NPC."
   rewardTitle: "R\xE9compense !"
   rewardDescription: "D\xE9fi termin\xE9 ! R\xE9cup\xE8re ta r\xE9compense."

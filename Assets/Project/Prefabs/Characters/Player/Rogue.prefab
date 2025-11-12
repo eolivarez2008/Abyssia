@@ -197,16 +197,16 @@ MonoBehaviour:
   damageFlash: {fileID: 0}
   mortMenu: {fileID: 0}
   persistentCanvas: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 100
   isAlive: 1
   healthFill: {fileID: 0}
   widthMax: 320.5
   widthMin: 2
   height: 25.131
   isInvincible: 0
-  speedColor: {r: 0.5, g: 0, b: 1, a: 0.8784314}
-  damageColor: {r: 0, g: 1, b: 0, a: 0.8784314}
-  invincibilityColor: {r: 0, g: 0.5, b: 1, a: 0.8784314}
+  speedColor: {r: 0, g: 0, b: 1, a: 0.8784314}
+  damageColor: {r: 1, g: 0, b: 0, a: 0.8784314}
+  invincibilityColor: {r: 0, g: 1, b: 0, a: 0.8784314}
   attackRange: 1.5
   damage: 1
   knockbackForce: 20
