@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4855308012372540322}
   - component: {fileID: 6314769432882801728}
   - component: {fileID: 3739344137956519469}
+  - component: {fileID: 4649462747380324462}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -132,3 +133,21 @@ MonoBehaviour:
   animator: {fileID: 0}
   rewardTitle: "R\xE9compense !"
   rewardDescription: "D\xE9fi termin\xE9 ! R\xE9cup\xE8re ta r\xE9compense."
+--- !u!114 &4649462747380324462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467068620571706395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984377e14a9f9114d93ba1e3db3b1ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveEffectsUI
+  speedCanvas: {fileID: 0}
+  speedTimerText: {fileID: 0}
+  damageCanvas: {fileID: 0}
+  damageTimerText: {fileID: 0}
+  invincibilityCanvas: {fileID: 0}
+  invincibilityTimerText: {fileID: 0}

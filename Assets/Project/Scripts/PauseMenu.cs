@@ -3,13 +3,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [Header("Panel Pause UI")]
-    public GameObject pauseUI;                 // Le panel avec boutons
+    public GameObject pauseUI;
     private bool isPaused = false;
 
-    [Header("FadeManager de la scène")]
-    public FadeManager fadeManager;            // Référence au FadeManager de la scène
-    public string menuSceneName = "Menu";      // Nom exact de la scène MenuPrincipal
+    [Header("Menu Scene")]
+    public string menuSceneName = "Menu";
 
+    [Header("Settings Canvas")]
     [SerializeField] private Canvas settingsCanvas;
 
     private CanvasGroup pauseCanvasGroup;
@@ -18,10 +18,9 @@ public class PauseMenu : MonoBehaviour
     {
         if (pauseUI != null)
         {
-            pauseUI.SetActive(false);          // Masqué au démarrage
+            pauseUI.SetActive(false);
             pauseCanvasGroup = pauseUI.GetComponent<CanvasGroup>();
 
-            // Si pas de CanvasGroup, on en ajoute un pour contrôle alpha & interaction
             if (pauseCanvasGroup == null)
                 pauseCanvasGroup = pauseUI.AddComponent<CanvasGroup>();
 
@@ -54,7 +53,6 @@ public class PauseMenu : MonoBehaviour
         if (pauseUI != null)
         {
             pauseUI.SetActive(true);
-            // S’assure que le panel est au premier plan
             Canvas canvas = pauseUI.GetComponentInParent<Canvas>();
             if (canvas != null)
                 canvas.sortingOrder = 100;
@@ -69,23 +67,29 @@ public class PauseMenu : MonoBehaviour
         if (settingsCanvas != null)
         {
             settingsCanvas.gameObject.SetActive(true);
-            settingsCanvas.sortingOrder = 100; // Plus grand = devant les autres Canvas
+            settingsCanvas.sortingOrder = 100;
         }
     }
 
-    // --- Bouton quitter vers le menu avec fade ---
+    /// <summary>
+    /// Retour au menu avec LoadingManager
+    /// </summary>
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         isPaused = false;
 
-        if (fadeManager != null)
-            fadeManager.LoadSceneWithFade(menuSceneName);
+        if (LoadingManager.instance != null)
+        {
+            LoadingManager.instance.LoadScene(menuSceneName);
+        }
         else
+        {
+            Debug.LogWarning("LoadingManager introuvable, chargement direct !");
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
+        }
     }
 
-    // Désactive le canvas des paramètres
     public void CloseSettings()
     {
         if (settingsCanvas != null)

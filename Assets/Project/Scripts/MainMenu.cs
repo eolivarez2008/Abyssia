@@ -8,9 +8,6 @@ public class MenuPrincipal : MonoBehaviour
     [Header("Nom de la scène Jouer")]
     [SerializeField] private string sceneJouer = "Jeu";
 
-    [Header("Référence FadeManager")]
-    public FadeManager fadeManager; 
-
     [Header("Canvas Paramètres")]
     [SerializeField] private Canvas settingsCanvas;
 
@@ -33,7 +30,15 @@ public class MenuPrincipal : MonoBehaviour
     // --- Bouton Jouer ---
     public void Jouer()
     {
-        ChargerScene(sceneJouer);
+        if (LoadingManager.instance != null)
+        {
+            LoadingManager.instance.LoadScene(sceneJouer);
+        }
+        else
+        {
+            Debug.LogWarning("MenuPrincipal: LoadingManager introuvable, chargement direct !");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneJouer);
+        }
     }
 
     // --- Bouton Paramètres ---
@@ -51,26 +56,6 @@ public class MenuPrincipal : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    // --- Méthode utilitaire ---
-    private void ChargerScene(string nomScene)
-    {
-        if (string.IsNullOrEmpty(nomScene))
-        {
-            Debug.LogWarning("MenuPrincipal: le nom de la scène est vide !");
-            return;
-        }
-
-        if (fadeManager != null)
-        {
-            fadeManager.LoadSceneWithFade(nomScene);
-        }
-        else
-        {
-            Debug.LogWarning("MenuPrincipal: FadeManager non assigné, chargement direct !");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nomScene);
-        }
     }
 
     // Désactive le canvas des paramètres

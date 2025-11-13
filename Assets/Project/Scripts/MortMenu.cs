@@ -3,11 +3,8 @@ using UnityEngine;
 public class MortMenu : MonoBehaviour
 {
     [Header("Panel Mort UI")]
-    public GameObject mortUI;               // Le panel avec texte et bouton
-    public string menuSceneName = "Menu";   // Nom exact de la scène MenuPrincipal
-
-    [Header("FadeManager de la scène")]
-    public FadeManager fadeManager;         // Drag & drop du FadeManager de la scène
+    public GameObject mortUI;
+    public string menuSceneName = "Menu";
 
     private CanvasGroup mortCanvasGroup;
 
@@ -15,7 +12,7 @@ public class MortMenu : MonoBehaviour
     {
         if (mortUI != null)
         {
-            mortUI.SetActive(false); // Panel masqué au départ
+            mortUI.SetActive(false);
             mortCanvasGroup = mortUI.GetComponent<CanvasGroup>();
 
             if (mortCanvasGroup == null)
@@ -36,25 +33,29 @@ public class MortMenu : MonoBehaviour
         {
             mortUI.SetActive(true);
 
-            // Assure que le panel est au premier plan
             Canvas canvas = mortUI.GetComponentInParent<Canvas>();
             if (canvas != null)
                 canvas.sortingOrder = 100;
         }
 
-        Time.timeScale = 0f; // met le jeu en pause
+        Time.timeScale = 0f;
     }
 
     /// <summary>
-    /// Bouton retour au menu
+    /// Bouton retour au menu avec LoadingManager
     /// </summary>
     public void RetourMenu()
     {
         Time.timeScale = 1f;
 
-        if (fadeManager != null)
-            fadeManager.LoadSceneWithFade(menuSceneName);
+        if (LoadingManager.instance != null)
+        {
+            LoadingManager.instance.LoadScene(menuSceneName);
+        }
         else
+        {
+            Debug.LogWarning("LoadingManager introuvable, chargement direct !");
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
+        }
     }
 }

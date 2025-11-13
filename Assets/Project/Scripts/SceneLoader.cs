@@ -1,17 +1,23 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class sceneLoader : MonoBehaviour
 {
     public string levelToLoad;
-    public FadeManager fadeManager; // référence directe au FadeManager de la scène
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && fadeManager != null)
+        if (collision.CompareTag("Player"))
         {
-            fadeManager.LoadSceneWithFade(levelToLoad);
+            if (LoadingManager.instance != null)
+            {
+                LoadingManager.instance.LoadScene(levelToLoad);
+            }
+            else
+            {
+                // Fallback si LoadingManager n'existe pas
+                Debug.LogWarning("LoadingManager introuvable, chargement direct !");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
+            }
         }
     }
 }
