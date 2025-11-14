@@ -197,7 +197,7 @@ MonoBehaviour:
   damageFlash: {fileID: 0}
   mortMenu: {fileID: 0}
   persistentCanvas: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 15
   isAlive: 1
   healthFill: {fileID: 0}
   widthMax: 320.5

@@ -16,7 +16,6 @@ public class MenuPrincipal : MonoBehaviour
 
     private void Awake()
     {
-        // Supprime les objets DDOL avec les noms spécifiés
         foreach (string name in ddolNamesToDestroy)
         {
             GameObject obj = GameObject.Find(name);
@@ -27,7 +26,6 @@ public class MenuPrincipal : MonoBehaviour
         }
     }
 
-    // --- Bouton Jouer ---
     public void Jouer()
     {
         if (LoadingManager.instance != null)
@@ -36,19 +34,16 @@ public class MenuPrincipal : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("MenuPrincipal: LoadingManager introuvable, chargement direct !");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneJouer);
         }
     }
 
-    // --- Bouton Paramètres ---
     public void Settings()
     {
         if (settingsCanvas != null)
             settingsCanvas.gameObject.SetActive(true);
     }
 
-    // --- Bouton Quitter ---
     public void Quitter()
     {
 #if UNITY_EDITOR
@@ -58,7 +53,6 @@ public class MenuPrincipal : MonoBehaviour
 #endif
     }
 
-    // Désactive le canvas des paramètres
     public void CloseSettings()
     {
         if (settingsCanvas != null)

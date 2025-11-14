@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     public string spawnPointName;
-    public Vector3 offset; // Décalage ajustable depuis l’inspecteur
+    public Vector3 offset;
 
     void Start()
     {

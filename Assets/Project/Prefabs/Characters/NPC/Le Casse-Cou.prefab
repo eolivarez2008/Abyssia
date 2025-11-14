@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1039981387488973911}
   - component: {fileID: 2599068836980175350}
   - component: {fileID: 5649603140010211176}
-  - component: {fileID: 6052728457116706302}
+  - component: {fileID: 1332558685237677105}
   - component: {fileID: 9053474950051256724}
   - component: {fileID: 7716799828937077432}
   m_Layer: 0
@@ -141,8 +141,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.0869083, y: 3.1242828}
   m_EdgeRadius: 0
---- !u!61 &6052728457116706302
-BoxCollider2D:
+--- !u!70 &1332558685237677105
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,18 +175,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.016822815, y: -0.15524992}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1.25, y: 1.3125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.826458, y: 1.3233278}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.10177085}
+  m_Size: {x: 0.7909136, y: 1.333866}
+  m_Direction: 0
 --- !u!95 &9053474950051256724
 Animator:
   serializedVersion: 7
@@ -222,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   challenge:
-    title: "D\xE9fi de combat"
+    title: Le Casse-Cou
     description: "Oh Oh mais qui voil\xE0 ! Je te propose un march\xE9, si tu \xE9limines
       tous les ennemis que je vais faire spawn tu recevras une r\xE9compense. Ca
       t'int\xE9resses ?"
@@ -237,7 +228,7 @@ MonoBehaviour:
   delayBeforeSpawn: 1
   completedTitle: "D\xE9fi termin\xE9"
   completedDescription: "Vous avez d\xE9j\xE0 compl\xE9t\xE9 ce d\xE9fi et r\xE9clam\xE9
-    votre r\xE9compense."
+    votre r\xE9compense.\nVous ne pouvez le r\xE9aliser qu'une seule fois par pnj."
 --- !u!1 &4828127461420470483
 GameObject:
   m_ObjectHideFlags: 0

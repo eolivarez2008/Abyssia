@@ -152,7 +152,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8957157059813291060}
   attackCooldown: 2
   damage: 1
-  maxHealth: 10
+  maxHealth: 3
   healthBar: {fileID: 862081551380342160}
   challengeTrigger: {fileID: 0}
   possibleDrops:

@@ -12,21 +12,25 @@ public class PauseMenu : MonoBehaviour
     [Header("Settings Canvas")]
     [SerializeField] private Canvas settingsCanvas;
 
-    private CanvasGroup pauseCanvasGroup;
+    private Canvas pauseCanvas;
+    private int originalSortingOrder;
 
     void Awake()
     {
         if (pauseUI != null)
         {
             pauseUI.SetActive(false);
-            pauseCanvasGroup = pauseUI.GetComponent<CanvasGroup>();
-
-            if (pauseCanvasGroup == null)
-                pauseCanvasGroup = pauseUI.AddComponent<CanvasGroup>();
-
-            pauseCanvasGroup.alpha = 1f;
-            pauseCanvasGroup.interactable = true;
-            pauseCanvasGroup.blocksRaycasts = true;
+            
+            pauseCanvas = pauseUI.GetComponent<Canvas>();
+            if (pauseCanvas == null)
+            {
+                pauseCanvas = pauseUI.AddComponent<Canvas>();
+                pauseUI.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+            }
+            
+            pauseCanvas.overrideSorting = true;
+            originalSortingOrder = pauseCanvas.sortingOrder;
+            pauseCanvas.sortingOrder = 999;
         }
     }
 
@@ -53,9 +57,12 @@ public class PauseMenu : MonoBehaviour
         if (pauseUI != null)
         {
             pauseUI.SetActive(true);
-            Canvas canvas = pauseUI.GetComponentInParent<Canvas>();
-            if (canvas != null)
-                canvas.sortingOrder = 100;
+            
+            if (pauseCanvas != null)
+            {
+                pauseCanvas.overrideSorting = true;
+                pauseCanvas.sortingOrder = 999;
+            }
         }
 
         Time.timeScale = 0f;
@@ -67,13 +74,11 @@ public class PauseMenu : MonoBehaviour
         if (settingsCanvas != null)
         {
             settingsCanvas.gameObject.SetActive(true);
-            settingsCanvas.sortingOrder = 100;
+            settingsCanvas.overrideSorting = true;
+            settingsCanvas.sortingOrder = 1000;
         }
     }
 
-    /// <summary>
-    /// Retour au menu avec LoadingManager
-    /// </summary>
     public void LoadMenu()
     {
         Time.timeScale = 1f;
@@ -85,7 +90,6 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("LoadingManager introuvable, chargement direct !");
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         }
     }

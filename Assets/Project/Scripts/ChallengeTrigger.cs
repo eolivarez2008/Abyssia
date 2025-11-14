@@ -24,13 +24,11 @@ public class ChallengeTrigger : MonoBehaviour
 
     void Update()
     {
-        // Appuyer sur E pour interagir (SEULEMENT si pas de challenge en cours)
         if (isInRange && Input.GetKeyDown(KeyCode.E) && !ChallengeManager.instance.IsChallengeActive())
         {
             TriggerChallenge();
         }
 
-        // Fermer le menu avec Tab
         if (ChallengeManager.instance != null && ChallengeManager.instance.challengeMenuOpen && Input.GetKeyDown(KeyCode.Tab))
         {
             ChallengeManager.instance.EndChallenge();
@@ -43,7 +41,6 @@ public class ChallengeTrigger : MonoBehaviour
         {
             isInRange = true;
             
-            // Affiche le texte SEULEMENT si pas de challenge en cours
             if (!ChallengeManager.instance.challengeMenuOpen && !ChallengeManager.instance.IsChallengeActive())
                 interactUI.enabled = true;
         }
@@ -56,7 +53,6 @@ public class ChallengeTrigger : MonoBehaviour
             isInRange = false;
             interactUI.enabled = false;
             
-            // Ferme le menu si ouvert
             if (ChallengeManager.instance.challengeMenuOpen)
                 ChallengeManager.instance.EndChallenge();
         }
@@ -64,22 +60,18 @@ public class ChallengeTrigger : MonoBehaviour
 
     void TriggerChallenge()
     {
-        // Cache le texte d'interaction
         interactUI.enabled = false;
 
-        // Si la récompense a été réclamée
         if (rewardClaimed)
         {
             ChallengeManager.instance.OpenChallengeCompleted(completedTitle, completedDescription, OnChallengeEnd);
             return;
         }
 
-        // Si challenge complété mais pas réclamé
         if (challengeCompleted && !rewardClaimed)
         {
             ChallengeManager.instance.OpenChallengeReward(challenge, OnRewardClaimed, OnChallengeEnd);
         }
-        // Si challenge pas encore commencé
         else if (!challengeCompleted)
         {
             ChallengeManager.instance.OpenChallengeOffer(challenge, StartChallenge, OnChallengeEnd);
@@ -116,7 +108,6 @@ public class ChallengeTrigger : MonoBehaviour
             spawnedEnemies.Add(enemy);
             totalEnemies++;
 
-            // Ajoute le composant pour tracker la mort
             EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
             if (enemyAI != null)
             {
@@ -129,9 +120,6 @@ public class ChallengeTrigger : MonoBehaviour
         ChallengeManager.instance.StartChallenge(totalEnemies);
     }
 
-    /// <summary>
-    /// Appelé quand un ennemi du challenge meurt
-    /// </summary>
     public void OnEnemyKilled(GameObject enemy)
     {
         spawnedEnemies.Remove(enemy);
@@ -145,7 +133,6 @@ public class ChallengeTrigger : MonoBehaviour
 
     void OnChallengeEnd()
     {
-        // Si le joueur est toujours dans le trigger ET pas de challenge en cours, réaffiche le texte
         if (isInRange && !ChallengeManager.instance.IsChallengeActive())
             interactUI.enabled = true;
     }

@@ -6,7 +6,7 @@ public class PickUpItem : MonoBehaviour
 
     public ItemType itemType;
     public Item item; 
-    public int value = 1; // valeur pour les pièces ou les cœurs
+    public int value = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

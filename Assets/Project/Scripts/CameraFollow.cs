@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
         if (player == null)
         {
             FindPlayer();
-            return; // évite erreur le temps de retrouver
+            return;
         }
 
         transform.position = Vector3.SmoothDamp(
