@@ -2,40 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Minifantasy
+public class AnimatedObjectsGroup : MonoBehaviour
 {
-    public class AnimatedObjectsGroup : MonoBehaviour
-    {
-        public List<GameObject> groupObjects = new List<GameObject>();
-        private List<Animator> animators = new List<Animator>();
+    public List<GameObject> groupObjects = new List<GameObject>();
+    private List<Animator> animators = new List<Animator>();
 
-        private void Start()
+    private void Start()
+    {
+        foreach (GameObject item in groupObjects)
         {
-            foreach (GameObject item in groupObjects)
+            if (item != null)
             {
-                if (item != null)
+                if (item.transform.childCount > 1)
                 {
-                    if (item.transform.childCount > 1)
+                    for (int i = 0; i < item.transform.childCount; i++)
                     {
-                        for (int i = 0; i < item.transform.childCount; i++)
-                        {
-                            animators.Add(item.transform.GetChild(i).GetComponentInChildren<Animator>());
-                        }
+                        animators.Add(item.transform.GetChild(i).GetComponentInChildren<Animator>());
                     }
-                    else
-                    {
-                        animators.Add(item.GetComponentInChildren<Animator>());
-                    }
+                }
+                else
+                {
+                    animators.Add(item.GetComponentInChildren<Animator>());
                 }
             }
         }
+    }
 
-        public void OnOffSwitch(bool onOrOff)
+    public void OnOffSwitch(bool onOrOff)
+    {
+        foreach (Animator item in animators)
         {
-            foreach (Animator item in animators)
-            {
-                item.enabled = onOrOff;
-            }
+            item.enabled = onOrOff;
         }
     }
 }
