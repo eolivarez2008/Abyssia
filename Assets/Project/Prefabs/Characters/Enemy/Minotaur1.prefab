@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   target: {fileID: 0}
-  speed: 130
+  speed: 120
   nextWpDistance: 1
   attackRange: 1.6
   detectionRange: 6
@@ -147,15 +147,31 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  pushResistance: 200
+  pushResistance: 300
   animator: {fileID: 6451517052703569827}
   spriteRenderer: {fileID: 8997564195547722980}
   attackCooldown: 2.5
-  damage: 3
-  maxHealth: 5
+  damage: 5
+  maxHealth: 10
   healthBar: {fileID: 1426746859535962534}
   challengeTrigger: {fileID: 0}
-  possibleDrops: []
+  possibleDrops:
+  - prefab: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 3
+  - prefab: {fileID: 3228597016498271635, guid: cfd2b50abf935df41a0bba0415ae5c20, type: 3}
+    dropChance: 50
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 7342005399196144880, guid: 33614a29d4a12c2498d73784ce931f62, type: 3}
+    dropChance: 50
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 1345104945056373078, guid: 4efda9b47f392874b8d02036f23f215d, type: 3}
+    dropChance: 50
+    minAmount: 1
+    maxAmount: 1
   dropForce: 25
 --- !u!50 &1109019563651111306
 Rigidbody2D:

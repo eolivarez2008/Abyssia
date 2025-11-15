@@ -405,7 +405,11 @@ MonoBehaviour:
   dialogue:
     name: Le Bavard
     sentences:
-    - Salut
-    - Bla
-    - bli
+    - "Bienvenue voyageur. Si vous voulez quitter ces couloirs, trouvez le portail
+      cach\xE9 au fond du donjon."
+    - "Le chemin ne sera pas calme. Des cr\xE9atures r\xF4dent dans chaque salle.
+      Restez pr\xEAt."
+    - Les monstres gardent parfois des potions. Si vous en manquez, faites-les tomber.
+    - "Les marchands install\xE9s dans les zones s\xFBres vendent aussi des potions.
+      Gardez de l\u2019or sur vous."
   interactUI: {fileID: 6597377542591048269}

@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   target: {fileID: 0}
-  speed: 120
+  speed: 115
   nextWpDistance: 1
   attackRange: 2
   detectionRange: 6
@@ -155,8 +155,24 @@ MonoBehaviour:
   maxHealth: 5
   healthBar: {fileID: 1979077743054378849}
   challengeTrigger: {fileID: 0}
-  possibleDrops: []
-  dropForce: 5
+  possibleDrops:
+  - prefab: {fileID: 3130646148912219091, guid: c1bc68cd5c2d9e04d846bd8db9dbddbb, type: 3}
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 3
+  - prefab: {fileID: 7342005399196144880, guid: 33614a29d4a12c2498d73784ce931f62, type: 3}
+    dropChance: 15
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 3228597016498271635, guid: cfd2b50abf935df41a0bba0415ae5c20, type: 3}
+    dropChance: 15
+    minAmount: 1
+    maxAmount: 1
+  - prefab: {fileID: 1345104945056373078, guid: 4efda9b47f392874b8d02036f23f215d, type: 3}
+    dropChance: 15
+    minAmount: 1
+    maxAmount: 1
+  dropForce: 20
 --- !u!50 &5523250371482271001
 Rigidbody2D:
   serializedVersion: 5
