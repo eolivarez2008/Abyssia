@@ -1,37 +1,82 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Trigger pour ouvrir un magasin quand le joueur interagit avec
+/// </summary>
 public class ShopTrigger : MonoBehaviour
 {
-    private bool isInRange;
+    [Header("Shop Configuration")]
+    [Tooltip("Nom du marchand")]
+    public string pnjName;
+    
+    [Tooltip("Items à vendre dans ce magasin")]
+    public Item[] itemsToSell;
+
+    [Header("UI")]
+    [Tooltip("Texte affichant comment interagir")]
     public Text interactUI;
 
-    public string pnjName;
-    public Item[] itemsToSell;
+    [Header("Input Settings")]
+    [Tooltip("Touche pour ouvrir le magasin")]
+    public KeyCode interactKey = KeyCode.E;
+    
+    [Tooltip("Touche pour fermer le magasin")]
+    public KeyCode closeKey = KeyCode.Tab;
+
+    private bool isInRange;
 
     void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.E))
+        if (ShopManager.instance == null)
+        {
+            Debug.LogWarning("ShopTrigger: ShopManager.instance est null!");
+            return;
+        }
+
+        // Ouvre le magasin
+        if (isInRange && Input.GetKeyDown(interactKey) && !ShopManager.instance.IsShopOpen())
         {
             OpenShop();
         }
 
-        if (ShopManager.instance.IsShopOpen() && Input.GetKeyDown(KeyCode.Tab))
+        // Ferme le magasin avec Tab
+        if (ShopManager.instance.IsShopOpen() && Input.GetKeyDown(closeKey))
         {
             ShopManager.instance.CloseShop();
         }
     }
 
+    /// <summary>
+    /// Ouvre le magasin
+    /// </summary>
     private void OpenShop()
     {
-        interactUI.enabled = false;
+        if (ShopManager.instance == null)
+        {
+            Debug.LogError("ShopTrigger: ShopManager.instance est null!");
+            return;
+        }
+
+        if (itemsToSell == null || itemsToSell.Length == 0)
+        {
+            Debug.LogWarning("ShopTrigger: Aucun item à vendre!");
+            return;
+        }
+
+        if (interactUI != null)
+            interactUI.enabled = false;
 
         ShopManager.instance.OpenShop(itemsToSell, pnjName, OnShopClosed);
     }
 
+    /// <summary>
+    /// Appelé quand le magasin se ferme
+    /// </summary>
     private void OnShopClosed()
     {
-        if (isInRange)
+        // Réaffiche l'UI d'interaction si le joueur est encore dans la zone
+        if (isInRange && interactUI != null)
             interactUI.enabled = true;
     }
 
@@ -41,8 +86,13 @@ public class ShopTrigger : MonoBehaviour
         {
             isInRange = true;
 
-            if (!ShopManager.instance.IsShopOpen())
+            // Affiche l'UI d'interaction si le magasin n'est pas ouvert
+            if (ShopManager.instance != null && 
+                !ShopManager.instance.IsShopOpen() && 
+                interactUI != null)
+            {
                 interactUI.enabled = true;
+            }
         }
     }
 
@@ -51,10 +101,15 @@ public class ShopTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
-            interactUI.enabled = false;
+            
+            if (interactUI != null)
+                interactUI.enabled = false;
 
-            if (ShopManager.instance.IsShopOpen())
+            // Ferme le magasin si le joueur s'éloigne
+            if (ShopManager.instance != null && ShopManager.instance.IsShopOpen())
+            {
                 ShopManager.instance.CloseShop();
+            }
         }
     }
 }

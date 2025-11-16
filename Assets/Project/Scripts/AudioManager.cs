@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Gestionnaire centralisé pour tous les sons du jeu (musique et effets sonores)
+/// Pattern Singleton avec DontDestroyOnLoad
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
     [Header("Musique de fond")]
+    [Tooltip("Clip audio de la musique principale")]
     public AudioClip musiqueDeFond;
+    [Tooltip("Groupe du mixer audio pour la musique")]
     public AudioMixerGroup musicMixer;
 
     [Header("Effets sonores (SFX)")]
+    [Tooltip("Groupe du mixer audio pour les effets sonores")]
     public AudioMixerGroup sfxMixer;
 
     [Header("Liste des clips audio")]
@@ -35,8 +42,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("Paramètres audio")]
     [Range(0f, 1f)]
+    [Tooltip("Volume des sons d'interface (0-1)")]
     public float uiVolume = 1f;
     [Range(0f, 1f)]
+    [Tooltip("Volume des sons de gameplay (0-1)")]
     public float gameVolume = 1f;
 
     private AudioSource musicSource;
@@ -46,6 +55,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        // Pattern Singleton avec DontDestroyOnLoad
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -55,11 +65,13 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // Configuration de l'AudioSource pour la musique
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         musicSource.playOnAwake = false;
         musicSource.outputAudioMixerGroup = musicMixer;
 
+        // Configuration de l'AudioSource pour les effets sonores
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.playOnAwake = false;
         sfxSource.outputAudioMixerGroup = sfxMixer;
@@ -67,6 +79,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        // Lance la musique de fond si définie
         if (musiqueDeFond != null)
         {
             musicSource.clip = musiqueDeFond;
@@ -74,100 +87,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Joue un effet sonore avec un volume personnalisé
+    /// </summary>
     public void PlaySound(AudioClip clip, float volumeScale = 1f)
     {
-        if (clip == null) return;
+        if (clip == null || sfxSource == null) return;
         sfxSource.PlayOneShot(clip, volumeScale);
     }
 
+    // Sons d'interface
     public void PlayButtonClick()
     {
         PlaySound(buttonClickSound, uiVolume);
     }
 
-    public void PlayPickupCoin()
-    {
-        PlaySound(pickupCoinSound, gameVolume);
-    }
-
-    public void PlayPickupItem()
-    {
-        PlaySound(pickupItemSound, gameVolume);
-    }
-
-    public void PlayChestOpen()
-    {
-        PlaySound(chestOpenSound, gameVolume);
-    }
-
-    public void PlayPlayerAttack()
-    {
-        PlaySound(playerAttackSound, gameVolume);
-    }
-
-    public void PlayPlayerHit()
-    {
-        PlaySound(playerHitSound, gameVolume);
-    }
-
-    public void PlayPlayerDeath()
-    {
-        PlaySound(playerDeathSound, gameVolume);
-    }
-
-    public void PlayEnemyHit()
-    {
-        PlaySound(enemyHitSound, gameVolume);
-    }
-
-    public void PlayEnemyDeath()
-    {
-        PlaySound(enemyDeathSound, gameVolume);
-    }
-
-    public void PlayEnemyAttack()
-    {
-        PlaySound(enemyAttackSound, gameVolume);
-    }
-
-    public void PlayUseHealthPotion()
-    {
-        PlaySound(useHealthPotionSound, gameVolume);
-    }
-
-    public void PlayUseShieldPotion()
-    {
-        PlaySound(useShieldPotionSound, gameVolume);
-    }
-
-    public void PlayUseSpeedPotion()
-    {
-        PlaySound(useSpeedPotionSound, gameVolume);
-    }
-
-    public void PlayUseForcePotion()
-    {
-        PlaySound(useForcePotionSound, gameVolume);
-    }
-
     public void PlayValidate()
     {
         PlaySound(validateSound, uiVolume);
-    }
-
-    public void PlayUseHealthPop()
-    {
-        PlaySound(useHealthPopSound, gameVolume);
-    } 
-
-    public void PlayReward()
-    {
-        PlaySound(rewardSound, uiVolume);
-    }
-
-    public void PlayPlayerNotAttack()
-    {
-        PlaySound(playerNotAttackSound, gameVolume);
     }
 
     public void PlayOpenDialogue()
@@ -190,30 +127,132 @@ public class AudioManager : MonoBehaviour
         PlaySound(playerNotAttackSound, uiVolume);
     }
 
+    public void PlayReward()
+    {
+        PlaySound(rewardSound, uiVolume);
+    }
+
+    // Sons de gameplay - Ramassage
+    public void PlayPickupCoin()
+    {
+        PlaySound(pickupCoinSound, gameVolume);
+    }
+
+    public void PlayPickupItem()
+    {
+        PlaySound(pickupItemSound, gameVolume);
+    }
+
+    public void PlayChestOpen()
+    {
+        PlaySound(chestOpenSound, gameVolume);
+    }
+
+    // Sons de gameplay - Joueur
+    public void PlayPlayerAttack()
+    {
+        PlaySound(playerAttackSound, gameVolume);
+    }
+
+    public void PlayPlayerNotAttack()
+    {
+        PlaySound(playerNotAttackSound, gameVolume);
+    }
+
+    public void PlayPlayerHit()
+    {
+        PlaySound(playerHitSound, gameVolume);
+    }
+
+    public void PlayPlayerDeath()
+    {
+        PlaySound(playerDeathSound, gameVolume);
+    }
+
+    // Sons de gameplay - Ennemis
+    public void PlayEnemyHit()
+    {
+        PlaySound(enemyHitSound, gameVolume);
+    }
+
+    public void PlayEnemyDeath()
+    {
+        PlaySound(enemyDeathSound, gameVolume);
+    }
+
+    public void PlayEnemyAttack()
+    {
+        PlaySound(enemyAttackSound, gameVolume);
+    }
+
+    // Sons de gameplay - Potions
+    public void PlayUseHealthPotion()
+    {
+        PlaySound(useHealthPotionSound, gameVolume);
+    }
+
+    public void PlayUseShieldPotion()
+    {
+        PlaySound(useShieldPotionSound, gameVolume);
+    }
+
+    public void PlayUseSpeedPotion()
+    {
+        PlaySound(useSpeedPotionSound, gameVolume);
+    }
+
+    public void PlayUseForcePotion()
+    {
+        PlaySound(useForcePotionSound, gameVolume);
+    }
+
+    public void PlayUseHealthPop()
+    {
+        PlaySound(useHealthPopSound, gameVolume);
+    }
+
+    // Méthode générique pour jouer n'importe quel effet sonore
     public void PlaySFX(AudioClip clip)
     {
         PlaySound(clip);
     }
 
+    // Contrôles de la musique
+    /// <summary>
+    /// Définit le volume de la musique
+    /// </summary>
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = volume;
+        if (musicSource != null)
+        {
+            musicSource.volume = volume;
+        }
     }
 
+    /// <summary>
+    /// Met la musique en pause
+    /// </summary>
     public void PauseMusic()
     {
-        if (musicSource.isPlaying)
+        if (musicSource != null && musicSource.isPlaying)
             musicSource.Pause();
     }
 
+    /// <summary>
+    /// Reprend la musique
+    /// </summary>
     public void ResumeMusic()
     {
-        if (!musicSource.isPlaying)
+        if (musicSource != null && !musicSource.isPlaying)
             musicSource.Play();
     }
 
+    /// <summary>
+    /// Arrête complètement la musique
+    /// </summary>
     public void StopMusic()
     {
-        musicSource.Stop();
+        if (musicSource != null)
+            musicSource.Stop();
     }
 }

@@ -1,17 +1,27 @@
 using UnityEngine;
 
+/// <summary>
+/// Gère le menu de pause du jeu
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     [Header("Panel Pause UI")]
+    [Tooltip("GameObject du panneau de pause")]
     public GameObject pauseUI;
-    private bool isPaused = false;
-
+    
     [Header("Menu Scene")]
+    [Tooltip("Nom de la scène du menu principal")]
     public string menuSceneName = "Menu";
 
     [Header("Settings Canvas")]
+    [Tooltip("Canvas du menu des paramètres")]
     [SerializeField] private Canvas settingsCanvas;
 
+    [Header("Input Settings")]
+    [Tooltip("Touche pour ouvrir/fermer la pause")]
+    public KeyCode pauseKey = KeyCode.Escape;
+
+    private bool isPaused = false;
     private Canvas pauseCanvas;
     private int originalSortingOrder;
 
@@ -19,8 +29,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (pauseUI != null)
         {
+            // Désactive le panneau au démarrage
             pauseUI.SetActive(false);
             
+            // Configure le canvas
             pauseCanvas = pauseUI.GetComponent<Canvas>();
             if (pauseCanvas == null)
             {
@@ -32,17 +44,27 @@ public class PauseMenu : MonoBehaviour
             originalSortingOrder = pauseCanvas.sortingOrder;
             pauseCanvas.sortingOrder = 999;
         }
+        else
+        {
+            Debug.LogWarning("PauseMenu: pauseUI non assigné!");
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Toggle pause avec Escape (ou touche configurée)
+        if (Input.GetKeyDown(pauseKey))
         {
-            if (isPaused) Resume();
-            else Pause();
+            if (isPaused)
+                Resume();
+            else
+                Pause();
         }
     }
 
+    /// <summary>
+    /// Reprend le jeu
+    /// </summary>
     public void Resume()
     {
         if (pauseUI != null)
@@ -50,15 +72,21 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         isPaused = false;
-        AudioManager.instance.PlayButtonClick();
+        
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayButtonClick();
     }
 
+    /// <summary>
+    /// Met le jeu en pause
+    /// </summary>
     void Pause()
     {
         if (pauseUI != null)
         {
             pauseUI.SetActive(true);
             
+            // S'assure que le canvas est au-dessus de tout
             if (pauseCanvas != null)
             {
                 pauseCanvas.overrideSorting = true;
@@ -66,25 +94,35 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        AudioManager.instance.PlayButtonClick();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayButtonClick();
+        
         Time.timeScale = 0f;
         isPaused = true;
     }
 
+    /// <summary>
+    /// Ouvre le menu des paramètres
+    /// </summary>
     public void Settings()
     {
         if (settingsCanvas != null)
         {
             settingsCanvas.gameObject.SetActive(true);
             settingsCanvas.overrideSorting = true;
-            settingsCanvas.sortingOrder = 1000;
+            settingsCanvas.sortingOrder = 1000; // Au-dessus de la pause
         }
         
-        AudioManager.instance.PlayButtonClick();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayButtonClick();
     }
 
+    /// <summary>
+    /// Retourne au menu principal
+    /// </summary>
     public void LoadMenu()
     {
+        // Restaure le temps normal
         Time.timeScale = 1f;
         isPaused = false;
 
@@ -94,17 +132,23 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
+            // Fallback si LoadingManager n'existe pas
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         }
 
-        AudioManager.instance.PlayButtonClick();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayButtonClick();
     }
 
+    /// <summary>
+    /// Ferme le menu des paramètres
+    /// </summary>
     public void CloseSettings()
     {
         if (settingsCanvas != null)
             settingsCanvas.gameObject.SetActive(false);
 
-        AudioManager.instance.PlayButtonClick();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayButtonClick();
     }
 }

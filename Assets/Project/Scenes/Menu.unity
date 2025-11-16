@@ -2161,9 +2161,13 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
+      propertyPath: uiVolume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: rewardSound
       value: 
-      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+      objectReference: {fileID: 8300000, guid: 631aeef804f39b34bad9ca490d80d777, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: enemyHitSound
       value: 
@@ -2191,7 +2195,7 @@ PrefabInstance:
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: enemyDeathSound
       value: 
-      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+      objectReference: {fileID: 8300000, guid: 9ba6485a168cb7a4a86e8747352f5623, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: pickupCoinSound
       value: 
@@ -2211,7 +2215,7 @@ PrefabInstance:
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: enemyAttackSound
       value: 
-      objectReference: {fileID: 8300000, guid: c6f53c4a56e76c346bfb03cad8bc571f, type: 3}
+      objectReference: {fileID: 8300000, guid: 8e906c0ad27f7184f981337e590d05e7, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: enterportalSound
       value: 
@@ -2223,11 +2227,11 @@ PrefabInstance:
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: nextDialogueSound
       value: 
-      objectReference: {fileID: 8300000, guid: df06190f02581004abea7794f3c8f3de, type: 3}
+      objectReference: {fileID: 8300000, guid: 223569a711f4a864d9d04d4df68c3ea5, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: openDialogueSound
       value: 
-      objectReference: {fileID: 8300000, guid: 93fd296715c2f3c4181decb96d5602b9, type: 3}
+      objectReference: {fileID: 8300000, guid: 223569a711f4a864d9d04d4df68c3ea5, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: playerAttackSound
       value: 
@@ -2239,7 +2243,7 @@ PrefabInstance:
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: closeDialogueSound
       value: 
-      objectReference: {fileID: 8300000, guid: ce5b74e9cfc7c0d4bb53a4164744df8e, type: 3}
+      objectReference: {fileID: 8300000, guid: e15b99aa92a0768459a8a79c02343f3f, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: useForcePotionSound
       value: 
@@ -2251,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: playerNotAttackSound
       value: 
-      objectReference: {fileID: 8300000, guid: 36c4736bf0d2e034dbd0c7d97a00534f, type: 3}
+      objectReference: {fileID: 8300000, guid: ececd11696806a8419e9ff0a297d2b8d, type: 3}
     - target: {fileID: 3004698963346483683, guid: 0660e59adcd994b43bd981ce1d9c5c3e, type: 3}
       propertyPath: useHealthPotionSound
       value: 
