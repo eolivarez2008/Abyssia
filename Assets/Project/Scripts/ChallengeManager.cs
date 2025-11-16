@@ -74,6 +74,7 @@ public class ChallengeManager : MonoBehaviour
                 if (onAccept != null) onAccept.Invoke();
                 EndChallenge();
                 if (onEnd != null) onEnd.Invoke();
+                AudioManager.instance.PlayValidate();
             });
         }
 
@@ -112,6 +113,7 @@ public class ChallengeManager : MonoBehaviour
 
         if (animator != null)
             animator.SetBool("isOpen", true);
+
     }
 
     private void ClaimReward(Challenge challenge)
@@ -132,6 +134,8 @@ public class ChallengeManager : MonoBehaviour
 
             if (Inventory.instance != null)
                 Inventory.instance.UpdateInventoryUI();
+
+            AudioManager.instance.PlayReward();
         }
     }
 
@@ -162,6 +166,8 @@ public class ChallengeManager : MonoBehaviour
             
         challengeMenuOpen = false;
 
+        AudioManager.instance.PlayCloseDialogue();
+
         if (acceptButton != null)
             acceptButton.interactable = false;
         if (claimButton != null)
@@ -172,7 +178,6 @@ public class ChallengeManager : MonoBehaviour
     {
         if (activeChallenges.ContainsKey(challengeID))
         {
-            Debug.LogWarning($"Challenge {challengeID} déjà enregistré!");
             return;
         }
 
@@ -182,8 +187,6 @@ public class ChallengeManager : MonoBehaviour
             challenge = challenge,
             onComplete = onComplete
         };
-
-        Debug.Log($"Challenge {challengeID} enregistré avec {enemyCount} ennemis");
     }
 
     public void OnChallengeEnemyKilled(string challengeID)
@@ -192,18 +195,14 @@ public class ChallengeManager : MonoBehaviour
 
         if (!activeChallenges.ContainsKey(challengeID))
         {
-            Debug.LogWarning($"Challenge {challengeID} non trouvé!");
             return;
         }
 
         ChallengeData data = activeChallenges[challengeID];
         data.enemiesRemaining--;
 
-        Debug.Log($"Challenge {challengeID}: {data.enemiesRemaining} ennemis restants");
-
         if (data.enemiesRemaining <= 0)
         {
-            Debug.Log($"Challenge {challengeID} terminé!");
             
             if (data.onComplete != null)
                 data.onComplete.Invoke();

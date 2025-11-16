@@ -10,21 +10,28 @@ public class AudioManager : MonoBehaviour
     [Header("Effets sonores (SFX)")]
     public AudioMixerGroup sfxMixer;
 
-    [Header("Sons UI")]
+    [Header("Liste des clips audio")]
     public AudioClip buttonClickSound;
-    public AudioClip buttonHoverSound;
-    public AudioClip menuOpenSound;
-    public AudioClip menuCloseSound;
-
-    [Header("Sons de jeu")]
     public AudioClip pickupCoinSound;
     public AudioClip pickupItemSound;
-    public AudioClip chestOpenSound;
     public AudioClip playerAttackSound;
+    public AudioClip playerNotAttackSound;
     public AudioClip playerHitSound;
     public AudioClip playerDeathSound;
     public AudioClip enemyHitSound;
     public AudioClip enemyDeathSound;
+    public AudioClip enemyAttackSound;
+    public AudioClip useHealthPotionSound;
+    public AudioClip useShieldPotionSound;
+    public AudioClip useSpeedPotionSound;
+    public AudioClip useForcePotionSound;
+    public AudioClip useHealthPopSound;
+    public AudioClip validateSound;
+    public AudioClip chestOpenSound;
+    public AudioClip rewardSound;
+    public AudioClip openDialogueSound;
+    public AudioClip closeDialogueSound;
+    public AudioClip nextDialogueSound;
 
     [Header("Paramètres audio")]
     [Range(0f, 1f)]
@@ -39,7 +46,6 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -49,13 +55,11 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Source pour la musique
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         musicSource.playOnAwake = false;
         musicSource.outputAudioMixerGroup = musicMixer;
 
-        // Source pour les SFX (réutilisable)
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.playOnAwake = false;
         sfxSource.outputAudioMixerGroup = sfxMixer;
@@ -70,35 +74,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Méthode générique pour jouer un son
     public void PlaySound(AudioClip clip, float volumeScale = 1f)
     {
         if (clip == null) return;
         sfxSource.PlayOneShot(clip, volumeScale);
     }
 
-    // Sons UI
     public void PlayButtonClick()
     {
         PlaySound(buttonClickSound, uiVolume);
     }
 
-    public void PlayButtonHover()
-    {
-        PlaySound(buttonHoverSound, uiVolume * 0.5f);
-    }
-
-    public void PlayMenuOpen()
-    {
-        PlaySound(menuOpenSound, uiVolume);
-    }
-
-    public void PlayMenuClose()
-    {
-        PlaySound(menuCloseSound, uiVolume);
-    }
-
-    // Sons de jeu
     public void PlayPickupCoin()
     {
         PlaySound(pickupCoinSound, gameVolume);
@@ -131,7 +117,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayEnemyHit()
     {
-        PlaySound(enemyHitSound, gameVolume * 0.8f);
+        PlaySound(enemyHitSound, gameVolume);
     }
 
     public void PlayEnemyDeath()
@@ -139,31 +125,76 @@ public class AudioManager : MonoBehaviour
         PlaySound(enemyDeathSound, gameVolume);
     }
 
-    // Méthode pour jouer un son à une position (3D)
-    public AudioSource PlayClipAt(AudioClip clip, Vector3 pos, float volumeScale = 1f)
+    public void PlayEnemyAttack()
     {
-        if (clip == null) return null;
-
-        GameObject tempGO = new GameObject("TempAudio");
-        tempGO.transform.position = pos;
-
-        AudioSource source = tempGO.AddComponent<AudioSource>();
-        source.clip = clip;
-        source.outputAudioMixerGroup = sfxMixer;
-        source.volume = volumeScale;
-        source.Play();
-
-        Destroy(tempGO, clip.length);
-        return source;
+        PlaySound(enemyAttackSound, gameVolume);
     }
 
-    // Ancienne méthode maintenue pour compatibilité
+    public void PlayUseHealthPotion()
+    {
+        PlaySound(useHealthPotionSound, gameVolume);
+    }
+
+    public void PlayUseShieldPotion()
+    {
+        PlaySound(useShieldPotionSound, gameVolume);
+    }
+
+    public void PlayUseSpeedPotion()
+    {
+        PlaySound(useSpeedPotionSound, gameVolume);
+    }
+
+    public void PlayUseForcePotion()
+    {
+        PlaySound(useForcePotionSound, gameVolume);
+    }
+
+    public void PlayValidate()
+    {
+        PlaySound(validateSound, uiVolume);
+    }
+
+    public void PlayUseHealthPop()
+    {
+        PlaySound(useHealthPopSound, gameVolume);
+    } 
+
+    public void PlayReward()
+    {
+        PlaySound(rewardSound, uiVolume);
+    }
+
+    public void PlayPlayerNotAttack()
+    {
+        PlaySound(playerNotAttackSound, gameVolume);
+    }
+
+    public void PlayOpenDialogue()
+    {
+        PlaySound(openDialogueSound, uiVolume);
+    }
+
+    public void PlayCloseDialogue()
+    {
+        PlaySound(closeDialogueSound, uiVolume);
+    }
+
+    public void PlayNextDialogue()
+    {
+        PlaySound(nextDialogueSound, uiVolume);
+    }
+
+    public void PlayError()
+    {
+        PlaySound(playerNotAttackSound, uiVolume);
+    }
+
     public void PlaySFX(AudioClip clip)
     {
         PlaySound(clip);
     }
 
-    // Contrôle de la musique
     public void SetMusicVolume(float volume)
     {
         musicSource.volume = volume;

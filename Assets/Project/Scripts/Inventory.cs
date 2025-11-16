@@ -68,41 +68,30 @@ public class Inventory : MonoBehaviour
             return;
 
         if (itemToConsume.hpGiven > 0)
+        {
             ConfigPlayer.instance.Heal(itemToConsume.hpGiven);
+            AudioManager.instance.PlayUseHealthPotion();
+        }
 
         if (itemToConsume.speedGiven != 0 && itemToConsume.speedDuration > 0f)
+        {
             playerEffects.AddSpeed(itemToConsume.speedGiven, itemToConsume.speedDuration);
+            AudioManager.instance.PlayUseSpeedPotion();
+        }
 
         if (itemToConsume.damageGiven != 0 && itemToConsume.damageDuration > 0f)
+        {
             playerEffects.AddDamage(itemToConsume.damageGiven, itemToConsume.damageDuration);
+            AudioManager.instance.PlayUseForcePotion();
+        }
 
         if (itemToConsume.givesInvincibility && itemToConsume.invincibilityDuration > 0f)
+        {
             playerEffects.AddInvincibility(itemToConsume.invincibilityDuration);
+            AudioManager.instance.PlayUseShieldPotion();
+        }
 
         content.Remove(itemToConsume);
-        UpdateInventoryUI();
-    }
-
-    public void ConsumeItem()
-    {
-        if(content.Count == 0)
-            return;
-
-        Item currentItem = content[0];
-
-        if (currentItem.hpGiven > 0)
-            ConfigPlayer.instance.Heal(currentItem.hpGiven);
-
-        if (currentItem.speedGiven != 0 && currentItem.speedDuration > 0f)
-            playerEffects.AddSpeed(currentItem.speedGiven, currentItem.speedDuration);
-
-        if (currentItem.damageGiven != 0 && currentItem.damageDuration > 0f)
-            playerEffects.AddDamage(currentItem.damageGiven, currentItem.damageDuration);
-
-        if (currentItem.givesInvincibility && currentItem.invincibilityDuration > 0f)
-            playerEffects.AddInvincibility(currentItem.invincibilityDuration);
-
-        content.Remove(currentItem);
         UpdateInventoryUI();
     }
 

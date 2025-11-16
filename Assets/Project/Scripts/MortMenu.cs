@@ -47,6 +47,7 @@ public class MortMenu : MonoBehaviour
     public void RetourMenu()
     {
         Time.timeScale = 1f;
+        AudioManager.instance.PlayButtonClick();
 
         if (LoadingManager.instance != null)
         {

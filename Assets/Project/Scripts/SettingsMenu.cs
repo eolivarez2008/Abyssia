@@ -74,11 +74,13 @@ public class SettingsMenu : MonoBehaviour
     {
         if (commandsImage != null)
             commandsImage.SetActive(true);
+        AudioManager.instance.PlayButtonClick();
     }
 
     public void HideCommands()
     {
         if (commandsImage != null)
             commandsImage.SetActive(false);
+        AudioManager.instance.PlayButtonClick();
     }
 }

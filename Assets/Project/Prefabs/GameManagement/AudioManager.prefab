@@ -47,3 +47,23 @@ MonoBehaviour:
   musiqueDeFond: {fileID: 8300000, guid: 702c492e1ff7a354581885c62d80b549, type: 3}
   musicMixer: {fileID: 7638473311057580790, guid: 2c1949521fe7f1f4d93f4d987093a557, type: 2}
   sfxMixer: {fileID: 798795717754395565, guid: 2c1949521fe7f1f4d93f4d987093a557, type: 2}
+  buttonClickSound: {fileID: 8300000, guid: 3a17de06c1d3af04a80352eae46c4f00, type: 3}
+  buttonHoverSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  menuOpenSound: {fileID: 8300000, guid: e6356e379d4a9d5468c0ab9dec8eeb8e, type: 3}
+  menuCloseSound: {fileID: 8300000, guid: 43f4467f859643b4cb1a2a19f80b1e62, type: 3}
+  pickupCoinSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  pickupItemSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  playerAttackSound: {fileID: 8300000, guid: 081f7fa5d328f8743ba9cf019c910166, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 2106990451e7cff43bf4081c58f56725, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 0f702f415595bc44b8cad3f58ff69a25, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: 625d28ad06d01a343a917c2b317238d1, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: b59f592b9a21b734798e74d1c533937a, type: 3}
+  enemyAttackSound: {fileID: 8300000, guid: c070e169c15bd0141b8298c4b34dddf6, type: 3}
+  useHealthPotionSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  useShieldPotionSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  useSpeedPotionSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  useForcePotionSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  chestOpenSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  enterportalSound: {fileID: 8300000, guid: b96d27717c54bf44b9ee0439f1407f25, type: 3}
+  uiVolume: 1
+  gameVolume: 1
