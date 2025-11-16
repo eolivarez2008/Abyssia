@@ -219,7 +219,6 @@ MonoBehaviour:
       r\xE9compense. Cela vous int\xE9resses ?"
     enemyPrefabs:
     - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 7197439256518938976, guid: b269c199c6971b6449422729927aa7db, type: 3}
     - {fileID: 6123449670786247405, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
     - {fileID: 1651210275944897301, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
@@ -229,6 +228,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6a6136770de6cf4439fd717a8ab3c784, type: 2}
     - {fileID: 11400000, guid: a412b402259f8264caf92ff61a74f90a, type: 2}
     - {fileID: 11400000, guid: 9005ed43ce9313b42a002961ea090593, type: 2}
+  challengeID: challenge_1
   interactUI: {fileID: 2745328357567232917}
   spawnDelay: 0.5
   delayBeforeSpawn: 1

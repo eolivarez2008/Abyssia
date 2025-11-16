@@ -6,6 +6,10 @@ public class ChallengeTrigger : MonoBehaviour
 {
     [Header("Challenge Configuration")]
     public ChallengeManager.Challenge challenge;
+    
+    [Header("Challenge Unique ID")]
+    [Tooltip("ID unique pour ce challenge. Doit être différent pour chaque ChallengeTrigger!")]
+    public string challengeID = "challenge_1";
 
     [Header("Interaction")]
     public Text interactUI;
@@ -24,7 +28,7 @@ public class ChallengeTrigger : MonoBehaviour
 
     void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.E) && !ChallengeManager.instance.IsChallengeActive())
+        if (isInRange && Input.GetKeyDown(KeyCode.E) && !ChallengeManager.instance.IsChallengeActive(challengeID))
         {
             TriggerChallenge();
         }
@@ -41,7 +45,7 @@ public class ChallengeTrigger : MonoBehaviour
         {
             isInRange = true;
             
-            if (!ChallengeManager.instance.challengeMenuOpen && !ChallengeManager.instance.IsChallengeActive())
+            if (!ChallengeManager.instance.challengeMenuOpen && !ChallengeManager.instance.IsChallengeActive(challengeID))
                 interactUI.enabled = true;
         }
     }
@@ -111,29 +115,24 @@ public class ChallengeTrigger : MonoBehaviour
             EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
             if (enemyAI != null)
             {
-                enemyAI.challengeTrigger = this;
+                enemyAI.challengeID = challengeID;
             }
 
             yield return new WaitForSeconds(spawnDelay);
         }
 
-        ChallengeManager.instance.StartChallenge(totalEnemies);
+        ChallengeManager.instance.RegisterChallenge(challengeID, totalEnemies, challenge, OnChallengeComplete);
     }
 
-    public void OnEnemyKilled(GameObject enemy)
+    void OnChallengeComplete()
     {
-        spawnedEnemies.Remove(enemy);
-        ChallengeManager.instance.OnChallengeEnemyKilled();
-
-        if (spawnedEnemies.Count == 0)
-        {
-            challengeCompleted = true;
-        }
+        challengeCompleted = true;
+        Debug.Log($"Challenge {challengeID} complété!");
     }
 
     void OnChallengeEnd()
     {
-        if (isInRange && !ChallengeManager.instance.IsChallengeActive())
+        if (isInRange && !ChallengeManager.instance.IsChallengeActive(challengeID))
             interactUI.enabled = true;
     }
 
