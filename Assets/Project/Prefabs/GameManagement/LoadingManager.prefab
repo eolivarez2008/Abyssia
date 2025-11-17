@@ -499,8 +499,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 3123269544828766863}
   loadingBarFill: {fileID: 8946864248422961662}
   loadingText: {fileID: 2313226388875653590}
-  minLoadingTime: 2
-  transitionSound: {fileID: 8300000, guid: 59704282678c7384c9dcf1485c60b6cc, type: 3}
+  minLoadingTime: 1
+  transitionSound: {fileID: 8300000, guid: d6dab192626eb5c4a8c5161ff755d778, type: 3}
 --- !u!1 &7236025581552615949
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,20 +34,25 @@ public class DialogueTrigger : MonoBehaviour
             return;
         }
 
-        // Démarre le dialogue
+        // Démarre le dialogue seulement si on est dans la zone ET que le dialogue n'est pas actif
         if (isInRange && Input.GetKeyDown(interactKey) && !DialogueManager.instance.dialogueActive)
         {
             TriggerDialogue();
+            return; // Important : empêche le reste du code de s'exécuter ce frame
         }
 
+        // Les touches suivantes ne fonctionnent QUE si le dialogue est actif
+        if (!DialogueManager.instance.dialogueActive)
+            return;
+
         // Passe à la phrase suivante
-        if (DialogueManager.instance.dialogueActive && Input.GetKeyDown(nextKey))
+        if (Input.GetKeyDown(nextKey))
         {
             DialogueManager.instance.DisplayNextSentence();
         }
 
         // Ferme le dialogue
-        if (DialogueManager.instance.dialogueActive && Input.GetKeyDown(closeKey))
+        if (Input.GetKeyDown(closeKey))
         {
             DialogueManager.instance.EndDialogue();
             OnDialogueEnd();

@@ -166,6 +166,13 @@ public class ConfigPlayer : MonoBehaviour
     {
         if (!isAlive) return;
 
+        // Désactive les inputs si un dialogue/shop/challenge est ouvert
+        if (IsUISystemActive())
+        {
+            movement = Vector2.zero; // Empêche le mouvement
+            return;
+        }
+
         // Récupère les inputs de mouvement
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -192,6 +199,23 @@ public class ConfigPlayer : MonoBehaviour
                     AudioManager.instance.PlayPlayerNotAttack();
             }
         }
+    }
+
+    /// <summary>
+    /// Vérifie si un système UI bloquant est actif (dialogue, shop, challenge)
+    /// </summary>
+    private bool IsUISystemActive()
+    {
+        if (DialogueManager.instance != null && DialogueManager.instance.dialogueActive)
+            return true;
+        
+        if (ShopManager.instance != null && ShopManager.instance.IsShopOpen())
+            return true;
+        
+        if (ChallengeManager.instance != null && ChallengeManager.instance.IsChallengeMenuOpen)
+            return true;
+
+        return false;
     }
 
     void FixedUpdate()

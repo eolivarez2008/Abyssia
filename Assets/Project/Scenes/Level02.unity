@@ -9000,6 +9000,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5756f395f1cf2343a87564d44837b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1377582950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6314769432882801728, guid: 65de8bef9808bc1499dbd5193be5a1b7, type: 3}
+  m_PrefabInstance: {fileID: 1377582946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7a35779b8209d49b688f9b6375b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &1377582951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4855308012372540322, guid: 65de8bef9808bc1499dbd5193be5a1b7, type: 3}
+  m_PrefabInstance: {fileID: 1377582946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cf77741ffe5224082af431bd45cddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
 --- !u!1001 &1379867830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9565,7 +9587,7 @@ PrefabInstance:
       objectReference: {fileID: 1377582949}
     - target: {fileID: 514365760402771092, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndChallenge
+      value: CloseChallenge
       objectReference: {fileID: 0}
     - target: {fileID: 663322322678266958, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9594,6 +9616,14 @@ PrefabInstance:
     - target: {fileID: 2032253748511030739, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891942800730158950, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1377582950}
+    - target: {fileID: 2891942800730158950, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseShop
       objectReference: {fileID: 0}
     - target: {fileID: 3167710602992966351, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9654,6 +9684,14 @@ PrefabInstance:
     - target: {fileID: 7193047627241448855, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939970615790511450, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1377582951}
+    - target: {fileID: 7939970615790511450, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
       objectReference: {fileID: 0}
     - target: {fileID: 7991582650524444674, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: fadeManager
@@ -13261,7 +13299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433061681009486816, guid: 358b97a1072497d469c0595d433f32e6, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1433061681009486816, guid: 358b97a1072497d469c0595d433f32e6, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
@@ -13275,8 +13313,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433061681009486816, guid: 358b97a1072497d469c0595d433f32e6, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[2]'
-      value: "Les marchands install\xE9s dans les zones s\xFBres vendent aussi des
-        potions. Gardez de l\u2019or sur vous."
+      value: "Au-del\xE0 de ce seuil, votre destin s\u2019\xE9crit enfin loin des
+        ombres. Avancez : le monde attend votre retour."
       objectReference: {fileID: 0}
     - target: {fileID: 4351741648269900978, guid: 358b97a1072497d469c0595d433f32e6, type: 3}
       propertyPath: m_Name

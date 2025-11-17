@@ -172,6 +172,7 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 1
   dropForce: 25
+  pathUpdateInterval: 0.5
 --- !u!50 &1109019563651111306
 Rigidbody2D:
   serializedVersion: 5

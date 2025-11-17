@@ -396,14 +396,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
-    - target: {fileID: 3966932636256382138, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1795794887}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc (2)
@@ -770,14 +762,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
-    - target: {fileID: 3966932636256382138, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1795794887}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc
@@ -1212,14 +1196,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
-    - target: {fileID: 3966932636256382138, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1795794887}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc (3)
@@ -1772,10 +1748,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 1664616435494747734, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 8323200451018941109, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.4
@@ -1950,10 +1922,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3252065228776225237, guid: b269c199c6971b6449422729927aa7db, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 4402171084808061683, guid: b269c199c6971b6449422729927aa7db, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2680,10 +2648,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3252065228776225237, guid: b269c199c6971b6449422729927aa7db, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 4402171084808061683, guid: b269c199c6971b6449422729927aa7db, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2810,10 +2774,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 1664616435494747734, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 8323200451018941109, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.6
@@ -3479,10 +3439,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3252065228776225237, guid: b269c199c6971b6449422729927aa7db, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 4402171084808061683, guid: b269c199c6971b6449422729927aa7db, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3512,10 +3468,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 4180227202480392714, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 6123449670786247405, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
       propertyPath: m_Name
       value: Squelette (2)
@@ -3890,10 +3842,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 4180227202480392714, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 6123449670786247405, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
       propertyPath: m_Name
       value: Squelette
@@ -4009,10 +3957,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3794045285680543857, guid: 4ce2cdc1376bbd64da488d56462ce1fc, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 4167126377416750293, guid: 4ce2cdc1376bbd64da488d56462ce1fc, type: 3}
       propertyPath: m_Name
       value: Minotaur1 (1)
@@ -4034,14 +3978,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
-    - target: {fileID: 3966932636256382138, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1795794887}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc (4)
@@ -4317,10 +4253,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 4180227202480392714, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 6123449670786247405, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
       propertyPath: m_Name
       value: Squelette (1)
@@ -4599,6 +4531,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1812829721}
+    - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861227017903915186, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5681546180380818192, guid: e6d0526c91b9f1945bb7edcfa34e41ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4700,14 +4640,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3454797212955695644, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
-    - target: {fileID: 3966932636256382138, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1795794887}
     - target: {fileID: 4144869319601262967, guid: b781f5cac90f8de4690f8ee03f94f476, type: 3}
       propertyPath: m_Name
       value: Orc (1)
@@ -4778,10 +4710,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 4180227202480392714, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 6123449670786247405, guid: 2a4acde1639d3c942ad761910b2cae75, type: 3}
       propertyPath: m_Name
       value: Squelette (3)
@@ -4913,10 +4841,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 1664616435494747734, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 8323200451018941109, guid: 10fcfe01585067c4787edb62ada42f16, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.95
@@ -5593,10 +5517,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5991226759871171010}
-    - target: {fileID: 3794045285680543857, guid: 4ce2cdc1376bbd64da488d56462ce1fc, type: 3}
-      propertyPath: challengeTrigger
-      value: 
-      objectReference: {fileID: 4511750283141065386}
     - target: {fileID: 4167126377416750293, guid: 4ce2cdc1376bbd64da488d56462ce1fc, type: 3}
       propertyPath: m_Name
       value: Minotaur1
@@ -8106,6 +8026,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5756f395f1cf2343a87564d44837b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1373728316204259211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4855308012372540322, guid: 65de8bef9808bc1499dbd5193be5a1b7, type: 3}
+  m_PrefabInstance: {fileID: 1373728316204259209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cf77741ffe5224082af431bd45cddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
 --- !u!483693784 &1378960047754684490
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -9019,13 +8950,13 @@ Transform:
   - {fileID: 6177650423385843559}
   - {fileID: 1665666169}
   - {fileID: 1865201270765323354}
+  - {fileID: 4986848723588857268}
+  - {fileID: 30899475}
   - {fileID: 1282218265}
   - {fileID: 1107315056}
   - {fileID: 998284138456387509}
   - {fileID: 1848350058}
   - {fileID: 5891070116537633134}
-  - {fileID: 4986848723588857268}
-  - {fileID: 30899475}
   - {fileID: 1911312245673484346}
   - {fileID: 1856633261}
   - {fileID: 1153101157925192561}
@@ -9033,9 +8964,9 @@ Transform:
   - {fileID: 407830737618943242}
   - {fileID: 921350411}
   - {fileID: 3312796288636888929}
-  - {fileID: 3297747341732554404}
-  - {fileID: 1548063448}
   - {fileID: 3297857113863149643}
+  - {fileID: 1548063448}
+  - {fileID: 3297747341732554404}
   - {fileID: 8651155069182725954}
   - {fileID: 5742260456857171473}
   - {fileID: 3162024240750000068}
@@ -10730,7 +10661,7 @@ PrefabInstance:
       objectReference: {fileID: 1373728316204259210}
     - target: {fileID: 514365760402771092, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndChallenge
+      value: CloseChallenge
       objectReference: {fileID: 0}
     - target: {fileID: 663322322678266958, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10796,6 +10727,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1812829721}
+    - target: {fileID: 7939970615790511450, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1373728316204259211}
+    - target: {fileID: 7939970615790511450, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 8289641361770176662, guid: b9c84e8e0674a2a4d8fe59e5a947283e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -19599,7 +19538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347543616739314971, guid: b5e2281868859b14aab01de5ce75760a, type: 3}
       propertyPath: m_Name
-      value: Wooden_Table (7)
+      value: Wooden_Table (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20225,10 +20164,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1812829720}
     - target: {fileID: 3887326919410524218, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887326919410524218, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
       propertyPath: attackFill
       value: 
       objectReference: {fileID: 6497692525978306473}
@@ -20244,22 +20179,6 @@ PrefabInstance:
       propertyPath: persistentCanvas
       value: 
       objectReference: {fileID: 7578185503429298926}
-    - target: {fileID: 7847752177984294985, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847752177984294985, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
-      propertyPath: m_Size.y
-      value: 1.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847752177984294985, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1504909034587979103, guid: 60e3879df01063942b0bddbcd6b61372, type: 3}
-    - target: {fileID: 7847752177984294985, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9141338363453113712, guid: b9177d4fbc4fa754e952c295a5df4393, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.11
@@ -22220,7 +22139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347543616739314971, guid: a3c78be5201c80647aba74138f3f72b8, type: 3}
       propertyPath: m_Name
-      value: Wooden_Chair (8)
+      value: Wooden_Chair (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

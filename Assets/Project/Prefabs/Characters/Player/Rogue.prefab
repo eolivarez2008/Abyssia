@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 1504909034587979103, guid: 6a0c0d2381ad7a44ab032a36f5c6b678, type: 3}
+  m_Sprite: {fileID: 1504909034587979103, guid: 60e3879df01063942b0bddbcd6b61372, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.2, y: 1.325}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -197,19 +197,18 @@ MonoBehaviour:
   damageFlash: {fileID: 0}
   mortMenu: {fileID: 0}
   persistentCanvas: {fileID: 0}
-  maxHealth: 15
-  isAlive: 1
+  maxHealth: 10
   healthFill: {fileID: 0}
   widthMax: 320.5
   widthMin: 2
   height: 25.131
+  isAlive: 1
   isInvincible: 0
   speedColor: {r: 0, g: 0, b: 1, a: 0.8784314}
   damageColor: {r: 1, g: 0, b: 0, a: 0.8784314}
   invincibilityColor: {r: 0, g: 1, b: 0, a: 0.8784314}
   attackRange: 1.5
   damage: 1
-  knockbackForce: 20
   attackFill: {fileID: 0}
   maxAttackPoints: 3
   attackWidthMax: 320.5
@@ -219,6 +218,7 @@ MonoBehaviour:
   rechargeDelay: 1.2
   moveSpeed: 3
   rb: {fileID: 6030171503211639852}
+  attackKey: 32
 --- !u!114 &8197843306002985741
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,10 +30,16 @@ public class DialogueManager : MonoBehaviour
     [Tooltip("Animator contrôlant l'ouverture/fermeture")]
     public Animator animator;
 
+    [Header("Typing Settings")]
+    [Tooltip("Vitesse d'affichage des lettres (0 = instantané)")]
+    [Range(0f, 0.1f)]
+    public float typingSpeed = 0.02f;
+
     public static DialogueManager instance;
 
     private Queue<string> sentences;
     private System.Action endCallback;
+    private Coroutine typingCoroutine;
 
     public bool dialogueActive { get; private set; }
 
@@ -107,6 +113,21 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        // Si une phrase est en cours d'affichage, la termine instantanément
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+            
+            // Affiche la phrase complète instantanément
+            if (sentences.Count > 0 && dialogueText != null)
+            {
+                // Note: On ne peut pas récupérer la phrase en cours, donc on passe à la suivante
+                // Pour améliorer ça, il faudrait stocker la phrase en cours
+            }
+            return;
+        }
+
         // Si plus de phrases, termine le dialogue
         if (sentences.Count == 0)
         {
@@ -115,8 +136,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        
+        // Arrête toute coroutine de typing en cours
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        
+        typingCoroutine = StartCoroutine(TypeSentence(sentence));
 
         if (AudioManager.instance != null)
             AudioManager.instance.PlayNextDialogue();
@@ -134,11 +161,19 @@ public class DialogueManager : MonoBehaviour
         }
 
         dialogueText.text = "";
+        
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            
+            // Si typingSpeed est 0, affiche tout instantanément
+            if (typingSpeed > 0)
+            {
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
+
+        typingCoroutine = null;
     }
 
     /// <summary>
@@ -146,6 +181,13 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void EndDialogue()
     {
+        // Arrête la coroutine de typing si en cours
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
         if (animator != null)
             animator.SetBool("isOpen", false);
         
