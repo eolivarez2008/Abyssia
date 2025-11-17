@@ -1,48 +1,72 @@
 # Abyssia – Jeu 2D Dungeon Crawler
 
-Bienvenue sur le dépôt **Abyssia**, un jeu 2D de type *dungeon crawler* développé avec Unity :  
-[https://github.com/eolivarez2008/Abyssia-2D-Game-Unity](https://github.com/eolivarez2008/Abyssia-2D-Game-Unity)
+Bienvenue sur le dépôt **Abyssia**, un jeu 2D de type *dungeon crawler* développé avec Unity.  
+Projet complet disponible ici :  
+**https://github.com/eolivarez2008/Abyssia-2D-Game-Unity**
 
 ---
 
 ## Présentation
 
-**Abyssia** est un projet de jeu vidéo en 2D où le joueur explore des donjons remplis d’ennemis et de mystères.  
-Le jeu combine exploration, combat et découverte dans un univers sombre et immersif.  
+**Abyssia** est un jeu 2D d’exploration de donjons dans un univers sombre et mystérieux.  
+Le joueur progresse dans des couloirs labyrinthiques, affronte des ennemis et découvre différents niveaux générés ou conçus dans Unity.
 
-Ce dépôt contient :  
+Ce dépôt contient :
 
-- Les **scènes Unity** et les fichiers de configuration du projet  
-- Les **scripts C#** pour le gameplay et les mécaniques de jeu  
-- Les **assets graphiques et sons** nécessaires au jeu  
+- Les **scènes Unity** du projet  
+- Les **scripts C#** utilisés pour les mécaniques de gameplay  
+- Les **assets graphiques et sonores**  
+- La configuration complète du projet Unity  
 
-Le projet est pensé pour être facilement **modifiable et extensible** pour des étudiants ou développeurs intéressés par les dungeon crawlers 2D.
+Ce projet peut servir de base pour apprendre Unity, créer son propre dungeon crawler, ou étendre le jeu existant.
 
 ---
 
-## Exemple d’utilisation
+## Installer et jouer
 
-Pour lancer le projet :  
+L’installateur Windows officiel est disponible dans l’onglet **Releases** :  
+https://github.com/eolivarez2008/Abyssia-2D-Game-Unity/releases
 
-1. Ouvrir le dossier dans **Unity** (version unity 6.2 recommandée).  
-2. Ouvrir la scène principale `Menu`.  
-3. Appuyer sur **Play** pour tester le jeu.
+Il installe automatiquement :
+
+- Les fichiers du jeu dans *Program Files*  
+- Les ressources nécessaires à l’exécution  
+- Un raccourci sur le bureau et/ou le menu démarrer (selon l’option choisie)
+
+**Important :**  
+Le fichier **Source Code (.zip)** dans les Releases est simplement le ZIP automatique du projet GitHub.  
+Ce **n’est pas la version jouable du jeu**, mais uniquement le code source Unity destiné au développement.
+
+---
+
+## Exemple d’utilisation (Développement)
+
+Pour ouvrir et éditer le projet dans Unity :
+
+1. Cloner le dépôt ou télécharger le code via GitHub  
+2. Ouvrir le dossier du projet dans **Unity 6.2** (version recommandée)  
+3. Charger la scène principale : `Menu`  
+4. Appuyer sur **Play** pour tester le jeu
 
 ---
 
 ## Auteur
 
-Développé et maintenu par **Emilien Olivarez** – Étudiant en Bac Pro CIEL (ex-SN)  
-Lycée Louis de Cormontaigne, Metz
+Développé par **Emilien Olivarez**  
+Étudiant en **Bac Pro CIEL**  
+Lycée Louis de Cormontaigne – Metz
 
 ---
 
 ## Licence
 
-Ce projet est sous licence **MIT**.  
-Tu peux :  
-- utiliser les images et données librement,  
+Projet sous licence **MIT**.  
+Vous pouvez :
+
+- utiliser librement les fichiers,  
 - les modifier,  
-- les distribuer,  
-- même à usage commercial,  
-tant que tu respectes les conditions de la [licence MIT](https://opensource.org/licenses/MIT).
+- les redistribuer,  
+- y compris pour un usage commercial,  
+
+à condition de respecter les termes de la licence MIT :  
+https://opensource.org/licenses/MIT
