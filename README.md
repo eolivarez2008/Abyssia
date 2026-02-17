@@ -24,8 +24,11 @@ Ce projet peut servir de base pour apprendre Unity, créer son propre dungeon cr
 
 ## Installer et jouer
 
-L’installateur Windows officiel est disponible dans l’onglet **Releases** :  
-https://github.com/eolivarez2008/Abyssia-2D-Game-Unity/releases
+L’installateur officiel pour Windows est disponible dans l’onglet **Releases** du dépôt GitHub :  
+https://github.com/eolivarez2008/Abyssia-2D-Game-Unity/releases  
+
+Le jeu est également accessible en téléchargement sur Itch.io :  
+https://emilien2109.itch.io/abyssia
 
 Il installe automatiquement :
 
@@ -34,7 +37,7 @@ Il installe automatiquement :
 - Un raccourci sur le bureau et/ou le menu démarrer (selon l’option choisie)
 
 **Important :**  
-Le fichier **Source Code (.zip)** dans les Releases est simplement le ZIP automatique du projet GitHub.  
+Le fichier **Source Code (.zip)** dans les **Releases** est simplement le ZIP automatique du projet GitHub.  
 Ce **n’est pas la version jouable du jeu**, mais uniquement le code source Unity destiné au développement.
 
 ---
